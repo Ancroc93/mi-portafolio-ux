@@ -1,11 +1,12 @@
 import { useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
-import { projects } from "../data/projects";
+import { getProjects } from "../data/projects";
 import Navbar from "../components/ui/Navbar";
 import Footer from "../components/ui/Footer";
-import { H1, H2, Paragraph } from "../components/ui/Typography";
+import { H2, Paragraph } from "../components/ui/Typography";
 import Badge from "../components/ui/Badge";
 import { motion } from "framer-motion";
+import { useI18n } from "../i18n";
 
 const renderBlock = (block, idx) => {
   if (block.type === "text") {
@@ -78,6 +79,8 @@ const renderBlock = (block, idx) => {
 
 const ProjectPage = () => {
   const { slug } = useParams();
+  const { t, locale } = useI18n();
+  const projects = useMemo(() => getProjects(locale), [locale]);
   const project = useMemo(
     () =>
       projects.find((p) => {
@@ -92,12 +95,12 @@ const ProjectPage = () => {
       <div className="min-h-screen bg-background text-primary flex items-center justify-center">
         <div className="text-center">
           <p className="text-sm uppercase tracking-[0.3em] text-secondary font-mono">404</p>
-          <H2 className="mt-2 text-primary">Proyecto no encontrado</H2>
+          <H2 className="mt-2 text-primary">{t("project.notFound")}</H2>
           <Link
             className="mt-6 inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-2 text-sm font-mono text-primary hover:bg-white/10 transition-colors"
             to="/"
           >
-            Volver al inicio
+            {t("project.goHome")}
           </Link>
         </div>
       </div>
@@ -126,7 +129,7 @@ const ProjectPage = () => {
               to="/"
               className="w-fit pl-1 text-xs font-mono uppercase tracking-[0.2em] text-secondary/60 hover:text-primary transition-colors"
             >
-              ← Volver
+              {t("project.back")}
             </Link>
 
             <motion.h1
@@ -145,11 +148,15 @@ const ProjectPage = () => {
               className="flex flex-wrap gap-x-12 gap-y-6 pt-6 border-t border-white/10"
             >
               <div>
-                <span className="block text-secondary/40 text-[10px] uppercase tracking-widest mb-2 font-mono">Role</span>
+                <span className="block text-secondary/40 text-[10px] uppercase tracking-widest mb-2 font-mono">
+                  {t("project.role")}
+                </span>
                 <span className="text-primary font-mono text-sm tracking-wide">{Array.isArray(project.role) ? project.role.join(", ") : project.role}</span>
               </div>
               <div>
-                <span className="block text-secondary/40 text-[10px] uppercase tracking-widest mb-2 font-mono">Year</span>
+                <span className="block text-secondary/40 text-[10px] uppercase tracking-widest mb-2 font-mono">
+                  {t("project.year")}
+                </span>
                 <span className="text-primary font-mono text-sm tracking-wide">{project.year}</span>
               </div>
               {project.metrics && project.metrics.map((metric, i) => (

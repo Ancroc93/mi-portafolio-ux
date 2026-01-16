@@ -54,6 +54,12 @@ Haz clic en el link que aparece (usualmente `http://localhost:5173/`).
 
 ---
 
+## 🌐 Idiomas
+
+El sitio soporta español e inglés. Puedes alternar el idioma desde el selector en la barra de navegación y la preferencia queda guardada en `localStorage`.
+
+---
+
 ## 🛠 Comandos Útiles
 
 - **`npm run dev`**: Inicia el servidor de desarrollo.

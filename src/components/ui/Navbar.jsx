@@ -1,22 +1,19 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, ChevronDown } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { cn } from "./cn";
-import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-
-
-const navLinks = [
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contacto" },
-];
-
+import { useI18n } from "../../i18n";
 
 
 const Navbar = ({ className }) => {
-  const [activeDropdown, setActiveDropdown] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const { t, locale, setLocale, availableLocales } = useI18n();
+
+  const navLinks = [
+    { label: t("nav.work"), href: "#work" },
+    { label: t("nav.about"), href: "#about" },
+    { label: t("nav.contact"), href: "#contact" },
+  ];
 
   const handleScroll = (e, href) => {
     e.preventDefault();
@@ -81,7 +78,7 @@ const Navbar = ({ className }) => {
           </div>
           <div className="flex flex-col leading-tight">
             <span className="text-xs font-mono uppercase tracking-widest text-secondary">
-              Portfolio
+              {t("nav.portfolio")}
             </span>
             <span className="text-sm font-bold text-primary tracking-tight">
               Andrés Cruz
@@ -110,6 +107,25 @@ const Navbar = ({ className }) => {
         {/* Right: Status & CTA */}
         {/* Right: Status & CTA - Removed per user request */}
         <div className="flex items-center gap-4">
+          <div className="flex items-center gap-1 rounded-full border border-glass-border bg-surface/50 p-1">
+            {availableLocales.map((code) => (
+              <button
+                key={code}
+                type="button"
+                onClick={() => setLocale(code)}
+                aria-pressed={locale === code}
+                aria-label={t("nav.language")}
+                className={cn(
+                  "px-3 py-1 text-xs font-mono uppercase tracking-widest rounded-full transition-colors",
+                  locale === code
+                    ? "bg-white text-background"
+                    : "text-secondary hover:text-primary"
+                )}
+              >
+                {code.toUpperCase()}
+              </button>
+            ))}
+          </div>
         </div>
       </nav>
     </header>

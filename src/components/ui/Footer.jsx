@@ -1,13 +1,15 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import { cn } from "./cn";
-
-const links = [
-  { icon: Mail, label: "Email", href: "mailto:hola@portafolio.com" },
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
-  { icon: Github, label: "GitHub", href: "https://github.com" },
-];
+import { useI18n } from "../../i18n";
 
 const Footer = ({ className }) => {
+  const { t } = useI18n();
+  const links = [
+    { icon: Mail, label: t("footer.email"), href: "mailto:hola@portafolio.com" },
+    { icon: Linkedin, label: t("footer.linkedin"), href: "https://linkedin.com" },
+    { icon: Github, label: t("footer.github"), href: "https://github.com" },
+  ];
+
   return (
     <footer
       className={cn(
@@ -19,12 +21,10 @@ const Footer = ({ className }) => {
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-col gap-2">
           <p className="text-xs uppercase tracking-[0.3em] text-mist/60">
-            Linear / Spatial
+            {t("footer.tagline")}
           </p>
-          <h3 className="text-lg font-semibold">Andre Cruz — UX Designer</h3>
-          <p className="text-sm text-mist/70">
-            Diseñando experiencias nítidas con sistemas consistentes.
-          </p>
+          <h3 className="text-lg font-semibold">{t("footer.title")}</h3>
+          <p className="text-sm text-mist/70">{t("footer.description")}</p>
         </div>
         <div className="flex items-center gap-3">
           {links.map(({ icon: Icon, href, label }) => (

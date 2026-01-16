@@ -1,25 +1,27 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { useI18n } from "../../i18n";
 
 /**
  * Tabla de archivo para proyectos secundarios.
  * Inspirado en sananes.co
  */
 const ProjectArchive = ({ projects }) => {
+    const { t } = useI18n();
     return (
         <div className="w-full">
             <h2 className="text-sm font-mono text-secondary uppercase tracking-widest mb-8">
-                Archive
+                {t("archive.title")}
             </h2>
 
             <div className="flex flex-col">
                 {/* Header - Hidden on mobile, shown on md+ */}
                 <div className="hidden md:grid grid-cols-12 gap-4 pb-4 border-b border-glass-border text-xs font-mono text-secondary/50 uppercase tracking-wider">
-                    <div className="col-span-1">Year</div>
-                    <div className="col-span-4">Project</div>
-                    <div className="col-span-3">Role</div>
-                    <div className="col-span-3">Tags</div>
-                    <div className="col-span-1 text-right">Link</div>
+                    <div className="col-span-1">{t("archive.year")}</div>
+                    <div className="col-span-4">{t("archive.project")}</div>
+                    <div className="col-span-3">{t("archive.role")}</div>
+                    <div className="col-span-3">{t("archive.tags")}</div>
+                    <div className="col-span-1 text-right">{t("archive.link")}</div>
                 </div>
 
                 {/* Rows */}
@@ -62,7 +64,7 @@ const ProjectArchive = ({ projects }) => {
                         {/* Link Icon */}
                         <div className="col-span-1 text-right pt-2 md:pt-0">
                             <a href="#" className="inline-flex items-center gap-1 text-xs font-bold text-accent opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                                VIEW <ArrowUpRight className="h-3 w-3" />
+                                {t("archive.view")} <ArrowUpRight className="h-3 w-3" />
                             </a>
                         </div>
                     </motion.div>

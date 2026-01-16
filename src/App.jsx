@@ -4,14 +4,16 @@ import Hero from "./components/sections/Hero";
 import Navbar from "./components/ui/Navbar";
 import Section from "./components/ui/Section";
 import Footer from "./components/ui/Footer";
-import { Paragraph, H2 } from "./components/ui/Typography";
 import BentoGrid from "./components/ui/BentoGrid";
-import { projects } from "./data/projects";
+import { getProjects } from "./data/projects";
 import Badge from "./components/ui/Badge";
 import ProjectPage from "./pages/ProjectPage";
 import Cursor from "./components/ui/Cursor";
+import { useI18n } from "./i18n";
 
 const Home = () => {
+  const { t, locale } = useI18n();
+  const projects = getProjects(locale);
   const bentoItems = projects.map((project, index) => {
     const span = index === 0 ? 6 : index === 1 ? 4 : index % 2 === 0 ? 3 : 2;
     return {
@@ -44,9 +46,9 @@ const Home = () => {
         {/* Work Section (Unified) */}
         <div id="work" className="py-12">
           <div className="mx-auto w-full max-w-6xl px-6 mb-8">
-            <Section title="Selected Work" subtitle="Portfolio">
+            <Section title={t("home.workTitle")} subtitle={t("home.workSubtitle")}>
               <p className="text-xl text-secondary/70 max-w-2xl font-light leading-relaxed">
-                A collection of digital products, case studies, and experiments focused on user experience and interaction design.
+                {t("home.workDescription")}
               </p>
             </Section>
           </div>
@@ -58,23 +60,31 @@ const Home = () => {
         {/* About Section */}
         <section id="about" className="py-24 border-t border-white/5">
           <div className="mx-auto w-full max-w-6xl px-6">
-            <Section title="Beyond the pixels" subtitle="About Me">
+            <Section title={t("home.aboutTitle")} subtitle={t("home.aboutSubtitle")}>
               <div className="grid md:grid-cols-2 gap-12 mt-8">
                 <div className="flex flex-col gap-6">
                   <p className="text-xl md:text-2xl text-primary font-light leading-relaxed">
-                    I'm a Product Designer based in Bogotá, passionate about building digital experiences that feel <span className="text-white font-medium">cinematic</span> and intuitive.
+                    {t("home.aboutLeadStart")}{" "}
+                    <span className="text-white font-medium">
+                      {t("home.aboutLeadHighlight")}
+                    </span>{" "}
+                    {t("home.aboutLeadEnd")}
                   </p>
                   <p className="text-lg text-secondary/70 leading-relaxed">
-                    With a background in UX/UI and frontend development, I bridge the gap between design and engineering. I believe that the best products are those that not only solve problems but also evoke emotion through motion, typography, and depth.
+                    {t("home.aboutBody")}
                   </p>
                   <div className="flex gap-4 mt-4">
                     <div className="flex flex-col gap-1">
                       <span className="text-3xl font-bold text-primary">5+</span>
-                      <span className="text-xs uppercase tracking-widest text-secondary/50 font-mono">Years Exp.</span>
+                      <span className="text-xs uppercase tracking-widest text-secondary/50 font-mono">
+                        {t("home.yearsLabel")}
+                      </span>
                     </div>
                     <div className="flex flex-col gap-1 border-l border-white/10 pl-4">
                       <span className="text-3xl font-bold text-primary">20+</span>
-                      <span className="text-xs uppercase tracking-widest text-secondary/50 font-mono">Projects</span>
+                      <span className="text-xs uppercase tracking-widest text-secondary/50 font-mono">
+                        {t("home.projectsLabel")}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -89,40 +99,52 @@ const Home = () => {
           </div>
         </section>
 
-        <section id="contacto" className="pb-32 pt-12 border-t border-white/5">
+        <section id="contact" className="pb-32 pt-12 border-t border-white/5">
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6">
-            <Section title="¿Listo para elevar tu producto?" subtitle="Contacto">
+            <Section title={t("home.contactTitle")} subtitle={t("home.contactSubtitle")}>
               <div className="grid gap-16 md:grid-cols-2 mt-8">
                 <div className="flex flex-col gap-6">
-                  <h3 className="text-3xl font-bold text-primary tracking-tight">Agendemos</h3>
+                  <h3 className="text-3xl font-bold text-primary tracking-tight">
+                    {t("home.contactHeading")}
+                  </h3>
                   <p className="text-xl text-secondary/70 leading-relaxed font-light max-w-xl">
-                    Disponible para consultorías, workshops y proyectos end-to-end.
-                    Hablemos de tu siguiente release.
+                    {t("home.contactBody")}
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <Badge className="font-mono text-[10px] tracking-widest border-white/5 bg-white/5 uppercase">Consultoría</Badge>
-                    <Badge className="font-mono text-[10px] tracking-widest border-white/5 bg-white/5 uppercase">Workshops</Badge>
-                    <Badge className="font-mono text-[10px] tracking-widest border-white/5 bg-white/5 uppercase">Launch</Badge>
+                    {t("home.contactBadges").map((label) => (
+                      <Badge
+                        key={label}
+                        className="font-mono text-[10px] tracking-widest border-white/5 bg-white/5 uppercase"
+                      >
+                        {label}
+                      </Badge>
+                    ))}
                   </div>
                   <div className="flex flex-wrap gap-4 pt-6">
                     <a
                       className="inline-flex items-center justify-center rounded-full bg-white text-background px-8 py-4 text-sm font-mono uppercase tracking-widest transition-transform hover:-translate-y-1"
                       href="mailto:hola@portafolio.com"
                     >
-                      Escribir correo
+                      {t("home.contactCta")}
                     </a>
                   </div>
                 </div>
                 <div className="flex flex-col gap-6 border-l border-white/5 pl-12">
-                  <h3 className="text-3xl font-bold text-primary tracking-tight">Status rápido</h3>
+                  <h3 className="text-3xl font-bold text-primary tracking-tight">
+                    {t("home.statusHeading")}
+                  </h3>
                   <p className="text-xl text-secondary/70 leading-relaxed font-light max-w-xl">
-                    Tiempo de respuesta típico: &lt;24h. Disponibilidad próxima semana:
-                    6 slots para discovery.
+                    {t("home.statusBody")}
                   </p>
                   <div className="flex flex-wrap gap-2 mt-2">
-                    <Badge className="font-mono text-[10px] tracking-widest border-white/5 bg-white/5 uppercase">Response: 3d</Badge>
-                    <Badge className="font-mono text-[10px] tracking-widest border-white/5 bg-white/5 uppercase">Motion-ready</Badge>
-                    <Badge className="font-mono text-[10px] tracking-widest border-white/5 bg-white/5 uppercase">Dev handoff</Badge>
+                    {t("home.statusBadges").map((label) => (
+                      <Badge
+                        key={label}
+                        className="font-mono text-[10px] tracking-widest border-white/5 bg-white/5 uppercase"
+                      >
+                        {label}
+                      </Badge>
+                    ))}
                   </div>
                 </div>
               </div>

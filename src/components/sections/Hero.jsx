@@ -1,7 +1,9 @@
 import { motion, useScroll, useSpring, useTransform, useVelocity } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { useI18n } from "../../i18n";
 
 const Hero = () => {
+  const { t } = useI18n();
   const { scrollY } = useScroll();
   const velocity = useVelocity(scrollY);
   const smooth = useSpring(velocity, { stiffness: 200, damping: 50 });
@@ -21,7 +23,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
             className="font-mono text-sm text-secondary uppercase tracking-widest pl-1"
           >
-            Sr. UX Designer (FinTech & AI)
+            {t("hero.role")}
           </motion.span>
         </div>
 
@@ -36,8 +38,8 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-6xl md:text-8xl/none font-bold tracking-tighter text-primary max-w-5xl"
           >
-            Transforming complex requirements into
-            <span className="text-secondary block">intuitive solutions.</span>
+            {t("hero.headline")}
+            <span className="text-secondary block">{t("hero.headlineHighlight")}</span>
           </motion.h1>
         </motion.div>
 
@@ -49,17 +51,21 @@ const Hero = () => {
           className="flex flex-col md:flex-row gap-10 md:items-end justify-between max-w-5xl"
         >
           <p className="font-mono text-sm md:text-base text-secondary max-w-xl leading-relaxed">
-            Over 8 years of experience leading end-to-end design processes. Specialized in FinTech (AML/KYC) and AI-driven workflows to boost conversion and compliance.
+            {t("hero.summary")}
           </p>
 
           <div className="flex gap-8">
             <div className="flex flex-col">
               <span className="text-3xl font-bold text-primary">8+</span>
-              <span className="text-xs font-mono text-secondary uppercase tracking-wider">Years Exp</span>
+              <span className="text-xs font-mono text-secondary uppercase tracking-wider">
+                {t("hero.yearsExp")}
+              </span>
             </div>
             <div className="flex flex-col">
               <span className="text-3xl font-bold text-primary">9+</span>
-              <span className="text-xs font-mono text-secondary uppercase tracking-wider">LATAM Countries</span>
+              <span className="text-xs font-mono text-secondary uppercase tracking-wider">
+                {t("hero.countries")}
+              </span>
             </div>
           </div>
         </motion.div>
@@ -72,7 +78,7 @@ const Hero = () => {
           className="absolute bottom-10 left-6 md:left-auto md:right-6 mix-blend-difference"
         >
           <div className="flex items-center gap-2 text-xs font-mono text-secondary uppercase tracking-widest animate-bounce">
-            Scroll
+            {t("hero.scroll")}
             <ArrowDown className="h-3 w-3" />
           </div>
         </motion.div>
