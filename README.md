@@ -14,3 +14,48 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+---
+
+## 🚀 Cómo retomar este proyecto en otro computador
+
+Si quieres descargar este proyecto en un nuevo computador (Windows/Mac) para seguir trabajando, sigue estos pasos:
+
+### 1. Prerrequisitos
+Necesitas tener instalado:
+- **Node.js** (Versión 18 o superior): [Descargar aquí](https://nodejs.org/).
+- **Git**: [Descargar aquí](https://git-scm.com/downloads).
+- **Cursor** (Editor de código): [Descargar aquí](https://cursor.sh/).
+
+### 2. Descargar el código (Clonar)
+1. Abre **Cursor**.
+2. Abre la terminal (`Ctrl + J` o `Cmd + J`).
+3. Escribe este comando y presiona Enter:
+   ```bash
+   git clone https://github.com/Ancroc93/mi-portafolio-ux.git
+   ```
+4. Entra a la carpeta del proyecto:
+   ```bash
+   cd mi-portafolio-ux
+   ```
+
+### 3. Instalar dependencias
+Para instalar las "piezas" que hacen funcionar el sitio, corre este comando:
+```bash
+npm install
+```
+
+### 4. Iniciar el sitio
+Para ver tu portafolio en tu navegador:
+```bash
+npm run dev
+```
+Haz clic en el link que aparece (usualmente `http://localhost:5173/`).
+
+---
+
+## 🛠 Comandos Útiles
+
+- **`npm run dev`**: Inicia el servidor de desarrollo.
+- **`git pull`**: Descarga los últimos cambios si editaste desde otro lado.
+- **`git add .`**, **`git commit -m "mensaje"`**, **`git push`**: Para guardar tus cambios en la nube.
