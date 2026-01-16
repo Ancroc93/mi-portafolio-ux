@@ -1,68 +1,114 @@
-export const projects = [
+import { Project } from '../types';
+
+export const projects: Project[] = [
   {
-    slug: "atlas-health",
-    title: "Atlas Health",
+    slug: "cdm-service-plan",
+    title: "CDM: Construyendo Democracia",
+    year: "2021",
+    role: "Service Designer & Illustrator",
+    featured: true,
     description:
-      "Rediseño end-to-end para una app de salud con enfoque en accesibilidad y reducción de fricción en onboarding.",
+      "Transformación estratégica de un podcast independiente en un ecosistema multimedia para la reconstrucción del tejido social.",
     image:
-      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1200&auto=format&fit=crop",
-    tags: ["UX Research", "Onboarding", "Accesibilidad"],
+      "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1200", // Hero Image
+    tags: ["Service Design", "Strategy", "User Research"],
     video: "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
     enableVideoPreview: true,
-    caseStudyUrl: "https://example.com/atlas-health",
+    caseStudyUrl: "https://www.behance.net/gallery/111219591/CDM-Service-Plan",
+    metrics: [
+      { label: "Community", value: "+200%" },
+      { label: "Growth", value: "170 to 526" },
+    ],
     blocks: [
+      // 1. Context & Introduction
       {
         type: "text",
+        title: "El crecimiento de un nuevo medio independiente",
         content:
-          "Rediseño end-to-end para onboarding clínico. Objetivo: reducir fricción inicial, elevar confianza y cumplir AA en accesibilidad.",
+          "Construyendo Democracia, Maestro es un medio independiente que, tras 11 meses de planeación, atravesó diferentes fases para estructurar y repensar sus objetivos.\n\nFase 1 (4 meses): Lanzamiento del podcast y evaluación de la recepción inicial por la comunidad.\n\nFase 2 (4 meses): Estructuración de procesos internos para evolucionar de podcast a medio multimedia con investigación seria. Reclutamiento de nuevos profesionales.\n\nFase 3: Lanzamiento del sitio web oficial y del MVP. Evaluación de la aceptación de clientes externos y dinámicas de trabajo internas.",
       },
+      // 2. Image: Growth Chart
       {
         type: "image",
-        src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop",
-        alt: "UI clínica",
+        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200",
+        alt: "Gráfico de Crecimiento: Evolución de audiencia por fases",
       },
-      {
-        type: "list",
-        items: [
-          "Onboarding: -45% tiempo al primer goal",
-          "Accesibilidad AA en flows críticos (contraste + focus visible)",
-          "NPS +14 en primer uso; tasa de abandono -18%",
-        ],
-      },
-      {
-        type: "video",
-        src: "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
-        poster:
-          "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1200&auto=format&fit=crop",
-      },
+      // 3. Text: About
       {
         type: "text",
+        title: "Sobre el proyecto",
         content:
-          "Arquitectura: se definieron tres tracks (Paciente nuevo, Reingreso, Profesional) con estados claros y recuperación de sesión segura.",
+          "La plataforma nació de la necesidad de facilitar el entendimiento de fenómenos sociales y políticos en el contexto colombiano. Este medio busca generar un diálogo entre la comunidad y la administración pública a través de investigación y contenido pedagógico.",
       },
-      {
-        type: "list",
-        items: [
-          "Motion: microfeedback en inputs + estados de carga esquelética",
-          "Seguro: pasos críticos con biometría opcional y resumen verificable",
-          "Handoff: specs tokenizadas + variantes para iOS/Android y web",
-        ],
-      },
+      // 4. Image: Visual Keywords
       {
         type: "image",
-        src: "https://images.unsplash.com/photo-1582719478241-34df0a503c92?q=80&w=1200&auto=format&fit=crop",
-        alt: "Flujo de onboarding accesible",
+        src: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1200",
+        alt: "Conceptos Clave: Conocimiento, Comunidad, Multicanal",
       },
+      // 5. Text: Audience
       {
-        type: "gif",
-        src: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnppZjJxN3o2ODk0cnR4cXMxdzE0bW5iazVibzRmbWEzM3RrdmJ1diZlcD12MV9naWZzX3NlYXJjaCZjdD1n/UqZ5Q8bLQLTKk/giphy.gif",
-        alt: "Microinteracción de confirmación",
+        type: "text",
+        title: "¿Quién es la audiencia?",
+        content:
+          "Clientes Aliados Potenciales: Personas entre 25-45 años, con alto interés en temas sociales/políticos, pertenecientes a organizaciones comunitarias.\n\nUsuario General: Personas entre 18-35 años buscando informarse de manera dinámica y diferente sobre el acontecer nacional.",
+      },
+      // 6. Image: User Persona
+      {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200",
+        alt: "User Persona: Carolina (Administradora Pública)",
+      },
+      // 7. Image: Process/Research
+      {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1531498860502-7c67cf05f6fd?q=80&w=1200",
+        alt: "Proceso de Investigación: Brainstorming y Sesiones de Trabajo",
+      },
+      // 8. Image: Service Insights
+      {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200",
+        alt: "Insights del Servicio: Hallazgos clave",
+      },
+      // 9. Image: Service Blueprint
+      {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=1200",
+        alt: "Service Blueprint: Mapa detallado del servicio",
+      },
+      // 10. Image: User Journey
+      {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200",
+        alt: "User Journey Map: Experiencia del usuario",
+      },
+      // 11. Image: Technical Flow
+      {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200",
+        alt: "Flujo Técnico: Antes, Durante y Después",
+      },
+      // 12. Image: Social Media Output
+      {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200",
+        alt: "Resultados en Redes Sociales: Feed de Instagram",
+      },
+      // 13. Image: Visual System
+      {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1200",
+        alt: "Sistema Visual: Paleta de colores y tipografía",
       },
     ],
   },
   {
     slug: "nexo-wallet",
     title: "Nexo Wallet",
+    year: "2024",
+    role: "Senior UX Designer",
+    featured: true,
     description:
       "Nueva arquitectura de información y flujos críticos para una billetera digital con más de 2M de usuarios.",
     image:
@@ -71,6 +117,10 @@ export const projects = [
     video: "https://storage.googleapis.com/coverr-main/mp4/Northern_Lights.mp4",
     enableVideoPreview: true,
     caseStudyUrl: "https://example.com/nexo-wallet",
+    metrics: [
+      { label: "Conversion", value: "+12%" },
+      { label: "Errors", value: "-22%" },
+    ],
     blocks: [
       {
         type: "text",
@@ -83,42 +133,19 @@ export const projects = [
         alt: "Wallet UI",
       },
       {
-        type: "list",
-        items: [
-          "Top-up +12% conversión",
-          "Errores en retiros -22% (copias guiadas + confirmaciones diferidas)",
-          "Sesiones reenganchadas +9% con notificaciones contextuales",
-        ],
-      },
-      {
         type: "video",
         src: "https://storage.googleapis.com/coverr-main/mp4/Northern_Lights.mp4",
         poster:
           "https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?q=80&w=1200&auto=format&fit=crop",
-      },
-      {
-        type: "text",
-        content:
-          "Arquitectura: IA explica riesgos y fees antes de confirmar; biometría opcional en flujos de alto valor; modo offline degradado.",
-      },
-      {
-        type: "list",
-        items: [
-          "Playbooks de fraude integrados (alertas y pausas seguras)",
-          "Handoff con tokens de componentes y specs para web + mobile",
-          "Onboarding segmentado por nivel de riesgo y actividad previa",
-        ],
-      },
-      {
-        type: "gif",
-        src: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmdxdTV2c3BuOTFzYWp2ZmNyZWIxamFkYWVsZHlxOXVudDE0bDZ0ayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/qgQUggAC3Pfv687qPC/giphy.gif",
-        alt: "Microinteracción de confirmación segura",
       },
     ],
   },
   {
     slug: "lumen-store",
     title: "Lumen Store",
+    year: "2023",
+    role: "UI Engineer",
+    featured: true,
     description:
       "Optimización de conversión en e-commerce con microinteracciones, testing y sistema modular.",
     image:
@@ -127,6 +154,10 @@ export const projects = [
     video: "https://storage.googleapis.com/coverr-main/mp4/Footboys.mp4",
     enableVideoPreview: false,
     caseStudyUrl: "https://example.com/lumen-store",
+    metrics: [
+      { label: "Checkout", value: "+8%" },
+      { label: "Perf", value: "-0.5s" },
+    ],
     blocks: [
       {
         type: "text",
@@ -138,30 +169,14 @@ export const projects = [
         src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
         alt: "Ecommerce UI",
       },
-      {
-        type: "list",
-        items: ["Checkout +8% conversión", "TTFB -0.5s en catálogo y PLP", "Sistema de cards reutilizable"],
-      },
-      {
-        type: "text",
-        content:
-          "Motion aplicado a estados de stock, precios dinámicos y feedback de carrito. CMS-ready con bloques configurables.",
-      },
-      {
-        type: "gif",
-        src: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWhlaXNsZTY3bGZxM2o5eWZsb3VzMGdmYWd5ZnRuZWowdHV0cDdiZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0MYt5jPR6QX5pnqM/giphy.gif",
-        alt: "Interacción de carrito",
-      },
-      {
-        type: "image",
-        src: "https://images.unsplash.com/photo-1486591978090-58e619d37fe7?q=80&w=1200&auto=format&fit=crop",
-        alt: "Landing promocional",
-      },
     ],
   },
   {
     slug: "circulo-edu",
     title: "Círculo Edu",
+    year: "2023",
+    role: "Product Designer",
+    featured: true,
     description:
       "Plataforma educativa con experiencias personalizadas, dashboards claros y contenidos escalables.",
     image:
@@ -170,6 +185,10 @@ export const projects = [
     video: "https://storage.googleapis.com/coverr-main/mp4/Volcano_Lake.mp4",
     enableVideoPreview: false,
     caseStudyUrl: "https://example.com/circulo-edu",
+    metrics: [
+      { label: "Engagement", value: "+11%" },
+      { label: "Retention", value: "93%" },
+    ],
     blocks: [
       {
         type: "text",
@@ -181,25 +200,34 @@ export const projects = [
         src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop",
         alt: "EdTech UI",
       },
-      {
-        type: "list",
-        items: ["Engagement +11%", "Dropout -7%", "Framework de contenidos escalable"],
-      },
-      {
-        type: "text",
-        content:
-          "Experiencia multiplataforma con handoff unificado (tokens + design system). Alertas tempranas para riesgo de abandono.",
-      },
-      {
-        type: "gif",
-        src: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXFxeDNiMGg2a3hnN3pybGIwdGw2cW11enl6dzljcXRseGJ2bXFyNCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l3q2K5jinAlChoCLS/giphy.gif",
-        alt: "Progreso gamificado",
-      },
-      {
-        type: "image",
-        src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
-        alt: "Rutas personalizadas",
-      },
     ],
+  },
+  // -- ARCHIVE / NON-FEATURED --
+  {
+    slug: "dash-analytics",
+    title: "Dash Analytics Dashboard",
+    year: "2022",
+    role: "UI Designer",
+    featured: false, // Goes to Archive
+    description: "Internal dashboard for sales tracking.",
+    tags: ["Dashboard", "SaaS"],
+  },
+  {
+    slug: "alpha-branding",
+    title: "Alpha Branding Kit",
+    year: "2022",
+    role: "Visual Designer",
+    featured: false,
+    description: "Brand identity system for a fintech startup.",
+    tags: ["Branding", "Identity"],
+  },
+  {
+    slug: "med-connect",
+    title: "MedConnect App",
+    year: "2021",
+    role: "UX Researcher",
+    featured: false,
+    description: "Telemedicine MVP for remote areas.",
+    tags: ["Mobile", "Health"],
   },
 ];
