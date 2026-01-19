@@ -51,6 +51,31 @@ const projectsData: LocalizedProject[] = [
       { label: { es: "Comunidad", en: "Community" }, value: "+200%" },
       { label: { es: "Crecimiento", en: "Growth" }, value: "170 to 526" },
     ],
+    // Advanced Case Study Data
+    caseStudy: {
+      heroImage: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2000",
+      heroVideo: "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
+      challenge:
+        "Construyendo Democracia, Maestro started as an independent podcast trying to make social and political phenomena in Colombia easier to understand. After 11 months of planning across 3 phases, the main challenge was to evolve from a simple podcast into a full multimedia outlet with serious research capabilities, while maintaining community trust and engagement.",
+      solution:
+        "We designed a strategic transformation through Service Design methodologies: defining clear user personas (allied clients aged 25-45 and general users 18-35), creating service blueprints and user journey maps, and building a scalable content system. The new platform facilitates dialogue between community and public administration through research-backed, pedagogical content.",
+      challengeImages: [
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200",
+        "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1200",
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200",
+      ],
+      galleryImages: [
+        "https://images.unsplash.com/photo-1531498860502-7c67cf05f6fd?q=80&w=1200",
+        "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200",
+        "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=1200",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200",
+        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200",
+        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200",
+        "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1200",
+      ],
+      accentColor: "#F59E0B", // Amber accent for social/community vibe
+      nextProjectSlug: "nexo-wallet",
+    },
     blocks: [
       {
         type: "text",
@@ -195,6 +220,34 @@ const projectsData: LocalizedProject[] = [
       { label: { es: "Conversión", en: "Conversion" }, value: "+12%" },
       { label: { es: "Errores", en: "Errors" }, value: "-22%" },
     ],
+    // Advanced Case Study Data
+    caseStudy: {
+      heroImage: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2000",
+      heroVideo: "https://storage.googleapis.com/coverr-main/mp4/Northern_Lights.mp4",
+      challenge:
+        "With over 2 million users, Nexo Wallet's information architecture had become cluttered and confusing. Users experienced high error rates (-22%) during critical transactions, and conversion on top-ups was stagnant. Our challenge was to redesign the entire flow while maintaining trust and familiarity.",
+      solution:
+        "We implemented a card-based, AI-assisted navigation system that anticipates user needs. The new architecture reduces cognitive load by 40%, with clear visual hierarchy and contextual actions. AI explanations helped users understand complex operations, boosting confidence and completion rates by 12%.",
+      challengeImages: [
+        "https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1200",
+        "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200",
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200",
+      ],
+      beforeImage:
+        "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=1400",
+      afterImage:
+        "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=1400",
+      comparisonLabel: { before: "Old Design", after: "New Design" },
+      galleryImages: [
+        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200",
+        "https://images.unsplash.com/photo-1509836639153-18ba02e2e1ba?q=80&w=1200",
+        "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=1200",
+        "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1200",
+        "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1200",
+      ],
+      accentColor: "#4F46E5", // Indigo accent
+      nextProjectSlug: "cdm-service-plan",
+    },
     blocks: [
       {
         type: "text",
@@ -214,155 +267,6 @@ const projectsData: LocalizedProject[] = [
         poster: "https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?q=80&w=1200&auto=format&fit=crop",
       },
     ],
-  },
-  {
-    slug: "lumen-store",
-    title: {
-      es: "Lumen Store",
-      en: "Lumen Store",
-    },
-    year: "2023",
-    role: {
-      es: "UI Engineer",
-      en: "UI Engineer",
-    },
-    featured: true,
-    description: {
-      es: "Optimización de conversión en e-commerce con microinteracciones, testing y sistema modular.",
-      en: "E-commerce conversion optimization with microinteractions, testing, and a modular system.",
-    },
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
-    tags: {
-      es: ["E-commerce", "Motion", "Sistemas UI"],
-      en: ["E-commerce", "Motion", "UI Systems"],
-    },
-    video: "https://storage.googleapis.com/coverr-main/mp4/Footboys.mp4",
-    enableVideoPreview: false,
-    caseStudyUrl: "https://example.com/lumen-store",
-    metrics: [
-      { label: { es: "Checkout", en: "Checkout" }, value: "+8%" },
-      { label: { es: "Rendimiento", en: "Perf" }, value: "-0.5s" },
-    ],
-    blocks: [
-      {
-        type: "text",
-        content: {
-          es: "E-commerce modular con énfasis en velocidad percibida y microinteracciones. Sistema de cards y layouts reutilizables.",
-          en: "Modular e-commerce focused on perceived speed and microinteractions. Reusable card and layout system.",
-        },
-      },
-      {
-        type: "image",
-        src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
-        alt: { es: "Ecommerce UI", en: "Ecommerce UI" },
-      },
-    ],
-  },
-  {
-    slug: "circulo-edu",
-    title: {
-      es: "Círculo Edu",
-      en: "Círculo Edu",
-    },
-    year: "2023",
-    role: {
-      es: "Product Designer",
-      en: "Product Designer",
-    },
-    featured: true,
-    description: {
-      es: "Plataforma educativa con experiencias personalizadas, dashboards claros y contenidos escalables.",
-      en: "Educational platform with personalized experiences, clear dashboards, and scalable content.",
-    },
-    image: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?q=80&w=1200&auto=format&fit=crop",
-    tags: {
-      es: ["EdTech", "UX Writing", "Prototipado"],
-      en: ["EdTech", "UX Writing", "Prototyping"],
-    },
-    video: "https://storage.googleapis.com/coverr-main/mp4/Volcano_Lake.mp4",
-    enableVideoPreview: false,
-    caseStudyUrl: "https://example.com/circulo-edu",
-    metrics: [
-      { label: { es: "Engagement", en: "Engagement" }, value: "+11%" },
-      { label: { es: "Retención", en: "Retention" }, value: "93%" },
-    ],
-    blocks: [
-      {
-        type: "text",
-        content: {
-          es: "Plataforma EdTech con rutas personalizadas por nivel y objetivos. Dashboards claros para progreso y riesgos.",
-          en: "EdTech platform with personalized paths by level and goals. Clear dashboards for progress and risks.",
-        },
-      },
-      {
-        type: "image",
-        src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop",
-        alt: { es: "EdTech UI", en: "EdTech UI" },
-      },
-    ],
-  },
-  {
-    slug: "dash-analytics",
-    title: {
-      es: "Dashboard de Analítica Dash",
-      en: "Dash Analytics Dashboard",
-    },
-    year: "2022",
-    role: {
-      es: "UI Designer",
-      en: "UI Designer",
-    },
-    featured: false,
-    description: {
-      es: "Dashboard interno para seguimiento de ventas.",
-      en: "Internal dashboard for sales tracking.",
-    },
-    tags: {
-      es: ["Dashboard", "SaaS"],
-      en: ["Dashboard", "SaaS"],
-    },
-  },
-  {
-    slug: "alpha-branding",
-    title: {
-      es: "Kit de Branding Alpha",
-      en: "Alpha Branding Kit",
-    },
-    year: "2022",
-    role: {
-      es: "Visual Designer",
-      en: "Visual Designer",
-    },
-    featured: false,
-    description: {
-      es: "Sistema de identidad para una startup fintech.",
-      en: "Brand identity system for a fintech startup.",
-    },
-    tags: {
-      es: ["Branding", "Identidad"],
-      en: ["Branding", "Identity"],
-    },
-  },
-  {
-    slug: "med-connect",
-    title: {
-      es: "App MedConnect",
-      en: "MedConnect App",
-    },
-    year: "2021",
-    role: {
-      es: "UX Researcher",
-      en: "UX Researcher",
-    },
-    featured: false,
-    description: {
-      es: "MVP de telemedicina para zonas remotas.",
-      en: "Telemedicine MVP for remote areas.",
-    },
-    tags: {
-      es: ["Mobile", "Salud"],
-      en: ["Mobile", "Health"],
-    },
   },
 ];
 

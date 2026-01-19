@@ -8,6 +8,14 @@ import Badge from "../components/ui/Badge";
 import { motion } from "framer-motion";
 import { useI18n } from "../i18n";
 
+// New Case Study Components
+import HeroParallax from "../components/project/HeroParallax";
+import MetadataGrid from "../components/project/MetadataGrid";
+import ChallengeSolution from "../components/project/ChallengeSolution";
+import BeforeAfterSlider from "../components/project/BeforeAfterSlider";
+import BentoGallery from "../components/project/BentoGallery";
+import NextProjectFooter from "../components/project/NextProjectFooter";
+
 const renderBlock = (block, idx) => {
   if (block.type === "text") {
     return (
@@ -107,6 +115,105 @@ const ProjectPage = () => {
     );
   }
 
+  // Check if this is an advanced case study
+  const hasCaseStudy = !!project.caseStudy;
+  const nextProject = project.caseStudy?.nextProjectSlug
+    ? projects.find((p) => p.slug === project.caseStudy.nextProjectSlug)
+    : null;
+
+  // For advanced case studies, render the new template
+  if (hasCaseStudy) {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.6 }}
+        className="min-h-screen bg-background text-primary selection:bg-accent selection:text-background relative"
+        style={{
+          "--project-accent-color": project.caseStudy?.accentColor || "#ffffff",
+        }}
+      >
+        {/* Cinematic Background */}
+        <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.08),transparent_60%)] pointer-events-none" />
+
+        <Navbar />
+
+        <main>
+          {/* Hero Parallax Section */}
+          <HeroParallax
+            title={project.title}
+            subtitle={project.description}
+            backgroundImage={project.caseStudy?.heroImage || project.image}
+            backgroundVideo={project.caseStudy?.heroVideo}
+            accentColor={project.caseStudy?.accentColor}
+          />
+
+          {/* Metadata Grid */}
+          <div className="mx-auto max-w-7xl">
+            <MetadataGrid
+              items={[
+                {
+                  label: t("project.role"),
+                  value: Array.isArray(project.role)
+                    ? project.role
+                    : [project.role],
+                },
+                { label: t("project.year"), value: project.year },
+                ...(project.metrics || []),
+              ]}
+            />
+          </div>
+
+          {/* Challenge & Solution */}
+          {(project.caseStudy?.challenge || project.caseStudy?.solution) && (
+            <ChallengeSolution
+              challenge={project.caseStudy.challenge}
+              solution={project.caseStudy.solution}
+              images={project.caseStudy.challengeImages}
+            />
+          )}
+
+          {/* Before/After Slider */}
+          {project.caseStudy?.beforeImage && project.caseStudy?.afterImage && (
+            <BeforeAfterSlider
+              beforeImage={project.caseStudy.beforeImage}
+              afterImage={project.caseStudy.afterImage}
+              beforeLabel={project.caseStudy.comparisonLabel?.before || "Before"}
+              afterLabel={project.caseStudy.comparisonLabel?.after || "After"}
+            />
+          )}
+
+          {/* Bento Gallery */}
+          {project.caseStudy?.galleryImages && (
+            <BentoGallery images={project.caseStudy.galleryImages} />
+          )}
+
+          {/* Content Blocks (if any) */}
+          {project.blocks && project.blocks.length > 0 && (
+            <div className="mx-auto max-w-5xl px-6 py-16">
+              <div className="flex flex-col gap-8">
+                {project.blocks.map((block, idx) => renderBlock(block, idx))}
+              </div>
+            </div>
+          )}
+
+          {/* Next Project Footer */}
+          {nextProject && (
+            <NextProjectFooter
+              nextProjectSlug={nextProject.slug}
+              nextProjectTitle={nextProject.title}
+              nextProjectImage={nextProject.image}
+            />
+          )}
+        </main>
+
+        <Footer />
+      </motion.div>
+    );
+  }
+
+  // Original template for non-case-study projects
   return (
     <motion.div
       initial={{ opacity: 0 }}

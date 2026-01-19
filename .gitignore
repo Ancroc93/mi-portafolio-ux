@@ -12,6 +12,18 @@ dist
 dist-ssr
 *.local
 
+# Environment variables (CRITICAL - never commit these!)
+.env
+.env.local
+.env.production
+.env.development
+sanity/.env
+sanity/.env.local
+
+# Sanity
+sanity/node_modules
+sanity/dist
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

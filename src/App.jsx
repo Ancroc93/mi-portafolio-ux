@@ -4,7 +4,7 @@ import Hero from "./components/sections/Hero";
 import Navbar from "./components/ui/Navbar";
 import Section from "./components/ui/Section";
 import Footer from "./components/ui/Footer";
-import BentoGrid from "./components/ui/BentoGrid";
+import ProjectList from "./components/ui/ProjectList";
 import { getProjects } from "./data/projects";
 import Badge from "./components/ui/Badge";
 import ProjectPage from "./pages/ProjectPage";
@@ -14,22 +14,7 @@ import { useI18n } from "./i18n";
 const Home = () => {
   const { t, locale } = useI18n();
   const projects = getProjects(locale);
-  const bentoItems = projects.map((project, index) => {
-    const span = index === 0 ? 6 : index === 1 ? 4 : index % 2 === 0 ? 3 : 2;
-    return {
-      id: project.slug || project.title,
-      title: project.title,
-      description: project.description,
-      image: project.image,
-      tag: project.tags?.[0],
-      video: project.video,
-      enableVideoPreview: project.enableVideoPreview,
-      caseStudyUrl: project.caseStudyUrl,
-      blocks: project.blocks,
-      span,
-      metrics: project.metrics, // Pass metrics if BentoGrid uses them
-    };
-  });
+
 
   return (
     <motion.div
@@ -53,7 +38,7 @@ const Home = () => {
             </Section>
           </div>
           <div className="mx-auto w-full max-w-6xl px-6">
-            <BentoGrid items={bentoItems} />
+            <ProjectList projects={projects} />
           </div>
         </div>
 
