@@ -74,7 +74,7 @@ const projectsData: LocalizedProject[] = [
         "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1200",
       ],
       accentColor: "#F59E0B", // Amber accent for social/community vibe
-      nextProjectSlug: "nexo-wallet",
+      nextProjectSlug: "lumen-store",
     },
     blocks: [
       {
@@ -246,7 +246,7 @@ const projectsData: LocalizedProject[] = [
         "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1200",
       ],
       accentColor: "#4F46E5", // Indigo accent
-      nextProjectSlug: "cdm-service-plan",
+      nextProjectSlug: "lumen-store",
     },
     blocks: [
       {
@@ -265,6 +265,100 @@ const projectsData: LocalizedProject[] = [
         type: "video",
         src: "https://storage.googleapis.com/coverr-main/mp4/Northern_Lights.mp4",
         poster: "https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?q=80&w=1200&auto=format&fit=crop",
+      },
+    ],
+  },
+  {
+    slug: "lumen-store",
+    title: {
+      es: "Lumen Store",
+      en: "Lumen Store",
+    },
+    year: "2025",
+    role: {
+      es: "Product Designer",
+      en: "Product Designer",
+    },
+    featured: true,
+    description: {
+      es: "Optimización de conversión en e-commerce con microinteracciones, contenido dinámico y un sistema modular escalable.",
+      en: "E-commerce conversion optimization with micro-interactions, dynamic content, and a scalable modular system.",
+    },
+    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
+    tags: {
+      es: ["E-commerce", "Motion", "Design Systems"],
+      en: ["E-commerce", "Motion", "Design Systems"],
+    },
+    video: "https://storage.googleapis.com/coverr-main/mp4/Footboys.mp4",
+    enableVideoPreview: false,
+    caseStudyUrl: "https://example.com/lumen-store",
+    metrics: [
+      { label: { es: "Conversión", en: "Conversion" }, value: "+8%" },
+      { label: { es: "Velocidad", en: "Speed" }, value: "-0.5s TTFB" },
+    ],
+    caseStudy: {
+      heroImage: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?q=80&w=2000",
+      heroVideo: "https://storage.googleapis.com/coverr-main/mp4/Footboys.mp4",
+      challenge:
+        "Lumen Store had high traffic but a leaky conversion funnel. Product pages lacked clear hierarchy, and cart feedback was easy to miss on mobile. The goal was to increase conversion without heavy redesign risk.",
+      solution:
+        "We introduced a modular card system, refined visual hierarchy, and motion cues for add-to-cart and stock changes. The new system improved clarity across PDP/PLP and reduced drop-offs by making feedback immediate and consistent.",
+      challengeImages: [
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200",
+        "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200",
+        "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1200",
+      ],
+      beforeImage:
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1400",
+      afterImage:
+        "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?q=80&w=1400",
+      comparisonLabel: { before: "Before", after: "After" },
+      galleryImages: [
+        "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200",
+        "https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200",
+        "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200",
+        "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200",
+        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200",
+      ],
+      accentColor: "#10B981",
+      nextProjectSlug: "cdm-service-plan",
+    },
+    blocks: [
+      {
+        type: "text",
+        title: {
+          es: "Objetivo",
+          en: "Objective",
+        },
+        content: {
+          es: "Aumentar la conversión en checkout y reducir la fricción en el carrito con microinteracciones y jerarquía clara.",
+          en: "Increase checkout conversion and reduce cart friction with micro-interactions and clear hierarchy.",
+        },
+      },
+      {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
+        alt: { es: "Producto destacado en PDP", en: "Featured product on PDP" },
+      },
+      {
+        type: "list",
+        items: {
+          es: [
+            "Checkout +8% conversión",
+            "Carrito: -18% abandono",
+            "Sistema modular reutilizable",
+          ],
+          en: [
+            "Checkout +8% conversion",
+            "Cart: -18% abandonment",
+            "Reusable modular system",
+          ],
+        },
+      },
+      {
+        type: "gif",
+        src: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWhlaXNsZTY3bGZxM2o5eWZsb3VzMGdmYWd5ZnRuZWowdHV0cDdiZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0MYt5jPR6QX5pnqM/giphy.gif",
+        alt: { es: "Microinteracción de carrito", en: "Cart micro-interaction" },
       },
     ],
   },
