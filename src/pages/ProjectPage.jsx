@@ -95,7 +95,7 @@ const ProjectPage = () => {
         const projectId = p.slug ?? p.title;
         return projectId === slug;
       }),
-    [slug]
+    [slug, projects]
   );
 
   if (!project) {
@@ -175,14 +175,12 @@ const ProjectPage = () => {
           )}
 
           {/* Before/After Slider */}
-          {project.caseStudy?.beforeImage && project.caseStudy?.afterImage && (
-            <BeforeAfterSlider
-              beforeImage={project.caseStudy.beforeImage}
-              afterImage={project.caseStudy.afterImage}
-              beforeLabel={project.caseStudy.comparisonLabel?.before || "Before"}
-              afterLabel={project.caseStudy.comparisonLabel?.after || "After"}
-            />
-          )}
+          <BeforeAfterSlider
+            beforeImage={project.caseStudy.beforeImage}
+            afterImage={project.caseStudy.afterImage}
+            beforeLabel={project.caseStudy.comparisonLabel?.before || t("project.before")}
+            afterLabel={project.caseStudy.comparisonLabel?.after || t("project.after")}
+          />
 
           {/* Bento Gallery */}
           {project.caseStudy?.galleryImages && (

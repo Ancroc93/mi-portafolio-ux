@@ -73,11 +73,13 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div className="relative h-full min-h-[300px] rounded-3xl overflow-hidden bg-surface/50 border border-white/5">
-                  {/* Placeholder for About Image - could be a geometric shape or actual photo */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center">
-                    <span className="text-xs font-mono uppercase tracking-widest text-white/20">Profile Image</span>
-                  </div>
+                <div className="relative h-full min-h-[400px] rounded-3xl overflow-hidden bg-surface/50 border border-white/5 group">
+                  <img
+                    src={`${import.meta.env.BASE_URL}profile.png`}
+                    alt="Andrés Cruz"
+                    className="absolute inset-0 w-full h-full object-cover grayscale contrast-125 transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
                 </div>
               </div>
             </Section>
@@ -108,7 +110,7 @@ const Home = () => {
                   <div className="flex flex-wrap gap-4 pt-6">
                     <a
                       className="inline-flex items-center justify-center rounded-full bg-white text-background px-8 py-4 text-sm font-mono uppercase tracking-widest transition-transform hover:-translate-y-1"
-                      href="mailto:hola@portafolio.com"
+                      href="mailto:ancruz93@gmail.com"
                     >
                       {t("home.contactCta")}
                     </a>

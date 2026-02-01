@@ -34,3 +34,4 @@ sanity/dist
 *.njsproj
 *.sln
 *.sw?
+.agent/

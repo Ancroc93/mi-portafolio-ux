@@ -19,6 +19,11 @@ type LocalizedProject = Omit<
   role: Record<Locale, string | string[]>;
   tags?: LocalizedStringArray;
   metrics?: LocalizedMetric[];
+  caseStudy?: Omit<Project["caseStudy"], "challenge" | "solution" | "comparisonLabel"> & {
+    challenge?: LocalizedString;
+    solution?: LocalizedString;
+    comparisonLabel?: { before: LocalizedString; after: LocalizedString };
+  };
   blocks?: LocalizedContentBlock[];
 };
 
@@ -55,10 +60,14 @@ const projectsData: LocalizedProject[] = [
     caseStudy: {
       heroImage: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2000",
       heroVideo: "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
-      challenge:
-        "Construyendo Democracia, Maestro started as an independent podcast trying to make social and political phenomena in Colombia easier to understand. After 11 months of planning across 3 phases, the main challenge was to evolve from a simple podcast into a full multimedia outlet with serious research capabilities, while maintaining community trust and engagement.",
-      solution:
-        "We designed a strategic transformation through Service Design methodologies: defining clear user personas (allied clients aged 25-45 and general users 18-35), creating service blueprints and user journey maps, and building a scalable content system. The new platform facilitates dialogue between community and public administration through research-backed, pedagogical content.",
+      challenge: {
+        es: "Construyendo Democracia, Maestro inició como un podcast independiente buscando hacer más comprensibles los fenómenos sociales y políticos en Colombia. Tras 11 meses de planeación en 3 fases, el principal reto fue evolucionar de un simple podcast a un medio multimedia completo con capacidades de investigación seria, manteniendo la confianza y el compromiso de la comunidad.",
+        en: "Construyendo Democracia, Maestro started as an independent podcast trying to make social and political phenomena in Colombia easier to understand. After 11 months of planning across 3 phases, the main challenge was to evolve from a simple podcast into a full multimedia outlet with serious research capabilities, while maintaining community trust and engagement.",
+      },
+      solution: {
+        es: "Diseñamos una transformación estratégica a través de metodologías de Service Design: definiendo user personas claros (clientes aliados de 25-45 años y usuarios generales de 18-35), creando service blueprints y user journey maps, y construyendo un sistema de contenido escalable. La nueva plataforma facilita el diálogo entre la comunidad y la administración pública a través de contenido pedagógico respaldado por investigación.",
+        en: "We designed a strategic transformation through Service Design methodologies: defining clear user personas (allied clients aged 25-45 and general users 18-35), creating service blueprints and user journey maps, and building a scalable content system. The new platform facilitates dialogue between community and public administration through research-backed, pedagogical content.",
+      },
       challengeImages: [
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200",
         "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1200",
@@ -224,10 +233,14 @@ const projectsData: LocalizedProject[] = [
     caseStudy: {
       heroImage: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2000",
       heroVideo: "https://storage.googleapis.com/coverr-main/mp4/Northern_Lights.mp4",
-      challenge:
-        "With over 2 million users, Nexo Wallet's information architecture had become cluttered and confusing. Users experienced high error rates (-22%) during critical transactions, and conversion on top-ups was stagnant. Our challenge was to redesign the entire flow while maintaining trust and familiarity.",
-      solution:
-        "We implemented a card-based, AI-assisted navigation system that anticipates user needs. The new architecture reduces cognitive load by 40%, with clear visual hierarchy and contextual actions. AI explanations helped users understand complex operations, boosting confidence and completion rates by 12%.",
+      challenge: {
+        es: "Con más de 2 millones de usuarios, la arquitectura de información de Nexo Wallet se había vuelto desordenada y confusa. Los usuarios experimentaban altas tasas de error (-22%) durante transacciones críticas, y la conversión en recargas estaba estancada. Nuestro reto fue rediseñar todo el flujo manteniendo la confianza y familiaridad.",
+        en: "With over 2 million users, Nexo Wallet's information architecture had become cluttered and confusing. Users experienced high error rates (-22%) during critical transactions, and conversion on top-ups was stagnant. Our challenge was to redesign the entire flow while maintaining trust and familiarity.",
+      },
+      solution: {
+        es: "Implementamos un sistema de navegación asistido por IA basado en tarjetas que anticipa las necesidades del usuario. La nueva arquitectura reduce la carga cognitiva en un 40%, con una jerarquía visual clara y acciones contextuales. Las explicaciones de IA ayudaron a los usuarios a comprender operaciones complejas, aumentando la confianza y las tasas de finalización en un 12%.",
+        en: "We implemented a card-based, AI-assisted navigation system that anticipates user needs. The new architecture reduces cognitive load by 40%, with clear visual hierarchy and contextual actions. AI explanations helped users understand complex operations, boosting confidence and completion rates by 12%.",
+      },
       challengeImages: [
         "https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1200",
         "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200",
@@ -237,7 +250,10 @@ const projectsData: LocalizedProject[] = [
         "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=1400",
       afterImage:
         "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=1400",
-      comparisonLabel: { before: "Old Design", after: "New Design" },
+      comparisonLabel: {
+        before: { es: "Diseño Anterior", en: "Old Design" },
+        after: { es: "Diseño Nuevo", en: "New Design" }
+      },
       galleryImages: [
         "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200",
         "https://images.unsplash.com/photo-1509836639153-18ba02e2e1ba?q=80&w=1200",
@@ -299,10 +315,14 @@ const projectsData: LocalizedProject[] = [
     caseStudy: {
       heroImage: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?q=80&w=2000",
       heroVideo: "https://storage.googleapis.com/coverr-main/mp4/Footboys.mp4",
-      challenge:
-        "Lumen Store had high traffic but a leaky conversion funnel. Product pages lacked clear hierarchy, and cart feedback was easy to miss on mobile. The goal was to increase conversion without heavy redesign risk.",
-      solution:
-        "We introduced a modular card system, refined visual hierarchy, and motion cues for add-to-cart and stock changes. The new system improved clarity across PDP/PLP and reduced drop-offs by making feedback immediate and consistent.",
+      challenge: {
+        es: "Lumen Store tenía un alto tráfico pero un embudo de conversión con fugas. Las páginas de producto carecían de una jerarquía clara y los mensajes del carrito eran fáciles de omitir en dispositivos móviles. El objetivo era aumentar la conversión sin un alto riesgo de rediseño.",
+        en: "Lumen Store had high traffic but a leaky conversion funnel. Product pages lacked clear hierarchy, and cart feedback was easy to miss on mobile. The goal was to increase conversion without heavy redesign risk.",
+      },
+      solution: {
+        es: "Introdujome un sistema de tarjetas modulares, refinamos la jerarquía visual y añadimos indicadores de movimiento para 'añadir al carrito' y cambios de stock. El nuevo sistema mejoró la claridad en PDP/PLP y redujo los abandonos al hacer que el feedback fuera inmediato y consistente.",
+        en: "We introduced a modular card system, refined visual hierarchy, and motion cues for add-to-cart and stock changes. The new system improved clarity across PDP/PLP and reduced drop-offs by making feedback immediate and consistent.",
+      },
       challengeImages: [
         "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200",
         "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200",
@@ -312,7 +332,10 @@ const projectsData: LocalizedProject[] = [
         "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1400",
       afterImage:
         "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?q=80&w=1400",
-      comparisonLabel: { before: "Before", after: "After" },
+      comparisonLabel: {
+        before: { es: "Antes", en: "Before" },
+        after: { es: "Después", en: "After" }
+      },
       galleryImages: [
         "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200",
         "https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200",
@@ -382,6 +405,19 @@ const localizeProject = (project: LocalizedProject, locale: Locale): Project => 
     label: metric.label[locale],
     value: metric.value,
   })),
+  caseStudy: project.caseStudy
+    ? {
+      ...project.caseStudy,
+      challenge: project.caseStudy.challenge?.[locale],
+      solution: project.caseStudy.solution?.[locale],
+      comparisonLabel: project.caseStudy.comparisonLabel
+        ? {
+          before: project.caseStudy.comparisonLabel.before[locale],
+          after: project.caseStudy.comparisonLabel.after[locale],
+        }
+        : undefined,
+    }
+    : undefined,
   blocks: project.blocks?.map((block) => localizeBlock(block, locale)),
 });
 

@@ -52,12 +52,17 @@ export const translations = {
       back: "← Volver",
       notFound: "Proyecto no encontrado",
       goHome: "Volver al inicio",
+      challenge: "El Desafío",
+      solution: "La Solución",
+      before: "Antes",
+      after: "Después",
+      next: "Siguiente Proyecto",
     },
     footer: {
       tagline: "Linear / Spatial",
       title: "Andrés Cruz — Sr. Product Designer",
       description: "Transformando complejidad en intuición a través del diseño.",
-      email: "Correo",
+      email: "ancruz93@gmail.com",
       linkedin: "LinkedIn",
       github: "GitHub",
     },
@@ -121,12 +126,30 @@ export const translations = {
       back: "← Back",
       notFound: "Project not found",
       goHome: "Back to home",
+      challenge: "The Challenge",
+      solution: "The Solution",
+      before: "Before",
+      after: "After",
+      next: "Next Project",
+    },
+    projects: {
+      "nexo-wallet": {
+        title: "Nexo Wallet",
+        description:
+          "Digital banking and crypto platform renovation focuses on user trust and friction reduction.",
+        challenge:
+          "Nexo faced significant user friction in their onboarding and crypto transaction flow. The challenge was to simplify complex financial operations for a broader audience without sacrificing depth for power users.",
+        solution:
+          "We restructured the navigation to prioritize frequent actions and implemented a 'progressive disclosure' pattern for complex data. The resulting design reduced errors by 40% and improved onboarding conversion by 24%.",
+        role: "Lead Product Designer",
+        metricLabels: ["Conversion", "Errors"],
+      },
     },
     footer: {
       tagline: "Linear / Spatial",
       title: "Andrés Cruz — Sr. Product Designer",
       description: "Transforming complexity into intuition through design.",
-      email: "Email",
+      email: "ancruz93@gmail.com",
       linkedin: "LinkedIn",
       github: "GitHub",
     },
@@ -138,6 +161,19 @@ export const translations = {
       tags: "Tags",
       link: "Link",
       view: "VIEW",
+    },
+    projects: {
+      "nexo-wallet": {
+        title: "Nexo Wallet",
+        description:
+          "Renovación de plataforma de banca digital y cripto enfocada en la confianza del usuario y reducción de fricción.",
+        challenge:
+          "Nexo enfrentaba una fricción significativa en su onboarding y flujo de transacciones cripto. El desafío fue simplificar operaciones financieras complejas para una audiencia más amplia sin sacrificar profundidad para los usuarios avanzados.",
+        solution:
+          "Reestructuramos la navegación para priorizar acciones frecuentes e implementamos un patrón de 'divulgación progresiva' para datos complejos. El diseño resultante redujo los errores en un 40% y mejoró la conversión del onboarding en un 24%.",
+        role: "Diseñador de Producto Principal",
+        metricLabels: ["Conversión", "Errores"],
+      },
     },
   },
 };

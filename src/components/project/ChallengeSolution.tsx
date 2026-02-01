@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useI18n } from "../../i18n";
 
 interface ChallengeSolutionProps {
     challenge?: string;
@@ -13,6 +14,7 @@ const ChallengeSolution = ({
     images = [],
     className = "",
 }: ChallengeSolutionProps) => {
+    const { t } = useI18n();
     if (!challenge && !solution) return null;
 
     return (
@@ -30,7 +32,7 @@ const ChallengeSolution = ({
                                 className="space-y-6"
                             >
                                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary leading-tight">
-                                    The Challenge
+                                    {t("project.challenge")}
                                 </h2>
                                 <p className="text-lg md:text-xl text-secondary leading-relaxed font-light max-w-xl">
                                     {challenge}
@@ -47,7 +49,7 @@ const ChallengeSolution = ({
                                 className="space-y-6"
                             >
                                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary leading-tight">
-                                    The Solution
+                                    {t("project.solution")}
                                 </h2>
                                 <p className="text-lg md:text-xl text-secondary leading-relaxed font-light max-w-xl">
                                     {solution}

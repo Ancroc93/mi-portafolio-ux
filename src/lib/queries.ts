@@ -24,8 +24,8 @@ export const projectsQuery = (locale: Locale) => `
     caseStudy {
       "heroImage": heroImage.asset->url,
       "heroVideo": heroVideoUrl,
-      challenge,
-      solution,
+      "challenge": challenge.${locale},
+      "solution": solution.${locale},
       "challengeImages": challengeImages[].asset->url,
       "beforeImage": beforeImage.asset->url,
       "afterImage": afterImage.asset->url,
@@ -71,8 +71,8 @@ export const projectBySlugQuery = (slug: string, locale: Locale) => `
     caseStudy {
       "heroImage": heroImage.asset->url,
       "heroVideo": heroVideoUrl,
-      challenge,
-      solution,
+      "challenge": challenge.${locale},
+      "solution": solution.${locale},
       "challengeImages": challengeImages[].asset->url,
       "beforeImage": beforeImage.asset->url,
       "afterImage": afterImage.asset->url,
