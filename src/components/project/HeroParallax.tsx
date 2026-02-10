@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { useRef, type ReactNode } from "react";
+import { useRef, useEffect, useCallback, type ReactNode } from "react";
 
 interface HeroParallaxProps {
     title: string;
@@ -18,6 +18,8 @@ const HeroParallax = ({
     accentColor = "#ffffff",
 }: HeroParallaxProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
+
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end start"],
@@ -25,6 +27,31 @@ const HeroParallax = ({
 
     const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
     const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0]);
+
+    // Force video playback — some browsers pause videos inside transformed containers
+    const ensurePlayback = useCallback(() => {
+        const video = videoRef.current;
+        if (video && video.paused) {
+            video.play().catch(() => {});
+        }
+    }, []);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        // Try to play on mount
+        video.play().catch(() => {});
+
+        // Re-trigger if browser pauses it (e.g. due to GPU transform)
+        const interval = setInterval(ensurePlayback, 1000);
+        video.addEventListener("pause", ensurePlayback);
+
+        return () => {
+            clearInterval(interval);
+            video.removeEventListener("pause", ensurePlayback);
+        };
+    }, [ensurePlayback]);
 
     return (
         <div
@@ -34,19 +61,20 @@ const HeroParallax = ({
         >
             {/* Parallax Background */}
             <motion.div
-                className="absolute inset-0 -z-10"
+                className="absolute inset-0 z-0"
                 style={{ y }}
             >
                 {backgroundVideo ? (
                     <video
+                        ref={videoRef}
+                        src={backgroundVideo}
                         autoPlay
                         muted
                         loop
                         playsInline
+                        preload="auto"
                         className="h-full w-full object-cover"
-                    >
-                        <source src={backgroundVideo} type="video/mp4" />
-                    </video>
+                    />
                 ) : (
                     <div
                         className="h-full w-full bg-cover bg-center"
@@ -58,7 +86,7 @@ const HeroParallax = ({
                     />
                 )}
                 {/* Dark overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/85" />
             </motion.div>
 
             {/* Content */}

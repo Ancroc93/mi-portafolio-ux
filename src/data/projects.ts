@@ -49,7 +49,7 @@ const projectsData: LocalizedProject[] = [
       es: ["FinTech", "UX Research", "Compliance"],
       en: ["FinTech", "UX Research", "Compliance"],
     },
-    video: `${import.meta.env.BASE_URL}projects/registro-hero.mp4`,
+    video: `${import.meta.env.BASE_URL}projects/registro-hero.m4v`,
     enableVideoPreview: true,
     metrics: [
       { label: { es: "Conversión", en: "Conversion" }, value: "+16%" },
@@ -57,7 +57,7 @@ const projectsData: LocalizedProject[] = [
     ],
     caseStudy: {
       heroImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2000",
-      heroVideo: `${import.meta.env.BASE_URL}projects/registro-hero.mp4`,
+      heroVideo: `${import.meta.env.BASE_URL}projects/registro-hero.m4v`,
       challenge: {
         es: "El registro de Personas Jurídicas en Argentina enfrentaba una barrera de entrada crítica: métricas de abandono alarmantes y un tiempo promedio de 15 minutos por sesión. El desafío era rediseñar la experiencia end-to-end para reducir la fricción operativa sin comprometer los estrictos requisitos legales y de seguridad de Mercado Pago.",
         en: "Legal entity registration in Argentina faced a critical entry barrier: alarming abandonment metrics and an average session time of 15 minutes per session. The challenge was to redesign the end-to-end experience to reduce operational friction without compromising Mercado Pago's strict legal and security requirements.",
