@@ -1,10 +1,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { useRef } from "react";
+import { useRef, type ReactNode } from "react";
 
 interface HeroParallaxProps {
     title: string;
-    subtitle?: string;
+    subtitle?: ReactNode;
     backgroundImage?: string;
     backgroundVideo?: string;
     accentColor?: string;
@@ -29,7 +29,7 @@ const HeroParallax = ({
     return (
         <div
             ref={containerRef}
-            className="relative min-h-screen flex items-center justify-center overflow-hidden"
+            className="relative min-h-screen flex items-center justify-center overflow-hidden py-16 md:py-20"
             style={{ "--project-accent": accentColor } as React.CSSProperties}
         >
             {/* Parallax Background */}
@@ -63,14 +63,14 @@ const HeroParallax = ({
 
             {/* Content */}
             <motion.div
-                className="relative z-10 flex flex-col items-center text-center px-6 max-w-7xl"
+                className="relative z-10 flex flex-col items-center text-center px-6 max-w-7xl h-fit gap-0 pb-[49px]"
                 style={{ opacity }}
             >
                 <motion.h1
                     initial={{ y: 40, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className="text-7xl md:text-9xl font-bold tracking-tighter text-white leading-[0.85] mb-6"
+                    className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white leading-[0.95] md:leading-[0.9] mb-6"
                     style={{
                         textShadow: "0 4px 30px rgba(0,0,0,0.3)",
                     }}
@@ -95,7 +95,7 @@ const HeroParallax = ({
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 1 }}
-                className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3"
+                className="absolute bottom-10 md:bottom-12 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-0 h-fit"
             >
                 <span className="text-xs font-mono uppercase tracking-widest text-white/60">
                     Scroll

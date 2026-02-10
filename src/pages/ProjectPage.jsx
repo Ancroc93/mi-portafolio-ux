@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getProjects } from "../data/projects";
 import Navbar from "../components/ui/Navbar";
@@ -15,6 +15,21 @@ import ChallengeSolution from "../components/project/ChallengeSolution";
 import BeforeAfterSlider from "../components/project/BeforeAfterSlider";
 import BentoGallery from "../components/project/BentoGallery";
 import NextProjectFooter from "../components/project/NextProjectFooter";
+
+const emphasizeSubstring = (text, substring, className = "font-semibold") => {
+  if (typeof text !== "string" || !substring) return text;
+  const idx = text.indexOf(substring);
+  if (idx === -1) return text;
+  const before = text.slice(0, idx);
+  const after = text.slice(idx + substring.length);
+  return (
+    <>
+      {before}
+      <strong className={className}>{substring}</strong>
+      {after}
+    </>
+  );
+};
 
 const renderBlock = (block, idx) => {
   if (block.type === "text") {
@@ -89,6 +104,9 @@ const ProjectPage = () => {
   const { slug } = useParams();
   const { t, locale } = useI18n();
   const projects = useMemo(() => getProjects(locale), [locale]);
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [slug]);
   const project = useMemo(
     () =>
       projects.find((p) => {
@@ -123,6 +141,27 @@ const ProjectPage = () => {
 
   // For advanced case studies, render the new template
   if (hasCaseStudy) {
+    const heroSubtitle =
+      project.slug === "registro-personas-juridicas"
+        ? (locale === "es"
+          ? emphasizeSubstring(
+            project.description,
+            "llevando la tasa de completitud del 46.87% al 62.37% y la conversión a compliance del 39.72% al 50.20%.",
+            "font-semibold"
+          )
+          : emphasizeSubstring(
+            project.description,
+            "improving completion rate from 46.87% to 62.37% and compliance conversion from 39.72% to 50.20%.",
+            "font-semibold"
+          ))
+        : project.description;
+    const solutionComment =
+      project.slug === "registro-personas-juridicas"
+        ? (locale === "es"
+          ? "Creíamos que el problema era un flujo largo. Los datos mostraron que el problema era un flujo confuso."
+          : "We thought the problem was a long flow. Data showed the real problem was a confusing flow.")
+        : undefined;
+
     return (
       <motion.div
         initial={{ opacity: 0 }}
@@ -143,7 +182,7 @@ const ProjectPage = () => {
           {/* Hero Parallax Section */}
           <HeroParallax
             title={project.title}
-            subtitle={project.description}
+            subtitle={heroSubtitle}
             backgroundImage={project.caseStudy?.heroImage || project.image}
             backgroundVideo={project.caseStudy?.heroVideo}
             accentColor={project.caseStudy?.accentColor}
@@ -170,7 +209,9 @@ const ProjectPage = () => {
             <ChallengeSolution
               challenge={project.caseStudy.challenge}
               solution={project.caseStudy.solution}
+              solutionComment={solutionComment}
               images={project.caseStudy.challengeImages}
+              accentColor={project.caseStudy.accentColor}
             />
           )}
 

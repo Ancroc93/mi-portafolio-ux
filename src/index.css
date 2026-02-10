@@ -30,3 +30,29 @@ body {
   background-color: var(--bg-canvas);
   color: #f6f7fb;
 }
+
+/* Ambient glow pulse for VideoShowcase (subtle) */
+@keyframes glow-pulse-subtle {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.28;
+    transform: scale(1.03);
+  }
+}
+
+.animate-glow-pulse-subtle {
+  animation: glow-pulse-subtle 5s ease-in-out infinite;
+}
+
+/* VideoShowcase: desaturated + low contrast at rest, full color on hover */
+.video-showcase-frame {
+  filter: saturate(0.3) contrast(0.88) brightness(0.88);
+  transition: filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.video-showcase-frame:hover {
+  filter: saturate(1) contrast(1) brightness(1);
+}

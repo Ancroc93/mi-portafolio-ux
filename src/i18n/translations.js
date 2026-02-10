@@ -11,12 +11,12 @@ export const translations = {
       language: "Idioma",
     },
     hero: {
-      role: "Sr. Product Designer @ Mercado Libre",
+      role: "Sr. UX Designer @ Mercado Libre",
       headline: "Transformo requerimientos complejos en",
       headlineHighlight: "soluciones intuitivas.",
       summary:
         "Especialista en FinTech e IA con más de 8 años de experiencia. Lidero procesos de diseño end-to-end para transformar la complejidad técnica en valor real para el usuario.",
-      yearsExp: "8+",
+      yearsExp: "Años de experiencia",
       countries: "9 Países LATAM",
       scroll: "Desliza",
     },
@@ -52,8 +52,8 @@ export const translations = {
       back: "← Volver",
       notFound: "Proyecto no encontrado",
       goHome: "Volver al inicio",
-      challenge: "El Desafío",
-      solution: "La Solución",
+      challenge: "El contexto",
+      solution: "El problema",
       before: "Antes",
       after: "Después",
       next: "Siguiente Proyecto",
@@ -85,12 +85,12 @@ export const translations = {
       language: "Language",
     },
     hero: {
-      role: "Sr. Product Designer @ Mercado Libre",
+      role: "Sr. UX Designer @ Mercado Libre",
       headline: "Transforming complex requirements into",
       headlineHighlight: "intuitive solutions.",
       summary:
         "FinTech & AI specialist with 8+ years of experience. Leading end-to-end design processes to transform technical complexity into real user value.",
-      yearsExp: "8+",
+      yearsExp: "Years of experience",
       countries: "9 LATAM Countries",
       scroll: "Scroll",
     },
@@ -126,24 +126,11 @@ export const translations = {
       back: "← Back",
       notFound: "Project not found",
       goHome: "Back to home",
-      challenge: "The Challenge",
-      solution: "The Solution",
+      challenge: "The Context",
+      solution: "The Problem",
       before: "Before",
       after: "After",
       next: "Next Project",
-    },
-    projects: {
-      "nexo-wallet": {
-        title: "Nexo Wallet",
-        description:
-          "Digital banking and crypto platform renovation focuses on user trust and friction reduction.",
-        challenge:
-          "Nexo faced significant user friction in their onboarding and crypto transaction flow. The challenge was to simplify complex financial operations for a broader audience without sacrificing depth for power users.",
-        solution:
-          "We restructured the navigation to prioritize frequent actions and implemented a 'progressive disclosure' pattern for complex data. The resulting design reduced errors by 40% and improved onboarding conversion by 24%.",
-        role: "Lead Product Designer",
-        metricLabels: ["Conversion", "Errors"],
-      },
     },
     footer: {
       tagline: "Linear / Spatial",
@@ -161,19 +148,6 @@ export const translations = {
       tags: "Tags",
       link: "Link",
       view: "VIEW",
-    },
-    projects: {
-      "nexo-wallet": {
-        title: "Nexo Wallet",
-        description:
-          "Renovación de plataforma de banca digital y cripto enfocada en la confianza del usuario y reducción de fricción.",
-        challenge:
-          "Nexo enfrentaba una fricción significativa en su onboarding y flujo de transacciones cripto. El desafío fue simplificar operaciones financieras complejas para una audiencia más amplia sin sacrificar profundidad para los usuarios avanzados.",
-        solution:
-          "Reestructuramos la navegación para priorizar acciones frecuentes e implementamos un patrón de 'divulgación progresiva' para datos complejos. El diseño resultante redujo los errores en un 40% y mejoró la conversión del onboarding en un 24%.",
-        role: "Diseñador de Producto Principal",
-        metricLabels: ["Conversión", "Errores"],
-      },
     },
   },
 };
