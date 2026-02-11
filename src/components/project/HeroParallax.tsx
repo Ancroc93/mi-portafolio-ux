@@ -56,7 +56,7 @@ const HeroParallax = ({
     return (
         <div
             ref={containerRef}
-            className="relative min-h-screen flex items-center justify-center overflow-hidden py-16 md:py-20"
+            className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 md:pt-32 md:pb-20"
             style={{ "--project-accent": accentColor } as React.CSSProperties}
         >
             {/* Parallax Background */}

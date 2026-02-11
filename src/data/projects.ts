@@ -77,7 +77,7 @@ const projectsData: LocalizedProject[] = [
         "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1200",
       ],
       accentColor: "#2D6AE0",
-      nextProjectSlug: undefined,
+      nextProjectSlug: "plamp",
     },
     blocks: [
       {
@@ -136,6 +136,46 @@ const projectsData: LocalizedProject[] = [
         },
       },
     ],
+  },
+  {
+    slug: "plamp",
+    title: {
+      es: "PLAMP — Diseño social para la reconstrucción del tejido comunitario",
+      en: "PLAMP — Social design for community rebuilding",
+    },
+    year: "2019",
+    role: {
+      es: "Diseñador de intervención física y co-creación",
+      en: "Physical Intervention & Co-creation Designer",
+    },
+    featured: true,
+    description: {
+      es: "Diseñé la intervención física y las dinámicas de co-creación de un sistema comunitario de lavado que integra sensores de monitoreo de agua, un punto de información y un programa de apropiación social — en un municipio con 10.350 víctimas del conflicto armado. Más de 80 personas participaron activamente en comités de restauración del espacio público, 60 estudiantes se formaron en talleres de educación ambiental, y la comunidad redujo el consumo de agua sin sacrificar la dinámica social del espacio.",
+      en: "I designed the physical intervention and co-creation dynamics for a community washing system integrating water monitoring sensors, an information hub, and a social appropriation program — in a municipality with 10,350 armed conflict victims. Over 80 people actively participated in public space restoration committees, 60 students were trained in environmental education workshops, and the community reduced water consumption without sacrificing the social dynamics of the space.",
+    },
+    image: `${import.meta.env.BASE_URL}projects/plamp-hero.png`,
+    tags: {
+      es: ["Diseño Social", "Co-creación", "IoT", "Intervención Comunitaria"],
+      en: ["Social Design", "Co-creation", "IoT", "Community Intervention"],
+    },
+    metrics: [
+      { label: { es: "Participación", en: "Participation" }, value: "+80" },
+      { label: { es: "Formación", en: "Training" }, value: "60 est." },
+    ],
+    caseStudy: {
+      heroImage: `${import.meta.env.BASE_URL}projects/plamp-hero.png`,
+      challenge: {
+        es: "San Miguel, Putumayo. Sur de Colombia. Un municipio donde 6.541 personas fueron desplazadas y se registran 597 homicidios según la Unidad de Víctimas. Un territorio que durante los 90 vivió el boom de la coca, disputado entre el Frente 48 de las FARC y el Bloque Sur de las AUC.\n\nHoy, la comunidad está cambiando coca por cacao y caña. Está reparando su tejido social. Y en ese proceso, \"Los Lavaderos\" — una zona de lavado artesanal junto a una quebrada — era mucho más que un punto de servicio. Era un espacio de encuentro, de comunidad, de identidad.\n\nLa restricción principal: no podíamos llegar con tecnología a \"modernizar\" un espacio sin entender que para esta comunidad, ese lugar representaba algo mucho más profundo que lavar ropa. Cualquier intervención que rompiera esa dinámica social iba a fracasar.",
+        en: "San Miguel, Putumayo. Southern Colombia. A municipality where 6,541 people were displaced and 597 homicides are recorded according to the Victims Unit. A territory that during the 90s experienced the coca boom, disputed between FARC's Front 48 and AUC's Southern Bloc.\n\nToday, the community is trading coca for cacao and sugarcane. They are repairing their social fabric. And in that process, \"Los Lavaderos\" — an artisanal washing area next to a creek — was much more than a service point. It was a meeting space, a community hub, an identity.\n\nThe main constraint: we couldn't arrive with technology to \"modernize\" a space without understanding that for this community, that place represented something much deeper than washing clothes. Any intervention that broke that social dynamic was going to fail.",
+      },
+      solution: {
+        es: "La convocatoria de Colciencias planteaba un reto técnico: implementar tecnología para el uso responsable del agua. Pero al pisar el territorio y trabajar codo a codo con la comunidad — a través de entrevistas cualitativas, mapeos sociales, shadowing y recorridos de observación — descubrimos que los dolores reales eran otros:\n\nSeguridad: sin iluminación nocturna, el espacio se convertía en zona de actividades ilícitas. Accesibilidad: las personas mayores arriesgaban su integridad física en escaleras sin estándares mínimos. Salud: el contacto constante con el agua generaba problemas. Espacio de secado: no existía infraestructura para tender la ropa. Punto de encuentro: la comunidad necesitaba un lugar para reconstruir vínculos.\n\nLa tecnología no podía ser el protagonista. Tenía que ser invisible, al servicio de una comunidad que necesitaba primero recuperar la confianza en su propio espacio.",
+        en: "The Colciencias call proposed a technical challenge: implementing technology for responsible water use. But once on the ground, working side by side with the community — through qualitative interviews, social mapping, shadowing, and observation walks — we discovered the real pain points were different:\n\nSafety: without nighttime lighting, the space became a zone for illicit activities. Accessibility: elderly people risked their physical safety on stairs lacking minimum standards. Health: constant contact with creek water caused health issues. Drying space: no infrastructure existed for hanging clothes. Meeting point: the community needed a space that went beyond washing — a place to rebuild bonds.\n\nTechnology could not be the protagonist. It had to be invisible, serving a community that first needed to regain trust in their own space.",
+      },
+      accentColor: "#3B8A5A",
+      nextProjectSlug: "registro-personas-juridicas",
+    },
+    blocks: [],
   },
 ];
 

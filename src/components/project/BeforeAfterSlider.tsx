@@ -45,7 +45,7 @@ const BeforeAfterSlider = ({
             className={`w-full py-24 ${className}`}
         >
             <div className="mx-auto max-w-6xl px-6">
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary mb-12 text-center">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary mb-12 text-left">
                     Before & After
                 </h2>
 

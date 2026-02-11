@@ -17,7 +17,7 @@ const MetadataGrid = ({ items, className = "" }: MetadataGridProps) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className={`grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 py-16 px-6 md:px-12 border-y border-white/10 ${className}`}
+            className={`grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 py-20 md:py-24 px-6 md:px-12 border-y border-white/10 ${className}`}
         >
             {items.map((item, index) => (
                 <motion.div

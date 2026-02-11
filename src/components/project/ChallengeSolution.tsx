@@ -63,8 +63,8 @@ const ChallengeSolution = ({
     };
 
     return (
-        <div className={`w-full py-24 ${className}`}>
-            <div className="mx-auto max-w-7xl px-6">
+        <div className={`w-full py-20 md:py-24 ${className}`}>
+            <div className="mx-auto max-w-6xl px-6">
                 <div className="grid md:grid-cols-2 gap-12 md:gap-20">
                     {/* Left Column - Sticky Text */}
                     <div className="md:sticky md:top-32 h-fit space-y-16">

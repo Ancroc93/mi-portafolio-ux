@@ -40,7 +40,7 @@ const NextProjectFooter = ({
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+                <div className="relative z-10 h-full flex flex-col items-start justify-center text-left px-6 md:px-12">
                     <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
