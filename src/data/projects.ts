@@ -164,6 +164,7 @@ const projectsData: LocalizedProject[] = [
     ],
     caseStudy: {
       heroImage: `${import.meta.env.BASE_URL}projects/plamp-hero.png`,
+      heroVideo: `${import.meta.env.BASE_URL}projects/plamp-hero-video.mp4`,
       challenge: {
         es: "San Miguel, Putumayo. Sur de Colombia. Un municipio donde 6.541 personas fueron desplazadas y se registran 597 homicidios según la Unidad de Víctimas. Un territorio que durante los 90 vivió el boom de la coca, disputado entre el Frente 48 de las FARC y el Bloque Sur de las AUC.\n\nHoy, la comunidad está cambiando coca por cacao y caña. Está reparando su tejido social. Y en ese proceso, \"Los Lavaderos\" — una zona de lavado artesanal junto a una quebrada — era mucho más que un punto de servicio. Era un espacio de encuentro, de comunidad, de identidad.\n\nLa restricción principal: no podíamos llegar con tecnología a \"modernizar\" un espacio sin entender que para esta comunidad, ese lugar representaba algo mucho más profundo que lavar ropa. Cualquier intervención que rompiera esa dinámica social iba a fracasar.",
         en: "San Miguel, Putumayo. Southern Colombia. A municipality where 6,541 people were displaced and 597 homicides are recorded according to the Victims Unit. A territory that during the 90s experienced the coca boom, disputed between FARC's Front 48 and AUC's Southern Bloc.\n\nToday, the community is trading coca for cacao and sugarcane. They are repairing their social fabric. And in that process, \"Los Lavaderos\" — an artisanal washing area next to a creek — was much more than a service point. It was a meeting space, a community hub, an identity.\n\nThe main constraint: we couldn't arrive with technology to \"modernize\" a space without understanding that for this community, that place represented something much deeper than washing clothes. Any intervention that broke that social dynamic was going to fail.",
@@ -172,6 +173,13 @@ const projectsData: LocalizedProject[] = [
         es: "La convocatoria de Colciencias planteaba un reto técnico: implementar tecnología para el uso responsable del agua. Pero al pisar el territorio y trabajar codo a codo con la comunidad — a través de entrevistas cualitativas, mapeos sociales, shadowing y recorridos de observación — descubrimos que los dolores reales eran otros:\n\nSeguridad: sin iluminación nocturna, el espacio se convertía en zona de actividades ilícitas. Accesibilidad: las personas mayores arriesgaban su integridad física en escaleras sin estándares mínimos. Salud: el contacto constante con el agua generaba problemas. Espacio de secado: no existía infraestructura para tender la ropa. Punto de encuentro: la comunidad necesitaba un lugar para reconstruir vínculos.\n\nLa tecnología no podía ser el protagonista. Tenía que ser invisible, al servicio de una comunidad que necesitaba primero recuperar la confianza en su propio espacio.",
         en: "The Colciencias call proposed a technical challenge: implementing technology for responsible water use. But once on the ground, working side by side with the community — through qualitative interviews, social mapping, shadowing, and observation walks — we discovered the real pain points were different:\n\nSafety: without nighttime lighting, the space became a zone for illicit activities. Accessibility: elderly people risked their physical safety on stairs lacking minimum standards. Health: constant contact with creek water caused health issues. Drying space: no infrastructure existed for hanging clothes. Meeting point: the community needed a space that went beyond washing — a place to rebuild bonds.\n\nTechnology could not be the protagonist. It had to be invisible, serving a community that first needed to regain trust in their own space.",
       },
+      challengeImages: [
+        `${import.meta.env.BASE_URL}projects/plamp-challenge-01.png`,
+        `${import.meta.env.BASE_URL}projects/plamp-challenge-02.png`,
+        `${import.meta.env.BASE_URL}projects/plamp-challenge-03.png`,
+        `${import.meta.env.BASE_URL}projects/plamp-challenge-04.png`,
+        `${import.meta.env.BASE_URL}projects/plamp-challenge-05.png`,
+      ],
       accentColor: "#3B8A5A",
       nextProjectSlug: "registro-personas-juridicas",
     },
