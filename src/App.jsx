@@ -75,7 +75,7 @@ const Home = () => {
                 </div>
                 <div className="relative h-full min-h-[400px] rounded-3xl overflow-hidden bg-surface/50 border border-white/5 group">
                   <img
-                    src={`${import.meta.env.BASE_URL}profile.png`}
+                    src={`${import.meta.env.BASE_URL}profile.jpg`}
                     alt="Andrés Cruz"
                     className="absolute inset-0 w-full h-full object-cover grayscale contrast-125 transition-transform duration-700 group-hover:scale-105"
                   />
