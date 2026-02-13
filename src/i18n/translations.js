@@ -11,9 +11,9 @@ export const translations = {
       language: "Idioma",
     },
     hero: {
-      role: "Sr. UX Designer @ Mercado Libre",
-      headline: "Transformo requerimientos complejos en",
-      headlineHighlight: "soluciones intuitivas.",
+      role: "Sr. UX Designer",
+      headline: "Transformo requerimientos complejos",
+      headlineHighlight: "en soluciones intuitivas.",
       summary:
         "Especialista en FinTech e IA con más de 8 años de experiencia. Lidero procesos de diseño end-to-end para transformar la complejidad técnica en valor real para el usuario.",
       yearsExp: "Años de experiencia",
@@ -21,11 +21,11 @@ export const translations = {
       scroll: "Desliza",
     },
     home: {
-      workTitle: "Trabajo seleccionado",
+      workTitle: "Proyectos seleccionados",
       workSubtitle: "Portafolio",
       workDescription:
         "Una colección de productos digitales, casos de estudio y experimentos enfocados en experiencia de usuario e interacción.",
-      aboutTitle: "Más allá de los píxeles",
+      aboutTitle: "Detrás de los pixeles",
       aboutSubtitle: "Sobre mí",
       aboutLeadStart: "Soy Sr. Product Designer en Mercado Libre, enfocado en",
       aboutLeadHighlight: "resolver la complejidad",
@@ -40,11 +40,12 @@ export const translations = {
       contactBody:
         "Disponible para consultorías, workshops y proyectos end-to-end. Hablemos de tu siguiente release.",
       contactCta: "Escribir correo",
-      contactBadges: ["Consultoría", "Workshops", "Launch"],
+      viewCase: "Ver caso",
+      contactBadges: ["Consultoría", "Talleres", "Lanzamiento"],
       statusHeading: "Status rápido",
       statusBody:
         "Tiempo de respuesta típico: <24h. Disponibilidad próxima semana: 6 slots para discovery.",
-      statusBadges: ["Respuesta: 3d", "Motion-ready", "Dev handoff"],
+      statusBadges: ["Respuesta: 3 días", "Listo para motion", "Handoff de desarrollo"],
     },
     project: {
       role: "Rol",
@@ -57,6 +58,9 @@ export const translations = {
       before: "Antes",
       after: "Después",
       next: "Siguiente Proyecto",
+      journeyTitle: "Mapa de viaje del usuario",
+      journeyObjects: "Objetos clave",
+      journeyInsights: "Hallazgos",
     },
     footer: {
       tagline: "Linear / Spatial",
@@ -65,6 +69,8 @@ export const translations = {
       email: "ancruz93@gmail.com",
       linkedin: "LinkedIn",
       github: "GitHub",
+      linkedinUrl: "https://www.linkedin.com/in/andrescruzux/",
+      githubUrl: "https://github.com/Ancroc93",
     },
     archive: {
       title: "Archivo",
@@ -85,9 +91,9 @@ export const translations = {
       language: "Language",
     },
     hero: {
-      role: "Sr. UX Designer @ Mercado Libre",
-      headline: "Transforming complex requirements into",
-      headlineHighlight: "intuitive solutions.",
+      role: "Sr. UX Designer",
+      headline: "Transforming complex requirements",
+      headlineHighlight: "into intuitive solutions.",
       summary:
         "FinTech & AI specialist with 8+ years of experience. Leading end-to-end design processes to transform technical complexity into real user value.",
       yearsExp: "Years of experience",
@@ -95,7 +101,7 @@ export const translations = {
       scroll: "Scroll",
     },
     home: {
-      workTitle: "Selected Work",
+      workTitle: "Selected projects",
       workSubtitle: "Portfolio",
       workDescription:
         "A collection of digital products, case studies, and experiments focused on user experience and interaction design.",
@@ -114,6 +120,7 @@ export const translations = {
       contactBody:
         "Available for consulting, workshops, and end-to-end projects. Let's discuss your next release.",
       contactCta: "Send email",
+      viewCase: "View case",
       contactBadges: ["Consulting", "Workshops", "Launch"],
       statusHeading: "Quick status",
       statusBody:
@@ -131,6 +138,9 @@ export const translations = {
       before: "Before",
       after: "After",
       next: "Next Project",
+      journeyTitle: "User Journey Map",
+      journeyObjects: "Key objects",
+      journeyInsights: "Insights",
     },
     footer: {
       tagline: "Linear / Spatial",
@@ -139,6 +149,8 @@ export const translations = {
       email: "ancruz93@gmail.com",
       linkedin: "LinkedIn",
       github: "GitHub",
+      linkedinUrl: "https://www.linkedin.com/in/andrescruzux/",
+      githubUrl: "https://github.com/Ancroc93",
     },
     archive: {
       title: "Archive",

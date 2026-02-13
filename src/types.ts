@@ -43,6 +43,7 @@ export interface Project {
     slug: string;
     title: string;
     year: string;
+    location?: string;
     role: string | string[];
     featured: boolean;
     description: string;

@@ -22,14 +22,19 @@ const Home = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-background text-primary selection:bg-accent selection:text-background"
+      className="min-h-screen text-primary selection:bg-accent selection:text-background"
     >
       <Navbar />
       <main className="pt-20">
         <Hero />
 
-        {/* Work Section (Unified) */}
-        <div id="work" className="py-12">
+        {/* Fade transition from hero aurora to solid background */}
+        <div className="relative h-32 -mt-32 z-20 bg-gradient-to-b from-transparent to-background pointer-events-none" />
+
+        <div className="relative bg-background z-10">
+
+        {/* Work Section */}
+        <section id="work" className="py-20">
           <div className="mx-auto w-full max-w-6xl px-6 mb-8">
             <Section title={t("home.workTitle")} subtitle={t("home.workSubtitle")}>
               <p className="text-xl text-secondary/70 max-w-2xl font-light leading-relaxed">
@@ -40,10 +45,10 @@ const Home = () => {
           <div className="mx-auto w-full max-w-6xl px-6">
             <ProjectList projects={projects} />
           </div>
-        </div>
+        </section>
 
         {/* About Section */}
-        <section id="about" className="py-24 border-t border-white/5">
+        <section id="about" className="py-20 border-t border-white/5">
           <div className="mx-auto w-full max-w-6xl px-6">
             <Section title={t("home.aboutTitle")} subtitle={t("home.aboutSubtitle")}>
               <div className="grid md:grid-cols-2 gap-12 mt-8">
@@ -60,14 +65,14 @@ const Home = () => {
                   </p>
                   <div className="flex gap-4 mt-4">
                     <div className="flex flex-col gap-1">
-                      <span className="text-3xl font-bold text-primary">5+</span>
-                      <span className="text-xs uppercase tracking-widest text-secondary/50 font-mono">
+                      <span className="text-3xl font-bold text-primary">8+</span>
+                      <span className="text-xs uppercase tracking-widest text-secondary/70 font-mono">
                         {t("home.yearsLabel")}
                       </span>
                     </div>
                     <div className="flex flex-col gap-1 border-l border-white/10 pl-4">
                       <span className="text-3xl font-bold text-primary">20+</span>
-                      <span className="text-xs uppercase tracking-widest text-secondary/50 font-mono">
+                      <span className="text-xs uppercase tracking-widest text-secondary/70 font-mono">
                         {t("home.projectsLabel")}
                       </span>
                     </div>
@@ -86,7 +91,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section id="contact" className="pb-32 pt-12 border-t border-white/5">
+        <section id="contact" className="py-20 border-t border-white/5">
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6">
             <Section title={t("home.contactTitle")} subtitle={t("home.contactSubtitle")}>
               <div className="grid gap-16 md:grid-cols-2 mt-8">
@@ -138,6 +143,7 @@ const Home = () => {
             </Section>
           </div>
         </section>
+        </div>
       </main>
       <Footer />
     </motion.div>

@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "./cn";
 import { ArrowUpRight } from "lucide-react";
 import { Project } from "../../types";
+import { useI18n } from "../../i18n";
 
 type ProjectListProps = {
     projects: Project[];
@@ -11,36 +12,76 @@ type ProjectListProps = {
 
 const ProjectList = ({ projects, className }: ProjectListProps) => {
     const [hoveredId, setHoveredId] = useState<string | null>(null);
+    const plampVideoRef = useRef<HTMLVideoElement | null>(null);
+    const { t } = useI18n();
 
     return (
-        <div className={cn("flex flex-col w-full py-20 gap-[1px]", className)}>
-            {projects.map((project) => (
+        <div className={cn("flex flex-col w-full py-16 gap-[1px]", className)}>
+            {projects.map((project) => {
+                const previewVideo =
+                    project.slug === "plamp"
+                        ? project.caseStudy?.heroVideo
+                        : project.video && project.enableVideoPreview
+                            ? project.video
+                            : undefined;
+
+                return (
                 <Link
                     key={project.slug}
                     to={`/projects/${project.slug}`}
                     className="group relative flex w-full flex-col md:flex-row md:items-center justify-between py-16 px-8 overflow-hidden transition-all"
-                    onMouseEnter={() => setHoveredId(project.slug)}
-                    onMouseLeave={() => setHoveredId(null)}
+                    onMouseEnter={() => {
+                        setHoveredId(project.slug);
+                        if (project.slug === "plamp" && plampVideoRef.current) {
+                            void plampVideoRef.current.play().catch(() => undefined);
+                        }
+                    }}
+                    onMouseLeave={() => {
+                        setHoveredId(null);
+                        if (project.slug === "plamp" && plampVideoRef.current) {
+                            plampVideoRef.current.pause();
+                            plampVideoRef.current.currentTime = 0;
+                        }
+                    }}
                 >
                     {/* Background Image/Video (Full Width) */}
                     <div className="absolute inset-0 z-0">
-                        <img
-                            src={project.image}
-                            alt={project.title}
-                            className={cn(
-                                "h-full w-full object-cover transition-all duration-700 ease-out",
-                                "grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
-                            )}
-                        />
-                        {project.video && project.enableVideoPreview && hoveredId === project.slug && (
+                        {project.slug === "plamp" && previewVideo ? (
                             <video
-                                src={project.video}
-                                autoPlay
+                                ref={plampVideoRef}
+                                src={previewVideo}
                                 muted
                                 loop
                                 playsInline
-                                className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                                preload="metadata"
+                                className={cn(
+                                    "absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out",
+                                    hoveredId === project.slug
+                                        ? "opacity-100 grayscale-0 scale-105"
+                                        : "opacity-40 grayscale"
+                                )}
                             />
+                        ) : (
+                            <>
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className={cn(
+                                        "h-full w-full object-cover transition-all duration-700 ease-out",
+                                        "grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+                                    )}
+                                />
+                                {previewVideo && hoveredId === project.slug && (
+                                    <video
+                                        src={previewVideo}
+                                        autoPlay
+                                        muted
+                                        loop
+                                        playsInline
+                                        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                                    />
+                                )}
+                            </>
                         )}
                         {/* Gradient Overlay for Text Readability */}
                         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-[1]" />
@@ -57,6 +98,12 @@ const ProjectList = ({ projects, className }: ProjectListProps) => {
                             </span>
                             <span className="h-1 w-1 rounded-full bg-white/40" />
                             <span className="font-mono">{project.year}</span>
+                            {project.location && (
+                                <>
+                                    <span className="h-1 w-1 rounded-full bg-white/40" />
+                                    <span className="font-mono">{project.location}</span>
+                                </>
+                            )}
                         </div>
                     </div>
 
@@ -64,13 +111,13 @@ const ProjectList = ({ projects, className }: ProjectListProps) => {
                     <div className="relative z-10 mt-6 md:mt-0 flex justify-end md:w-1/3">
                         <div className="flex items-center gap-2 rounded-full border border-white/30 bg-black/20 backdrop-blur-md px-6 py-3 text-white transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white">
                             <span className="text-sm font-mono uppercase tracking-widest">
-                                View Case
+                                {t("home.viewCase")}
                             </span>
                             <ArrowUpRight className="h-4 w-4" />
                         </div>
                     </div>
                 </Link>
-            ))}
+            )})}
         </div>
     );
 };

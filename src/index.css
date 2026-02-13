@@ -12,8 +12,8 @@
 }
 
 :root {
-  --bg-canvas: #0d0f14;
-  --bg-surface: #12141b;
+  --bg-canvas: #0a0a0a;
+  --bg-surface: #121212;
   color-scheme: dark;
   font-family: "Inter", "SF Pro Display", system-ui, -apple-system, sans-serif;
   text-rendering: optimizeLegibility;
@@ -55,4 +55,34 @@ body {
 
 .video-showcase-frame:hover {
   filter: saturate(1) contrast(1) brightness(1);
+}
+
+/* ── Aurora gradient animation ── */
+@keyframes aurora-drift-1 {
+  0%   { transform: translate(0%, 0%) rotate(0deg) scale(1); }
+  25%  { transform: translate(30%, -20%) rotate(45deg) scale(1.1); }
+  50%  { transform: translate(-20%, 20%) rotate(90deg) scale(0.95); }
+  75%  { transform: translate(10%, -10%) rotate(135deg) scale(1.05); }
+  100% { transform: translate(0%, 0%) rotate(180deg) scale(1); }
+}
+
+@keyframes aurora-drift-2 {
+  0%   { transform: translate(0%, 0%) rotate(0deg) scale(1); }
+  25%  { transform: translate(-25%, 15%) rotate(-60deg) scale(1.15); }
+  50%  { transform: translate(15%, -25%) rotate(-120deg) scale(0.9); }
+  75%  { transform: translate(-10%, 5%) rotate(-180deg) scale(1.1); }
+  100% { transform: translate(0%, 0%) rotate(-240deg) scale(1); }
+}
+
+@keyframes aurora-drift-3 {
+  0%   { transform: translate(0%, 0%) rotate(0deg) scale(1.05); }
+  33%  { transform: translate(20%, 15%) rotate(72deg) scale(0.95); }
+  66%  { transform: translate(-15%, -20%) rotate(144deg) scale(1.1); }
+  100% { transform: translate(0%, 0%) rotate(216deg) scale(1.05); }
+}
+
+/* Headline clip-reveal */
+@keyframes clip-reveal-up {
+  0%   { clip-path: inset(100% 0 0 0); opacity: 0; }
+  100% { clip-path: inset(0 0 0 0); opacity: 1; }
 }

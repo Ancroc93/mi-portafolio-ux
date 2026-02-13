@@ -16,7 +16,7 @@ const Section = ({
       className={cn("relative flex flex-col gap-8", className)}
     >
       <div className="flex flex-col gap-4">
-        <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-secondary/50 pl-1">
+        <p className="font-mono text-[10px] uppercase tracking-widest text-secondary/70 pl-1">
           {subtitle}
         </p>
         <h2 className="text-4xl md:text-5xl font-bold text-primary tracking-tighter leading-tight max-w-2xl">

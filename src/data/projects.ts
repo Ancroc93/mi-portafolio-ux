@@ -1,8 +1,14 @@
-import { ContentBlock, Project } from "../types";
+import { CaseStudyData, ContentBlock, Project } from "../types";
 
 type Locale = "es" | "en";
 type LocalizedString = Record<Locale, string>;
 type LocalizedStringArray = Record<Locale, string[]>;
+interface ImportMetaEnv {
+  readonly BASE_URL: string;
+}
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
 type LocalizedMetric = { label: LocalizedString; value: string };
 type LocalizedContentBlock = Omit<ContentBlock, "title" | "content" | "alt" | "items"> & {
   title?: LocalizedString;
@@ -10,20 +16,22 @@ type LocalizedContentBlock = Omit<ContentBlock, "title" | "content" | "alt" | "i
   alt?: LocalizedString;
   items?: LocalizedStringArray;
 };
+type LocalizedCaseStudy = Omit<CaseStudyData, "challenge" | "solution" | "comparisonLabel"> & {
+  challenge?: LocalizedString;
+  solution?: LocalizedString;
+  comparisonLabel?: { before: LocalizedString; after: LocalizedString };
+};
 type LocalizedProject = Omit<
   Project,
-  "title" | "description" | "role" | "tags" | "metrics" | "blocks"
+  "title" | "description" | "role" | "tags" | "metrics" | "blocks" | "location" | "caseStudy"
 > & {
   title: LocalizedString;
   description: LocalizedString;
+  location?: LocalizedString;
   role: Record<Locale, string | string[]>;
   tags?: LocalizedStringArray;
   metrics?: LocalizedMetric[];
-  caseStudy?: Omit<Project["caseStudy"], "challenge" | "solution" | "comparisonLabel"> & {
-    challenge?: LocalizedString;
-    solution?: LocalizedString;
-    comparisonLabel?: { before: LocalizedString; after: LocalizedString };
-  };
+  caseStudy?: LocalizedCaseStudy;
   blocks?: LocalizedContentBlock[];
 };
 
@@ -35,6 +43,10 @@ const projectsData: LocalizedProject[] = [
       en: "Legal Entity Registration in Mercado Pago",
     },
     year: "2025",
+    location: {
+      es: "Argentina",
+      en: "Argentina",
+    },
     role: {
       es: "Sr. UX Designer",
       en: "Sr. UX Designer",
@@ -140,13 +152,17 @@ const projectsData: LocalizedProject[] = [
   {
     slug: "plamp",
     title: {
-      es: "PLAMP — Diseño social para la reconstrucción del tejido comunitario",
-      en: "PLAMP — Social design for community rebuilding",
+      es: "Diseño social para la reconstrucción del tejido comunitario",
+      en: "Diseño social para la reconstrucción del tejido comunitario",
     },
     year: "2019",
+    location: {
+      es: "Putumayo",
+      en: "Putumayo",
+    },
     role: {
-      es: "Diseñador de intervención física y co-creación",
-      en: "Physical Intervention & Co-creation Designer",
+      es: "Product & Service Designer",
+      en: "Product & Service Designer",
     },
     featured: true,
     description: {
@@ -160,7 +176,7 @@ const projectsData: LocalizedProject[] = [
     },
     metrics: [
       { label: { es: "Participación", en: "Participation" }, value: "+80" },
-      { label: { es: "Formación", en: "Training" }, value: "60 est." },
+      { label: { es: "Formación", en: "Training" }, value: "60 estudiantes" },
     ],
     caseStudy: {
       heroImage: `${import.meta.env.BASE_URL}projects/plamp-hero.png`,
@@ -199,6 +215,7 @@ const localizeProject = (project: LocalizedProject, locale: Locale): Project => 
   ...project,
   title: project.title[locale],
   description: project.description[locale],
+  location: project.location?.[locale],
   role: project.role[locale],
   tags: project.tags ? project.tags[locale] : undefined,
   metrics: project.metrics?.map((metric) => ({

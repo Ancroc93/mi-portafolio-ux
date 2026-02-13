@@ -70,7 +70,7 @@ const Navbar = ({ className }) => {
         className
       )}
     >
-      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
+      <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
         {/* Left: Logo */}
         <a href="/" onClick={handleLogoClick} className="flex items-center gap-2 group">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-glass-border bg-surface group-hover:bg-surface/80 transition-colors">

@@ -19,6 +19,7 @@ import ResultsSection from "../components/project/ResultsSection";
 import SpotlightCollage from "../components/project/SpotlightCollage";
 import ProjectCredits from "../components/project/ProjectCredits";
 import TakeawaysSection from "../components/project/TakeawaysSection";
+import JourneyTimeline from "../components/project/JourneyTimeline";
 
 const emphasizeSubstring = (text, substring, className = "font-semibold") => {
   if (typeof text !== "string" || !substring) return text;
@@ -355,6 +356,159 @@ const ProjectPage = () => {
         };
     }
 
+    let journeySteps = null;
+    if (project.slug === "plamp") {
+      journeySteps = locale === "es"
+        ? [
+          {
+            title: "Preparación de la ropa",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-01.png`,
+            emotionalState: "Entusiasmo",
+            emotionalColor: "#7BC67E",
+            keyObjects: ["Ropa", "Canasta"],
+            insights: "La preparación comienza en casa; algunas personas hacen un prelavado o remojo antes de ir a Los Lavaderos.",
+          },
+          {
+            title: "Transporte a Los Lavaderos",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-02.png`,
+            emotionalState: "Preocupación",
+            emotionalColor: "#D97B5B",
+            keyObjects: ["Ropa", "Canasta", "Motocicleta"],
+            insights: "Existen diferentes formas de transporte hacia Los Lavaderos. Se usan motocicletas y transporte pago, pero lo más común es cargar la ropa al hombro.",
+          },
+          {
+            title: "Bajada de escaleras",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-03.png`,
+            emotionalState: "Precaución",
+            emotionalColor: "#E8A838",
+            keyObjects: ["Ropa", "Canasta", "Escaleras"],
+            insights: "Las personas enfrentan dificultades al descender las escaleras: no hay condiciones de seguridad y la estructura presenta desgaste.",
+          },
+          {
+            title: "Descarga de la ropa",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-04.png`,
+            emotionalState: "Incomodidad",
+            emotionalColor: "#D97B5B",
+            keyObjects: ["Ropa", "Canasta", "Los Lavaderos", "Quebrada"],
+            insights: "La carga se ubica sobre la misma superficie donde se lava, ocupando espacio de trabajo y dificultando la operación.",
+          },
+          {
+            title: "Descenso a la quebrada",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-05.png`,
+            emotionalState: "Incomodidad",
+            emotionalColor: "#D97B5B",
+            keyObjects: ["Ropa", "Canasta", "Los Lavaderos", "Quebrada"],
+            insights: "Entrar a la quebrada implica esfuerzo físico y exposición a agua potencialmente contaminada, con riesgo para la salud.",
+          },
+          {
+            title: "Inicio del lavado",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-06.png`,
+            emotionalState: "Satisfacción",
+            emotionalColor: "#7BC67E",
+            keyObjects: ["Ropa", "Canasta", "Los Lavaderos", "Quebrada", "Jabón para ropa"],
+            insights: "Durante el lavado, gran parte del detergente termina en la quebrada sin filtración previa.",
+          },
+          {
+            title: "Finalización del lavado",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-07.png`,
+            emotionalState: "Satisfacción",
+            emotionalColor: "#7BC67E",
+            keyObjects: ["Ropa mojada", "Canasta", "Los Lavaderos", "Quebrada"],
+            insights: "Después del lavado, la ropa mojada incrementa significativamente su peso y hace más exigente el traslado.",
+          },
+          {
+            title: "Ascenso desde la quebrada",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-08.png`,
+            emotionalState: "Incomodidad",
+            emotionalColor: "#D97B5B",
+            keyObjects: ["Ropa mojada", "Canasta", "Los Lavaderos", "Quebrada"],
+            insights: "Se presentan dificultades físicas al salir de la quebrada, especialmente por el peso y la inestabilidad del terreno.",
+          },
+          {
+            title: "Regreso a casa",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-09.png`,
+            emotionalState: "Incomodidad",
+            emotionalColor: "#D97B5B",
+            keyObjects: ["Ropa mojada", "Canasta", "Los Lavaderos", "Quebrada", "Escaleras", "Transporte"],
+            insights: "Transportar una carga mojada y pesada puede afectar la salud de las personas. La salida de Los Lavaderos también se vuelve más riesgosa al ir con la ropa y el cuerpo mojados.",
+          },
+        ]
+        : [
+          {
+            title: "Clothes preparation",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-01.png`,
+            emotionalState: "Enthusiasm",
+            emotionalColor: "#7BC67E",
+            keyObjects: ["Clothes", "Basket"],
+            insights: "Preparation starts at home; some residents do a pre-wash or soaking before going to Los Lavaderos.",
+          },
+          {
+            title: "Transport to Los Lavaderos",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-02.png`,
+            emotionalState: "Concern",
+            emotionalColor: "#D97B5B",
+            keyObjects: ["Clothes", "Basket", "Motorcycle"],
+            insights: "There are different ways to transport clothes to Los Lavaderos. Motorcycles and paid transport are used, although carrying clothes on the shoulder is more common.",
+          },
+          {
+            title: "Descending the stairs",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-03.png`,
+            emotionalState: "Caution",
+            emotionalColor: "#E8A838",
+            keyObjects: ["Clothes", "Basket", "Stairs"],
+            insights: "Users face difficulties going down the stairs: there are no safety conditions and the structure is worn out.",
+          },
+          {
+            title: "Unloading clothes",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-04.png`,
+            emotionalState: "Discomfort",
+            emotionalColor: "#D97B5B",
+            keyObjects: ["Clothes", "Basket", "Los Lavaderos", "Creek"],
+            insights: "The load is placed on the same surface where washing happens, taking up extra space and reducing usability.",
+          },
+          {
+            title: "Descending into the creek",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-05.png`,
+            emotionalState: "Discomfort",
+            emotionalColor: "#D97B5B",
+            keyObjects: ["Clothes", "Basket", "Los Lavaderos", "Creek"],
+            insights: "Users experience physical difficulty when entering the creek. Exposure to highly contaminated water can also create health risks.",
+          },
+          {
+            title: "Start of washing",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-06.png`,
+            emotionalState: "Satisfaction",
+            emotionalColor: "#7BC67E",
+            keyObjects: ["Clothes", "Basket", "Los Lavaderos", "Creek", "Laundry soap"],
+            insights: "During washing, a significant amount of detergent goes directly into the creek without filtration.",
+          },
+          {
+            title: "End of washing",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-07.png`,
+            emotionalState: "Satisfaction",
+            emotionalColor: "#7BC67E",
+            keyObjects: ["Wet clothes", "Basket", "Los Lavaderos", "Creek"],
+            insights: "After washing, clothes become much heavier, increasing effort for the remaining journey.",
+          },
+          {
+            title: "Ascending from the creek",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-08.png`,
+            emotionalState: "Discomfort",
+            emotionalColor: "#D97B5B",
+            keyObjects: ["Wet clothes", "Basket", "Los Lavaderos", "Creek"],
+            insights: "Users encounter physical difficulties when exiting the creek, especially due to wet surfaces and additional weight.",
+          },
+          {
+            title: "Return home",
+            image: `${import.meta.env.BASE_URL}projects/plamp-journey-09.png`,
+            emotionalState: "Discomfort",
+            emotionalColor: "#D97B5B",
+            keyObjects: ["Wet clothes", "Basket", "Los Lavaderos", "Creek", "Stairs", "Transport"],
+            insights: "Carrying a heavy wet load can affect users' health. Exiting Los Lavaderos is also riskier because users are wet and fatigued.",
+          },
+        ];
+    }
+
     let creditsData = null;
     if (project.slug === "registro-personas-juridicas") {
       creditsData = locale === "es"
@@ -512,6 +666,12 @@ const ProjectPage = () => {
                 <FlowVisualization
                   accentColor={project.caseStudy?.accentColor}
                   className="py-0 md:py-0"
+                />
+              )}
+              {project.slug === "plamp" && journeySteps && (
+                <JourneyTimeline
+                  steps={journeySteps}
+                  accentColor={project.caseStudy?.accentColor}
                 />
               )}
             </SolutionDetail>
