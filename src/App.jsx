@@ -34,58 +34,58 @@ const Home = () => {
 
         <div className="relative bg-background z-10">
 
-        {/* Work Section */}
-        <section id="work" className="py-20">
-          <div className="mx-auto w-full max-w-6xl px-6 mb-8">
-            <Section title={t("home.workTitle")} subtitle={t("home.workSubtitle")}>
-              <p className="text-xl text-secondary/70 max-w-2xl font-light leading-relaxed">
-                {t("home.workDescription")}
-              </p>
-            </Section>
-          </div>
-          <div className="mx-auto w-full max-w-6xl px-6">
-            <ProjectList projects={projects} />
-          </div>
-        </section>
+          {/* Work Section */}
+          <section id="work" className="py-20">
+            <div className="mx-auto w-full max-w-6xl px-6 mb-8">
+              <Section title={t("home.workTitle")} subtitle={t("home.workSubtitle")}>
+                <p className="text-xl text-secondary/70 max-w-2xl font-light leading-relaxed">
+                  {t("home.workDescription")}
+                </p>
+              </Section>
+            </div>
+            <div className="mx-auto w-full max-w-6xl px-6">
+              <ProjectList projects={projects} />
+            </div>
+          </section>
 
-        {/* About Section */}
-        <section id="about" className="py-20 border-t border-white/5">
-          <div className="mx-auto w-full max-w-6xl px-6">
-            <Section title={t("home.aboutTitle")} subtitle={t("home.aboutSubtitle")}>
-              <div className="grid md:grid-cols-2 gap-12 mt-8">
-                <div className="flex flex-col gap-6">
-                  <p className="text-xl md:text-2xl text-primary font-light leading-relaxed">
-                    {t("home.aboutLeadStart")}{" "}
-                    <span className="text-white font-medium">
-                      {t("home.aboutLeadHighlight")}
-                    </span>{" "}
-                    {t("home.aboutLeadEnd")}
-                  </p>
-                  <p className="text-lg text-secondary/70 leading-relaxed">
-                    {t("home.aboutBody")}
-                  </p>
-                  <div className="flex gap-4 mt-4">
-                    <div className="flex flex-col gap-1">
-                      <span className="text-3xl font-bold text-primary">8+</span>
-                      <span className="text-xs uppercase tracking-widest text-secondary/70 font-mono">
-                        {t("home.yearsLabel")}
-                      </span>
+          {/* About Section */}
+          <section id="about" className="py-20 border-t border-white/5">
+            <div className="mx-auto w-full max-w-6xl px-6">
+              <Section title={t("home.aboutTitle")} subtitle={t("home.aboutSubtitle")}>
+                <div className="grid md:grid-cols-2 gap-12 mt-8">
+                  <div className="flex flex-col gap-6">
+                    <p className="text-xl md:text-2xl text-primary font-light leading-relaxed">
+                      {t("home.aboutLeadStart")}{" "}
+                      <span className="text-white font-medium">
+                        {t("home.aboutLeadHighlight")}
+                      </span>{" "}
+                      {t("home.aboutLeadEnd")}
+                    </p>
+                    <p className="text-lg text-secondary/70 leading-relaxed">
+                      {t("home.aboutBody")}
+                    </p>
+                    <div className="flex gap-4 mt-4">
+                      <div className="flex flex-col gap-1">
+                        <span className="text-3xl font-bold text-primary">8+</span>
+                        <span className="text-xs uppercase tracking-widest text-secondary/70 font-mono">
+                          {t("home.yearsLabel")}
+                        </span>
+                      </div>
                     </div>
                   </div>
+                  <div className="relative h-full min-h-[400px] rounded-3xl overflow-hidden bg-surface/50 border border-white/5 group">
+                    <img
+                      src={`${import.meta.env.BASE_URL}profile.jpg`}
+                      alt="Andrés Cruz"
+                      className="absolute inset-0 w-full h-full object-cover object-center grayscale contrast-125 brightness-110 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
+                  </div>
                 </div>
-                <div className="relative h-full min-h-[400px] rounded-3xl overflow-hidden bg-surface/50 border border-white/5 group">
-                  <img
-                    src={`${import.meta.env.BASE_URL}profile.jpg`}
-                    alt="Andrés Cruz"
-                    className="absolute inset-0 w-full h-full object-cover grayscale contrast-125 transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
-                </div>
-              </div>
-              <OrganizationsMarquee />
-            </Section>
-          </div>
-        </section>
+                <OrganizationsMarquee />
+              </Section>
+            </div>
+          </section>
 
         </div>
       </main>
