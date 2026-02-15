@@ -166,7 +166,7 @@ const projectsData: LocalizedProject[] = [
     },
     featured: true,
     description: {
-      es: "Diseñé diferentes experiencias comunitarias para apoyar la reconstrucción del tejido social de la población de la Dorada, Putumayo.\n\nPor medio de un ecosistema de artefactos y herramientas de diseño comunitario se implementó un sistema de lavado que integra sensores de monitoreo de agua, un punto de información y un programa de apropiación social en un municipio con 10.350 víctimas del conflicto armado colombiano.",
+      es: "Diseñé diferentes experiencias comunitarias para apoyar la reconstrucción del tejido social de la población de la Dorada, Putumayo.\n\n Por medio de un ecosistema de artefactos y herramientas de diseño comunitario se implementó un sistema de lavado que integra sensores de monitoreo de agua, un punto de información y un programa de apropiación social en un municipio con 10.350 víctimas del conflicto armado colombiano.",
       en: "I designed different community experiences to support the reconstruction of the social fabric in La Dorada, Putumayo.\n\nThrough an ecosystem of artifacts and community design tools, a washing system was implemented integrating water monitoring sensors, an information hub, and a social appropriation program in a municipality with 10,350 victims of the Colombian armed conflict.",
     },
     image: `${import.meta.env.BASE_URL}projects/plamp-hero.png`,

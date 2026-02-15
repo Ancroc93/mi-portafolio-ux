@@ -446,11 +446,10 @@ const EcosystemExplorer = () => {
               )}
               <button
                 onClick={() => jumpTo(crumb.level)}
-                className={`text-xs font-mono tracking-wide transition-colors ${
-                  i === breadcrumb.length - 1
+                className={`text-xs font-mono tracking-wide transition-colors ${i === breadcrumb.length - 1
                     ? "text-primary"
                     : "text-secondary/30 hover:text-secondary/60"
-                }`}
+                  }`}
               >
                 {crumb.label[locale]?.replace(/\n/g, " ")}
               </button>
@@ -685,13 +684,13 @@ const EcosystemExplorer = () => {
                 <p className="text-sm font-semibold text-primary mb-1.5">
                   {selectedLeaf.label[locale]?.replace(/\n/g, " ")}
                 </p>
-                <p className="text-sm text-secondary/60 leading-relaxed font-light">
+                <p className="text-sm text-secondary/60 leading-relaxed font-light whitespace-pre-line">
                   {selectedLeaf.description?.[locale]}
                 </p>
               </>
             ) : (
               activeNode?.description && (
-                <p className="text-sm text-secondary/60 leading-relaxed font-light">
+                <p className="text-sm text-secondary/60 leading-relaxed font-light whitespace-pre-line">
                   {activeNode.description[locale]}
                 </p>
               )

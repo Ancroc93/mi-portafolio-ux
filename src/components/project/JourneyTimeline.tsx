@@ -120,8 +120,8 @@ const JourneyTimeline = ({
                                         backgroundColor: isActive
                                             ? accentColor
                                             : isPast
-                                            ? `${accentColor}80`
-                                            : "transparent",
+                                                ? `${accentColor}80`
+                                                : "transparent",
                                     }}
                                     animate={isActive ? { scale: [1, 1.4, 1] } : { scale: 1 }}
                                     transition={
@@ -238,7 +238,7 @@ const JourneyTimeline = ({
                                     <span className="text-[10px] uppercase tracking-[0.25em] text-white/50 font-mono">
                                         {t("project.journeyInsights")}
                                     </span>
-                                    <p className="mt-1 text-sm md:text-[15px] text-white/75 leading-relaxed font-light">
+                                    <p className="mt-1 text-sm md:text-[15px] text-white/75 leading-relaxed font-light whitespace-pre-line">
                                         {step.insights}
                                     </p>
                                 </motion.div>

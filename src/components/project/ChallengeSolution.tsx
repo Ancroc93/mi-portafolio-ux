@@ -44,7 +44,7 @@ const ChallengeSolution = ({
     const renderParagraphs = (text: string) => {
         if (!text || typeof text !== "string") return [];
         const blocks = text
-            .split("\n\n")
+            .split(/\r?\n\r?\n/)
             .map((p) => p.trim())
             .filter(Boolean);
 

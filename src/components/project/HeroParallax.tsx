@@ -32,7 +32,7 @@ const HeroParallax = ({
     const ensurePlayback = useCallback(() => {
         const video = videoRef.current;
         if (video && video.paused) {
-            video.play().catch(() => {});
+            video.play().catch(() => { });
         }
     }, []);
 
@@ -41,7 +41,7 @@ const HeroParallax = ({
         if (!video) return;
 
         // Try to play on mount
-        video.play().catch(() => {});
+        video.play().catch(() => { });
 
         // Re-trigger if browser pauses it (e.g. due to GPU transform)
         const interval = setInterval(ensurePlayback, 1000);
@@ -114,7 +114,7 @@ const HeroParallax = ({
                         className="flex flex-col gap-6 text-xl md:text-3xl font-light text-white/90 max-w-3xl"
                     >
                         {typeof subtitle === "string"
-                            ? subtitle.split("\n\n").map((p, i) => <p key={i}>{p}</p>)
+                            ? subtitle.split(/\r?\n\r?\n/).map((p, i) => <p key={i}>{p}</p>)
                             : subtitle
                         }
                     </motion.div>

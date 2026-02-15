@@ -39,7 +39,7 @@ const SolutionDetail = ({
             </h3>
             <div className="space-y-4">
                 {block.content
-                    .split("\n\n")
+                    .split(/\r?\n\r?\n/)
                     .map((p) => p.trim())
                     .filter(Boolean)
                     .map((paragraph, i) => (
