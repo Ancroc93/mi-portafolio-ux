@@ -1,6 +1,5 @@
 import { motion, useScroll, useSpring, useTransform, useVelocity } from "framer-motion";
 import { useRef } from "react";
-import { ArrowDown } from "lucide-react";
 import { useI18n } from "../../i18n";
 
 /* ── Aurora orbs config ── */
@@ -221,18 +220,33 @@ const Hero = () => {
 
       </motion.div>
 
-      {/* ── Scroll Indicator (outside parallax container) ── */}
+      {/* ── Scroll hint: floating dot with drift ── */}
       <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        animate="visible"
-        custom={1.2}
-        className="absolute bottom-8 right-6 z-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.8 }}
+        style={{ opacity: contentOpacity }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1"
       >
-        <div className="flex items-center gap-2 text-xs font-mono text-white/70 uppercase tracking-widest animate-bounce">
-          {t("hero.scroll")}
-          <ArrowDown className="h-3 w-3" />
-        </div>
+        <motion.span
+          className="block w-[3px] h-[3px] rounded-full bg-white/40"
+          animate={{ y: [0, 6, 0] }}
+          transition={{
+            duration: 2.4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.span
+          className="block w-[3px] h-[3px] rounded-full bg-white/20"
+          animate={{ y: [0, 6, 0] }}
+          transition={{
+            duration: 2.4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.3,
+          }}
+        />
       </motion.div>
     </section>
   );
