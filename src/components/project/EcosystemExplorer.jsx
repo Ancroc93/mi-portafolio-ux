@@ -1,11 +1,5 @@
 import { useState, useCallback, useRef } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useI18n } from "../../i18n";
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -341,37 +335,6 @@ const EcosystemExplorer = () => {
   const [selectedLeaf, setSelectedLeaf] = useState(null);
   const vizRef = useRef(null);
 
-  /* ── Mouse parallax ─────────────────────────────────────────── */
-  const rawX = useMotionValue(0);
-  const rawY = useMotionValue(0);
-  const mx = useSpring(rawX, { stiffness: 120, damping: 25 });
-  const my = useSpring(rawY, { stiffness: 120, damping: 25 });
-
-  // Depth layers: ghost barely moves, center moderate, children most
-  const ghostX = useTransform(mx, (v) => v * 3);
-  const ghostY = useTransform(my, (v) => v * 3);
-  const centerX = useTransform(mx, (v) => v * 8);
-  const centerY = useTransform(my, (v) => v * 8);
-  const childLayerX = useTransform(mx, (v) => v * 14);
-  const childLayerY = useTransform(my, (v) => v * 14);
-
-  const handleMouseMove = useCallback(
-    (e) => {
-      const rect = vizRef.current?.getBoundingClientRect();
-      if (!rect) return;
-      const nx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-      const ny = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-      rawX.set(nx);
-      rawY.set(ny);
-    },
-    [rawX, rawY],
-  );
-
-  const handleMouseLeave = useCallback(() => {
-    rawX.set(0);
-    rawY.set(0);
-  }, [rawX, rawY]);
-
   /* ── State derivations ──────────────────────────────────────── */
   const activeNode = path.length === 0 ? TREE : findNode(TREE, path);
   const activeColor = resolveColor(TREE, path);
@@ -477,7 +440,7 @@ const EcosystemExplorer = () => {
         )}
         <div className="flex items-center gap-1.5 flex-wrap">
           {breadcrumb.map((crumb, i) => (
-            <span key={i} className="flex items-center gap-1.5">
+            <span key={`bc-${crumb.level}`} className="flex items-center gap-1.5">
               {i > 0 && (
                 <span className="text-secondary/20 text-xs">/</span>
               )}
@@ -500,8 +463,6 @@ const EcosystemExplorer = () => {
       <div className="flex flex-col items-center gap-8">
         <div
           ref={vizRef}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
           className="relative w-full aspect-square max-w-[640px]"
         >
           {/* L0 — Ambient glow */}
@@ -531,7 +492,6 @@ const EcosystemExplorer = () => {
                 exit={{ opacity: 0, scale: 1.1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
-                style={{ x: ghostX, y: ghostY }}
               >
                 <div
                   className="w-[62%] aspect-square rounded-full flex items-center justify-center"
@@ -579,7 +539,6 @@ const EcosystemExplorer = () => {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
               className="absolute inset-0 z-[2] pointer-events-none"
-              style={{ x: centerX, y: centerY }}
             >
               {/* Center halo */}
               <div
@@ -603,30 +562,18 @@ const EcosystemExplorer = () => {
                   height: `${CENTER_PCT}%`,
                 }}
               >
-                <motion.div
+                <div
                   className="w-full h-full rounded-full flex items-center justify-center text-center cursor-default"
                   style={{
                     background: `radial-gradient(circle at 40% 35%, ${activeColor}15 0%, ${activeColor}06 100%)`,
                     border: `1px solid ${activeColor}25`,
                     boxShadow: `0 0 60px ${activeColor}12, 0 0 120px ${activeColor}06, inset 0 1px 0 ${activeColor}10`,
                   }}
-                  animate={{
-                    boxShadow: [
-                      `0 0 60px ${activeColor}12, 0 0 120px ${activeColor}06, inset 0 1px 0 ${activeColor}10`,
-                      `0 0 80px ${activeColor}20, 0 0 140px ${activeColor}10, inset 0 1px 0 ${activeColor}15`,
-                      `0 0 60px ${activeColor}12, 0 0 120px ${activeColor}06, inset 0 1px 0 ${activeColor}10`,
-                    ],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
                 >
                   <span className="text-sm md:text-base font-semibold text-white/85 whitespace-pre-line leading-tight select-none">
                     {activeNode?.label[locale]}
                   </span>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -640,7 +587,6 @@ const EcosystemExplorer = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               className="absolute inset-0 z-[3] pointer-events-none"
-              style={{ x: childLayerX, y: childLayerY }}
             >
               {children.map((child, i) => {
                 const pos = positions[i];
@@ -669,12 +615,10 @@ const EcosystemExplorer = () => {
                       style={{
                         backgroundColor: isSelected
                           ? `${nodeColor}20`
-                          : "rgba(255,255,255,0.03)",
+                          : "rgba(255,255,255,0.05)",
                         border: isSelected
                           ? `1px solid ${nodeColor}50`
-                          : "1px solid rgba(255,255,255,0.07)",
-                        backdropFilter: "blur(12px)",
-                        WebkitBackdropFilter: "blur(12px)",
+                          : "1px solid rgba(255,255,255,0.08)",
                         boxShadow: isSelected
                           ? `0 0 16px ${nodeColor}20`
                           : "none",

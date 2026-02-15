@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "./cn";
 import { ArrowUpRight } from "lucide-react";
@@ -12,18 +12,14 @@ type ProjectListProps = {
 
 const ProjectList = ({ projects, className }: ProjectListProps) => {
     const [hoveredId, setHoveredId] = useState<string | null>(null);
-    const featuredVideoRef = useRef<HTMLVideoElement | null>(null);
     const { t } = useI18n();
 
     return (
         <div className={cn("flex flex-col w-full py-16 gap-[1px]", className)}>
             {projects.map((project) => {
                 const previewVideo =
-                    project.slug === "construyendo-democracia"
-                        ? project.caseStudy?.heroVideo
-                        : project.video && project.enableVideoPreview
-                            ? project.video
-                            : undefined;
+                    project.caseStudy?.heroVideo
+                        || (project.video && project.enableVideoPreview ? project.video : undefined);
 
                 return (
                 <Link
@@ -32,56 +28,44 @@ const ProjectList = ({ projects, className }: ProjectListProps) => {
                     className="group relative flex w-full flex-col md:flex-row md:items-center justify-between py-16 px-8 overflow-hidden transition-all"
                     onMouseEnter={() => {
                         setHoveredId(project.slug);
-                        if (project.slug === "construyendo-democracia" && featuredVideoRef.current) {
-                            void featuredVideoRef.current.play().catch(() => undefined);
-                        }
                     }}
                     onMouseLeave={() => {
                         setHoveredId(null);
-                        if (project.slug === "construyendo-democracia" && featuredVideoRef.current) {
-                            featuredVideoRef.current.pause();
-                            featuredVideoRef.current.currentTime = 0;
-                        }
                     }}
                 >
                     {/* Background Image/Video (Full Width) */}
-                    <div className="absolute inset-0 z-0">
-                        {project.slug === "construyendo-democracia" && previewVideo ? (
+                    <div className="absolute inset-0 z-0 overflow-hidden">
+                        {previewVideo ? (
                             <video
-                                ref={featuredVideoRef}
                                 src={previewVideo}
+                                autoPlay
                                 muted
                                 loop
                                 playsInline
                                 preload="metadata"
+                                poster={project.caseStudy?.heroImage || project.image}
                                 className={cn(
-                                    "absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out",
+                                    "absolute top-1/2 left-1/2 min-h-[110%] min-w-[110%] max-w-none transition-all duration-700 ease-out",
                                     hoveredId === project.slug
-                                        ? "opacity-100 grayscale-0 scale-105"
-                                        : "opacity-40 grayscale"
+                                        ? "grayscale-0 opacity-100"
+                                        : "grayscale opacity-40"
                                 )}
+                                style={{
+                                    transform: hoveredId === project.slug
+                                        ? "translate(-50%,-50%) scale(1.15)"
+                                        : "translate(-50%,-50%) scale(1.1)",
+                                    objectFit: "cover",
+                                }}
                             />
                         ) : (
-                            <>
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className={cn(
-                                        "h-full w-full object-cover transition-all duration-700 ease-out",
-                                        "grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
-                                    )}
-                                />
-                                {previewVideo && hoveredId === project.slug && (
-                                    <video
-                                        src={previewVideo}
-                                        autoPlay
-                                        muted
-                                        loop
-                                        playsInline
-                                        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                                    />
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                className={cn(
+                                    "h-full w-full object-cover transition-all duration-700 ease-out",
+                                    "grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
                                 )}
-                            </>
+                            />
                         )}
                         {/* Gradient Overlay for Text Readability */}
                         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-[1]" />

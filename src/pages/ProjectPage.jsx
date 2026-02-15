@@ -151,26 +151,24 @@ const ProjectPage = () => {
     let heroSubtitle = project.description;
     if (project.slug === "registro-personas-juridicas") {
       heroSubtitle = locale === "es"
-        ? emphasizeSubstring(
-            project.description,
-            "llevando la tasa de completitud del 46.87% al 62.37% y la conversión a compliance del 39.72% al 50.20%.",
-            "font-semibold"
-          )
-        : emphasizeSubstring(
-            project.description,
-            "improving completion rate from 46.87% to 62.37% and compliance conversion from 39.72% to 50.20%.",
-            "font-semibold"
-          );
+        ? (<>
+            <p>Rediseñé la experiencia de registro para empresas en Mercado Pago, <strong className="font-semibold">llevando la tasa de completitud del 46 al 62% y la conversión a compliance del 39 al 50%.</strong></p>
+            <p>Un proceso que antes tardaba 15 minutos, era confuso y generaba drop en pasos clave, hoy genera una mayor y mejor conversión de forma sostenida.</p>
+          </>)
+        : (<>
+            <p>I redesigned the company registration experience in Mercado Pago, <strong className="font-semibold">improving completion rate from 46% to 62% and compliance conversion from 39% to 50%.</strong></p>
+            <p>A process that used to take 15 minutes, was confusing and caused drop-offs at key steps, now drives higher and more consistent conversion.</p>
+          </>);
     } else if (project.slug === "plamp") {
       heroSubtitle = locale === "es"
         ? emphasizeSubstring(
             project.description,
-            "Más de 80 personas participaron activamente en comités de restauración del espacio público, 60 estudiantes se formaron en talleres de educación ambiental, y la comunidad redujo el consumo de agua sin sacrificar la dinámica social del espacio.",
+            "un sistema de lavado que integra sensores de monitoreo de agua, un punto de información y un programa de apropiación social en un municipio con 10.350 víctimas del conflicto armado colombiano.",
             "font-semibold"
           )
         : emphasizeSubstring(
             project.description,
-            "Over 80 people actively participated in public space restoration committees, 60 students were trained in environmental education workshops, and the community reduced water consumption without sacrificing the social dynamics of the space.",
+            "a washing system was implemented integrating water monitoring sensors, an information hub, and a social appropriation program in a municipality with 10,350 victims of the Colombian armed conflict.",
             "font-semibold"
           );
     } else if (project.slug === "construyendo-democracia") {
@@ -212,7 +210,7 @@ const ProjectPage = () => {
           ? [
             {
               subtitle: "Primero la narrativa, después la interfaz",
-              content: "Antes de tocar un solo componente, construí una historia de contenido completa: prototipos de texto, testeo de mensajes y escenarios. Esto me dio las bases para que UI y copy se contaran mutuamente una historia sin ruido.",
+              content: "Antes de tocar un solo componente, construí una historia de contenido completa: prototipos de texto, testeo de mensajes y escenarios. Esto me dio las bases para que a través de herramientas de UI y de copy se contara una historia sin ruido.",
             },
             {
               subtitle: "Iteraciones rápidas, decisiones con datos",
@@ -220,7 +218,7 @@ const ProjectPage = () => {
             },
             {
               subtitle: "Ciclos completos de iteración en 3 días",
-              content: "Diseñar → estresar → testear → aprender → Iterar.\nCada decisión de diseño estuvo respaldada por benchmarks cross-industry y datos de comportamiento real.\n\nAI y automatizaciones para absorber complejidad, no para decorar. Integré inteligencia artificial en puntos estratégicos del flujo con un objetivo concreto: que el sistema hiciera el trabajo pesado, no el usuario. Por ejemplo, a partir de un solo número de CUIT, el flujo auto-completaba razón social, domicilio legal y datos del negocio — eliminando pasos manuales y reduciendo errores.",
+              content: "Diseñar → estresar → testear → aprender → Iterar. Cada decisión de diseño estuvo respaldada por benchmarks cross-industry y datos de comportamiento real.\n\nIntegré inteligencia artificial en puntos estratégicos del flujo con un objetivo concreto: que el sistema hiciera el trabajo pesado, no el usuario. Por ejemplo, a partir de un solo número de CUIT, el flujo auto-completaba razón social, domicilio legal y datos del negocio — eliminando pasos manuales y reduciendo errores.",
             },
             {
               subtitle: "Arquitectura modular y escalable",
@@ -238,7 +236,7 @@ const ProjectPage = () => {
             },
             {
               subtitle: "Full iteration cycles in 3 days",
-              content: "Design → stress-test → test → learn → Iterate.\nEvery design decision was backed by cross-industry benchmarks and real behavioral data.\n\nAI and automation to absorb complexity, not to decorate. I integrated artificial intelligence at strategic points in the flow with one clear goal: let the system do the heavy lifting, not the user. For example, from a single tax ID number, the flow auto-filled company name, legal address, and business data — eliminating manual steps and reducing errors.",
+              content: "Design → stress-test → test → learn → Iterate. Every design decision was backed by cross-industry benchmarks and real behavioral data.\n\nI integrated artificial intelligence at strategic points in the flow with one clear goal: let the system do the heavy lifting, not the user. For example, from a single tax ID number, the flow auto-filled company name, legal address, and business data — eliminating manual steps and reducing errors.",
             },
             {
               subtitle: "Modular and scalable architecture",
@@ -550,10 +548,7 @@ const ProjectPage = () => {
           rows: [
             { metric: "Participación comunitaria", before: "", after: "+80 personas en comités e intervenciones de restauración", delta: "" },
             { metric: "Formación", before: "", after: "~60 estudiantes en talleres de educación ambiental", delta: "" },
-            { metric: "Consumo de agua", before: "", after: "Reducción medible durante meses de seguimiento", delta: "" },
             { metric: "Impacto ambiental", before: "", after: "Disminución en deposición de desechos en la fuente hídrica", delta: "" },
-            { metric: "Sostenibilidad", before: "", after: "Proyecto implementado y funcionando en la comunidad", delta: "" },
-            { metric: "Cambio de comportamiento", before: "", after: "Tiempos de lavado optimizados sin deteriorar la dinámica social", delta: "" },
           ],
           evolutionTitle: "Impacto sostenible",
           introLead: "El verdadero indicador de éxito:",
@@ -572,10 +567,7 @@ const ProjectPage = () => {
           rows: [
             { metric: "Community participation", before: "", after: "80+ people in committees and restoration interventions", delta: "" },
             { metric: "Training", before: "", after: "~60 students in environmental education workshops", delta: "" },
-            { metric: "Water consumption", before: "", after: "Measurable reduction during follow-up months", delta: "" },
             { metric: "Environmental impact", before: "", after: "Decreased waste deposits in water source", delta: "" },
-            { metric: "Sustainability", before: "", after: "Project implemented and operational in the community", delta: "" },
-            { metric: "Behavior change", before: "", after: "Washing times optimized without harming social dynamics", delta: "" },
           ],
           evolutionTitle: "Sustainable impact",
           introLead: "The true success indicator:",
@@ -857,20 +849,20 @@ const ProjectPage = () => {
     if (project.slug === "registro-personas-juridicas") {
       takeawaysData = locale === "es"
         ? {
-          title: "Lo que me llevé",
+          title: "Aprendizajes clave",
           items: [
             { label: "Pensamiento estratégico", content: "Reencuadré el problema — de \"flujo largo\" a \"flujo confuso\" — cambiando la dirección del proyecto." },
-            { label: "Content-first design", content: "Prioricé la narrativa del contenido antes de la interfaz, logrando coherencia entre UI y copy." },
+            { label: "Content-first design", content: "Prioricé la construcción de la narrativa antes que la interfaz para que la línea gráfica también contara la historia de forma coherente." },
             { label: "Impacto medible en negocio", content: "+16% en registro y +11% en PJ compliance = más empresas operando en Mercado Pago, más volumen transaccional." },
             { label: "Crecimiento sostenido", content: "No fue un one-shot. La curva ascendente prueba que el diseño resolvió problemas estructurales." },
             { label: "AI aplicada con criterio", content: "No como tendencia, sino como herramienta para reducir fricción real." },
           ],
         }
         : {
-          title: "Key takeaways",
+          title: "Key learnings",
           items: [
             { label: "Strategic thinking", content: "I reframed the problem — from a \"long flow\" to a \"confusing flow\" — changing the direction of the project." },
-            { label: "Content-first design", content: "I prioritized content narrative before interface, achieving coherence between UI and copy." },
+            { label: "Content-first design", content: "I prioritized building the narrative before the interface so that the visual language would also tell the story coherently." },
             { label: "Measurable business impact", content: "+16% in registration and +11% in PJ compliance = more companies operating in Mercado Pago, more transactional volume." },
             { label: "Sustained growth", content: "It was not a one-shot. The upward curve proves the design solved structural problems." },
             { label: "AI applied with intention", content: "Not as a trend, but as a practical tool to reduce real friction." },
@@ -879,9 +871,9 @@ const ProjectPage = () => {
     } else if (project.slug === "plamp") {
       takeawaysData = locale === "es"
         ? {
-          title: "Lo que me llevé",
+          title: "Aprendizajes clave",
           items: [
-            { label: "Diseño en contexto extremo", content: "Aprendí que en territorios de conflicto, la metodología importa tanto como la solución. Sin confianza, no hay adopción." },
+            { label: "Diseño en contexto extremo", content: "Aprendí que en territorios de conflicto y poblaciones vulnerables, la metodología importa tanto como la solución. Sin confianza, no hay apropiación real de las iniciativas, ni resultados sostenibles." },
             { label: "Co-diseño real, no performativo", content: "Los modelos físicos y los comités abiertos no fueron un paso del proceso — fueron el proceso. La comunidad no validó mi diseño; lo construimos juntos." },
             { label: "Producto multimodal", content: "Conecté intervención física + tecnología IoT + programa social en un sistema coherente. Cada capa resolvía un dolor distinto pero todas se reforzaban mutuamente." },
             { label: "Diseño que se sostiene solo", content: "El verdadero KPI de éxito: meses después de irme, el proyecto seguía funcionando y la comunidad seguía usándolo y cuidándolo." },
@@ -889,9 +881,9 @@ const ProjectPage = () => {
           ],
         }
         : {
-          title: "Key takeaways",
+          title: "Key learnings",
           items: [
-            { label: "Design in extreme context", content: "I learned that in conflict territories, methodology matters as much as the solution. Without trust, there is no adoption." },
+            { label: "Design in extreme context", content: "I learned that in conflict territories and vulnerable populations, methodology matters as much as the solution. Without trust, there is no real appropriation of initiatives, nor sustainable results." },
             { label: "Real co-design, not performative", content: "Physical models and open committees weren't a step in the process — they were the process. The community didn't validate my design; we built it together." },
             { label: "Multimodal product", content: "I connected physical intervention + IoT technology + social program into a coherent system. Each layer solved a different pain point, but all reinforced each other." },
             { label: "Design that sustains itself", content: "The true success KPI: months after I left, the project kept running and the community kept using and caring for it." },
@@ -901,7 +893,7 @@ const ProjectPage = () => {
     } else if (project.slug === "construyendo-democracia") {
       takeawaysData = locale === "es"
         ? {
-          title: "Lo que me llevé",
+          title: "Aprendizajes clave",
           items: [
             { label: "Service Design en medios independientes", content: "Aprendí que las herramientas de diseño de servicio son igual de potentes en un medio digital que en una empresa de tecnología — journey maps, blueprints y prototipos de servicio ayudaron a dar estructura a un proyecto con recursos limitados." },
             { label: "Producto de nicho ≠ producto sin estrategia", content: "El hecho de que CD,M sea un producto de nicho no significa que no pueda crecer estratégicamente. La clave fue innovar en los canales de distribución sin alterar la esencia del producto principal." },
@@ -911,7 +903,7 @@ const ProjectPage = () => {
           ],
         }
         : {
-          title: "Key takeaways",
+          title: "Key learnings",
           items: [
             { label: "Service Design in independent media", content: "I learned that service design tools are equally powerful in a digital media outlet as in a tech company — journey maps, blueprints, and service prototypes helped structure a project with limited resources." },
             { label: "Niche product ≠ product without strategy", content: "The fact that CD,M is a niche product doesn't mean it can't grow strategically. The key was innovating in distribution channels without altering the core product's essence." },

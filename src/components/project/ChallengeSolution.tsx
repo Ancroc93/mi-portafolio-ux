@@ -41,19 +41,58 @@ const ChallengeSolution = ({
         return paragraph;
     };
 
-    const renderParagraphs = (text: string) =>
-        text
+    const renderParagraphs = (text: string) => {
+        if (!text || typeof text !== "string") return [];
+        const blocks = text
             .split("\n\n")
-            .map((paragraph) => paragraph.trim())
-            .filter(Boolean)
-            .map((paragraph, index) => (
-                <p
-                    key={`${paragraph.slice(0, 24)}-${index}`}
-                    className="text-lg md:text-xl text-secondary leading-relaxed font-light"
-                >
-                    {highlightSentence(paragraph)}
-                </p>
-            ));
+            .map((p) => p.trim())
+            .filter(Boolean);
+
+        const result: React.ReactNode[] = [];
+        let i = 0;
+        let listCounter = 0;
+
+        while (i < blocks.length) {
+            if (!blocks[i]) { i++; continue; }
+
+            // Group consecutive blocks starting with — into a <ul>
+            if (blocks[i].startsWith("—")) {
+                const listItems: string[] = [];
+                while (i < blocks.length && blocks[i]?.startsWith("—")) {
+                    listItems.push(blocks[i].replace(/^—\s*/, ""));
+                    i++;
+                }
+                result.push(
+                    <ul
+                        key={`list-${listCounter++}`}
+                        className="space-y-3 pl-1"
+                    >
+                        {listItems.map((item, li) => (
+                            <li
+                                key={`li-${li}`}
+                                className="flex items-start gap-3 text-lg md:text-xl text-secondary leading-relaxed font-light"
+                            >
+                                <span className="mt-2.5 h-1.5 w-1.5 rounded-full bg-secondary/30 shrink-0" />
+                                <span>{item}</span>
+                            </li>
+                        ))}
+                    </ul>,
+                );
+            } else {
+                result.push(
+                    <p
+                        key={`para-${i}`}
+                        className="text-lg md:text-xl text-secondary leading-relaxed font-light"
+                    >
+                        {highlightSentence(blocks[i])}
+                    </p>,
+                );
+                i++;
+            }
+        }
+
+        return result;
+    };
 
     const isVideoSrc = (src: string) => /\.(mp4|m4v|webm|mov)$/i.test(src);
     const videoMimeType = (src: string) => {

@@ -57,13 +57,14 @@ const OrganizationsMarquee = ({ organizations = [] }) => {
         <div className="organization-marquee-track flex w-max items-center gap-10 py-5 px-8">
           {loopItems.map((org, index) => (
             <img
-              key={`${org.name}-${index}`}
+              key={`${org.name}-${index < items.length ? "a" : "b"}-${index % items.length}`}
               src={org.logo}
-              alt={org.name}
+              alt={org.name || "Organization logo"}
               className={`h-7 md:h-8 w-auto shrink-0 object-contain opacity-80 grayscale contrast-125 transition-all duration-300 hover:opacity-100 hover:grayscale-0 ${
                 org.name === "Universidad Distrital" ? "invert" : ""
               }`}
               loading="lazy"
+              onError={(e) => { e.currentTarget.style.display = "none"; }}
             />
           ))}
         </div>

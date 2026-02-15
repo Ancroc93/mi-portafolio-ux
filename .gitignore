@@ -35,3 +35,6 @@ sanity/dist
 *.sln
 *.sw?
 .agent/
+.cursor/
+*.tmp
+.tmp*

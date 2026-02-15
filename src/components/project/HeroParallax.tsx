@@ -59,9 +59,9 @@ const HeroParallax = ({
             className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 md:pt-32 md:pb-20"
             style={{ "--project-accent": accentColor } as React.CSSProperties}
         >
-            {/* Parallax Background */}
+            {/* Parallax Background — oversized to prevent gap during scroll */}
             <motion.div
-                className="absolute inset-0 z-0"
+                className="absolute -top-[25%] left-0 right-0 h-[150%] z-0"
                 style={{ y }}
             >
                 {backgroundVideo ? (
@@ -86,7 +86,7 @@ const HeroParallax = ({
                     />
                 )}
                 {/* Dark overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/85" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/75" />
             </motion.div>
 
             {/* Content */}
@@ -98,7 +98,7 @@ const HeroParallax = ({
                     initial={{ y: 40, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white leading-[0.95] md:leading-[0.9] mb-6"
+                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[0.95] md:leading-[0.9] mb-6"
                     style={{
                         textShadow: "0 4px 30px rgba(0,0,0,0.3)",
                     }}
@@ -107,14 +107,17 @@ const HeroParallax = ({
                 </motion.h1>
 
                 {subtitle && (
-                    <motion.p
+                    <motion.div
                         initial={{ y: 40, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                        className="text-xl md:text-3xl font-light text-white/90 max-w-3xl"
+                        className="flex flex-col gap-6 text-xl md:text-3xl font-light text-white/90 max-w-3xl"
                     >
-                        {subtitle}
-                    </motion.p>
+                        {typeof subtitle === "string"
+                            ? subtitle.split("\n\n").map((p, i) => <p key={i}>{p}</p>)
+                            : subtitle
+                        }
+                    </motion.div>
                 )}
             </motion.div>
 
