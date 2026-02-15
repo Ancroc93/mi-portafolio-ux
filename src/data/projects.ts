@@ -197,6 +197,51 @@ const projectsData: LocalizedProject[] = [
         `${import.meta.env.BASE_URL}projects/plamp-challenge-05.png`,
       ],
       accentColor: "#3B8A5A",
+      nextProjectSlug: "construyendo-democracia",
+    },
+    blocks: [],
+  },
+  {
+    slug: "construyendo-democracia",
+    title: {
+      es: "Diseño de servicio para un medio digital independiente",
+      en: "Service design for an independent digital media",
+    },
+    year: "2020",
+    location: {
+      es: "Colombia",
+      en: "Colombia",
+    },
+    role: {
+      es: "Service Designer & Ilustrador",
+      en: "Service Designer & Illustrator",
+    },
+    featured: true,
+    description: {
+      es: "Diseñé la estrategia de servicio y el modelo de crecimiento de Construyendo Democracia, Maestro — un medio digital independiente que contribuye a la reconstrucción del tejido social colombiano a través de periodismo investigativo multimedia sobre el conflicto armado. En 11 meses, el proyecto evolucionó de un podcast a una plataforma multimedia con investigaciones estructuradas desde tres perspectivas: el espacio, los protagonistas y los procesos de resistencia.",
+      en: "I designed the service strategy and growth model for Construyendo Democracia, Maestro — an independent digital media that contributes to rebuilding Colombia's social fabric through multimedia investigative journalism about the armed conflict. In 11 months, the project evolved from a podcast into a multimedia platform with structured investigations from three perspectives: space, protagonists, and resistance processes.",
+    },
+    image: `${import.meta.env.BASE_URL}logos/construyendo-democracia.png`,
+    tags: {
+      es: ["Service Design", "Estrategia Digital", "Periodismo Multimedia", "Diseño Social"],
+      en: ["Service Design", "Digital Strategy", "Multimedia Journalism", "Social Design"],
+    },
+    metrics: [
+      { label: { es: "Evolución", en: "Evolution" }, value: "Podcast → Plataforma" },
+      { label: { es: "Planificación", en: "Planning" }, value: "11 meses" },
+    ],
+    caseStudy: {
+      heroImage: `${import.meta.env.BASE_URL}logos/construyendo-democracia.png`,
+      heroVideo: `${import.meta.env.BASE_URL}projects/construyendo-democracia-hero.mp4`,
+      challenge: {
+        es: "Colombia atraviesa una etapa única en su historia. Cuatro años después de la firma de los acuerdos de paz, los actos de reconciliación y reconstrucción de memoria son cada vez más conocidos. Sin embargo, los espacios existentes para generar reflexión y dar voz a las víctimas de este largo conflicto no son suficientes.\n\nEs difícil encontrar en los medios tradicionales información verificada, presentada de manera imparcial, que ayude a construir los puentes necesarios entre los diferentes actores involucrados en el conflicto.\n\nEn este contexto, dos tendencias abren una ventana de oportunidad:\n\n1. El auge del contenido digital\n2. La transformación en la forma en que el periodismo tradicional habla del conflicto armado colombiano\n\nAsí nace Construyendo Democracia, Maestro: una iniciativa que creció hasta convertirse en un medio digital independiente que contribuye a la reconstrucción del tejido social a través de investigaciones relacionadas con el conflicto armado colombiano, desde tres perspectivas principales: el espacio, los protagonistas y los procesos de resistencia y reparación — todo a través de una narrativa multimedia.",
+        en: "Colombia is going through a unique stage in its history. Four years after the signing of the peace agreements, acts of reconciliation and memory reconstruction are becoming increasingly known. However, the existing spaces to generate reflection and give voice to the victims of this long conflict are not enough.\n\nIt is difficult to find in traditional media verified information presented impartially that helps build the necessary bridges between the different actors involved in the conflict.\n\nIn this context, two trends open a window of opportunity:\n\n1. The rise of digital content\n2. The transformation in the way traditional journalism talks about the Colombian armed conflict\n\nThis is how Construyendo Democracia, Maestro was born: an initiative that grew into an independent digital media contributing to the reconstruction of the social fabric through research related to the Colombian armed conflict, from three main perspectives: space, protagonists, and resistance and reparation processes — all through multimedia narrative.",
+      },
+      solution: {
+        es: "Construyendo Democracia, Maestro es un medio independiente que después de 11 meses de planificación atravesó diferentes fases que ayudaron a estructurar y replantear los objetivos.\n\nFase 1 — Validación (4 meses): Se lanza un podcast y se evalúa la recepción de la iniciativa por parte de la comunidad.\n\nFase 2 — Estructuración (4 meses): Se estructuran todos los procesos internos necesarios para que el medio evolucione de un podcast a un medio multimedia más completo, con una estructura de investigación seria y enfocada. Durante esta etapa se incorporan nuevos profesionales al equipo.\n\nFase 3 — MVP y rediseño del servicio: Comienza con la emisión inaugural del medio y el lanzamiento del sitio web oficial. En esta fase (donde ingreso como service designer e ilustrador) se realizan cambios estructurales en los flujos de trabajo y en el enfoque del concepto de servicio, además de explorar nuevas posibilidades para aumentar el impacto en redes sociales.\n\nEl hallazgo clave: CD,M es un producto de nicho. No podemos hacer cambios drásticos en el producto principal (periodismo investigativo), pero sí necesitamos innovar en otros aspectos del sistema — particularmente en redes sociales como herramienta primaria para entender la segmentación de usuarios.",
+        en: "Construyendo Democracia, Maestro is an independent media that after 11 months of planning went through different phases that helped structure and rethink objectives.\n\nPhase 1 — Validation (4 months): A podcast is launched and the community's reception of the initiative is evaluated.\n\nPhase 2 — Structuring (4 months): All necessary internal processes are structured so the media can evolve from a podcast into a more complete multimedia outlet, with a serious and focused research structure. During this stage, new professionals are recruited.\n\nPhase 3 — MVP and service redesign: Begins with the media's inaugural broadcast and the launch of the official website. In this phase (where I enter as service designer and illustrator) structural changes are made to workflows and the service concept approach, while exploring new possibilities for increasing social media impact.\n\nThe key insight: CD,M is a niche product. We cannot make drastic changes to the main product (investigative journalism), but we need to innovate in other aspects of the system — particularly social media as a primary tool to understand user segmentation.",
+      },
+      accentColor: "#C44536",
       nextProjectSlug: "registro-personas-juridicas",
     },
     blocks: [],

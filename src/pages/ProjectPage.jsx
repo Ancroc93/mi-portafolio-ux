@@ -20,6 +20,8 @@ import SpotlightCollage from "../components/project/SpotlightCollage";
 import ProjectCredits from "../components/project/ProjectCredits";
 import TakeawaysSection from "../components/project/TakeawaysSection";
 import JourneyTimeline from "../components/project/JourneyTimeline";
+import EcosystemExplorer from "../components/project/EcosystemExplorer";
+import ServiceBlueprintBoard from "../components/project/ServiceBlueprintBoard";
 
 const emphasizeSubstring = (text, substring, className = "font-semibold") => {
   if (typeof text !== "string" || !substring) return text;
@@ -171,6 +173,18 @@ const ProjectPage = () => {
             "Over 80 people actively participated in public space restoration committees, 60 students were trained in environmental education workshops, and the community reduced water consumption without sacrificing the social dynamics of the space.",
             "font-semibold"
           );
+    } else if (project.slug === "construyendo-democracia") {
+      heroSubtitle = locale === "es"
+        ? emphasizeSubstring(
+            project.description,
+            "En 11 meses, el proyecto evolucionó de un podcast a una plataforma multimedia con investigaciones estructuradas desde tres perspectivas: el espacio, los protagonistas y los procesos de resistencia.",
+            "font-semibold"
+          )
+        : emphasizeSubstring(
+            project.description,
+            "In 11 months, the project evolved from a podcast into a multimedia platform with structured investigations from three perspectives: space, protagonists, and resistance processes.",
+            "font-semibold"
+          );
     }
 
     let solutionComment;
@@ -182,9 +196,15 @@ const ProjectPage = () => {
       solutionComment = locale === "es"
         ? "Creíamos que el problema era optimizar el uso de agua. Al llegar al territorio descubrimos que el verdadero desafío era reconstruir confianza."
         : "We thought the problem was optimizing water usage. When we arrived on the ground, we discovered the real challenge was rebuilding trust.";
+    } else if (project.slug === "construyendo-democracia") {
+      solutionComment = locale === "es"
+        ? "Creíamos que el desafío era crear contenido. El verdadero desafío era diseñar un sistema que nos permitiera entender a quién le hablábamos."
+        : "We thought the challenge was creating content. The real challenge was designing a system that would help us understand who we were talking to.";
     }
 
     let solutionDetailData = null;
+    let journeyBlueprintData = null;
+    let serviceBlueprintData = null;
     if (project.slug === "registro-personas-juridicas") {
       solutionDetailData = {
         title: locale === "es" ? "La solución" : "The Solution",
@@ -256,6 +276,215 @@ const ProjectPage = () => {
             {
               subtitle: "Fast iterations in extreme context",
               content: "Every design iteration was resolved on-site, with local resources and builders from the area. This wasn't a sprint in an office — it was co-design in a conflict territory, where execution speed depended on the trust built with the community.",
+            },
+          ],
+      };
+    } else if (project.slug === "construyendo-democracia") {
+      journeyBlueprintData = locale === "es"
+        ? {
+          subtitle: "User Journey Map y Service Blueprint",
+          content: "Diseñamos una adaptación del User Journey Map y un Service Blueprint para identificar los puntos más críticos del servicio en relación con la interacción con los usuarios. Esto nos permitió identificar los momentos que requieren más trabajo del equipo y los puntos de contacto en cada etapa de la experiencia.\n\nCon estas herramientas, fue más fácil proponer modificaciones al servicio entendiendo el valor real que estos cambios tendrían para nuestros usuarios.",
+        }
+        : {
+          subtitle: "User Journey Map & Service Blueprint",
+          content: "We designed an adaptation of the User Journey Map and a Service Blueprint to identify the most critical points of our service regarding user interaction. This helped us identify the moments that require the most work from our team and the interaction touchpoints at each stage of the experience.\n\nWith these tools, it became easier to propose service modifications while understanding the real value these changes would have for our users.",
+        };
+
+      serviceBlueprintData = locale === "es"
+        ? {
+          title: "Service Blueprint",
+          subtitle: "Modelamos los momentos críticos del servicio para visualizar la experiencia del usuario y las operaciones internas que la sostienen.",
+          labels: {
+            moments: "Momentos",
+            touchpoints: "Touch points",
+            backstage: "Backstage",
+            frontstage: "Frontstage",
+          },
+          phases: [
+            { label: "Antes de usar el servicio", span: 3 },
+            { label: "Durante el uso del servicio", span: 7 },
+            { label: "Después de usar el servicio", span: 3 },
+          ],
+          moments: [
+            {
+              label: "Descubrimiento del producto",
+              touchpoints: ["Voz a voz", "Orgánico", "Anuncios en redes"],
+              backstage: ["Voz a voz", "Orgánico", "Social media advertising", "Articulación de aliados"],
+            },
+            {
+              label: "Primer contacto con la marca",
+              touchpoints: ["Post en redes", "Escucha de podcast"],
+              backstage: ["Social media post", "Podcast listening", "Web published research", "Instagram lives"],
+            },
+            {
+              label: "Sigue a CD,M en redes",
+              touchpoints: ["Seguir perfiles", "Interacciones iniciales"],
+              backstage: ["Follow on podcast platforms", "Follow on social media"],
+            },
+            {
+              label: "Lee investigación principal",
+              touchpoints: ["Sección Coordenadas", "Sección Gritos"],
+              backstage: ["Edición y fact-checking", "Diseño editorial web"],
+            },
+            {
+              label: "Consume contenido complementario",
+              touchpoints: ["Post en redes", "Escucha podcast"],
+              backstage: ["Repurposing multimedia", "Curaduría temática"],
+            },
+            {
+              label: "Interactúa en redes",
+              touchpoints: ["Lives en Instagram", "Comentarios y DMs"],
+              backstage: ["Moderación", "Analítica de engagement"],
+            },
+            {
+              label: "Podcast y eventos",
+              touchpoints: ["Podcast mensual", "Evento especial"],
+              backstage: ["Producción audiovisual", "Coordinación de invitados"],
+            },
+            {
+              label: "Foro",
+              touchpoints: ["Formulario de registro", "Confirmación mail"],
+              backstage: ["Automatización de registro", "Soporte de acceso"],
+            },
+            {
+              label: "Registro",
+              touchpoints: ["Acceso a sala virtual", "Encuesta final"],
+              backstage: ["Base de datos de audiencia", "Segmentación por afinidad"],
+            },
+            {
+              label: "Comunicación uno a uno",
+              touchpoints: ["Post personalizado", "Sección web relacionada"],
+              backstage: ["CRM editorial", "Planificación de recorridos de contenido"],
+            },
+            {
+              label: "Compra de merchandising",
+              touchpoints: ["Tienda web", "Checkout"],
+              backstage: ["Gestión de catálogo", "Operación logística"],
+            },
+            {
+              label: "Donaciones",
+              touchpoints: ["Página de aportes", "Pasarela de pago"],
+              backstage: ["Reporte financiero", "Seguimiento de aportantes"],
+            },
+            {
+              label: "Se activa en CD,M",
+              touchpoints: ["Sitio web", "E-mail"],
+              backstage: ["Programa de fidelización", "Nuevos ciclos de contenido"],
+            },
+          ],
+        }
+        : {
+          title: "Service Blueprint",
+          subtitle: "We mapped the most critical service moments to visualize user experience and the internal operations that sustain it.",
+          labels: {
+            moments: "Moments",
+            touchpoints: "Touch points",
+            backstage: "Backstage",
+            frontstage: "Frontstage",
+          },
+          phases: [
+            { label: "Before using the service", span: 3 },
+            { label: "During service use", span: 7 },
+            { label: "After using the service", span: 3 },
+          ],
+          moments: [
+            {
+              label: "Product discovery",
+              touchpoints: ["Word of mouth", "Organic channels", "Social ads"],
+              backstage: ["Word of mouth", "Organic", "Social media advertising", "External allies"],
+            },
+            {
+              label: "First contact with the brand",
+              touchpoints: ["Social post", "Podcast listening"],
+              backstage: ["Social media post", "Podcast listening", "Web published research", "Instagram lives"],
+            },
+            {
+              label: "Follows CD,M on social media",
+              touchpoints: ["Follow profiles", "Initial interactions"],
+              backstage: ["Follow on podcast platforms", "Follow on social media"],
+            },
+            {
+              label: "Reads core research",
+              touchpoints: ["Coordenadas section", "Gritos section"],
+              backstage: ["Editing and fact-checking", "Web editorial design"],
+            },
+            {
+              label: "Consumes complementary content",
+              touchpoints: ["Social posts", "Podcast listening"],
+              backstage: ["Multimedia repurposing", "Topic curation"],
+            },
+            {
+              label: "Interacts on social media",
+              touchpoints: ["Instagram lives", "Comments and DMs"],
+              backstage: ["Moderation", "Engagement analytics"],
+            },
+            {
+              label: "Podcast and events",
+              touchpoints: ["Monthly podcast", "Special event"],
+              backstage: ["AV production", "Guest coordination"],
+            },
+            {
+              label: "Forum",
+              touchpoints: ["Registration form", "Mail confirmation"],
+              backstage: ["Registration automation", "Access support"],
+            },
+            {
+              label: "Registration",
+              touchpoints: ["Virtual room access", "Final survey"],
+              backstage: ["Audience database", "Affinity segmentation"],
+            },
+            {
+              label: "One-to-one communication",
+              touchpoints: ["Personalized post", "Related web section"],
+              backstage: ["Editorial CRM", "Content journey planning"],
+            },
+            {
+              label: "Merchandising purchase",
+              touchpoints: ["Web store", "Checkout"],
+              backstage: ["Catalog management", "Logistics operation"],
+            },
+            {
+              label: "Donations",
+              touchpoints: ["Contributions page", "Payment gateway"],
+              backstage: ["Financial reporting", "Donor follow-up"],
+            },
+            {
+              label: "Activates in CD,M",
+              touchpoints: ["Website", "E-mail"],
+              backstage: ["Loyalty program", "New content cycles"],
+            },
+          ],
+        };
+
+      solutionDetailData = {
+        title: locale === "es" ? "Concepto de diseño y prototipo de servicio" : "Design Concept & Service Prototype",
+        blocks: locale === "es"
+          ? [
+            {
+              subtitle: "Definición del arquetipo de usuario",
+              content: "Tomamos los datos demográficos recolectados durante la planificación del medio a través de entrevistas y encuestas, y los contrastamos con los datos de redes sociales durante la fase MVP. Esto nos permitió estructurar un perfil de user persona que sirvió como base para definir dos conceptos fundamentales para la planificación del sistema.",
+            },
+            {
+              subtitle: "Propuesta de valor y mapa de concepto",
+              content: "Una vez definido el arquetipo de usuario, creamos un mapa que nos permitió visualizar la propuesta de valor de CD,M. Estructuramos la información recolectada durante las dos primeras fases del proyecto para identificar oportunidades de innovación sin alterar el producto principal.",
+            },
+            {
+              subtitle: "Prototipo de microservicio",
+              content: "Propusimos un nuevo microservicio basado en tres pilares:\n\n01. Reuniones virtuales con expertos invitados sobre temas específicos, recolectando datos de los asistentes.\n\n02. Base de datos estructurada para organizar la información según las afinidades de los usuarios.\n\n03. Campañas publicitarias segmentadas usando herramientas de redes sociales para identificar los grupos de usuarios con mayor respuesta — optimizando la inversión en publicidad en fases posteriores.",
+            },
+          ]
+          : [
+            {
+              subtitle: "User archetype definition",
+              content: "We took the demographic data collected during the media planning stage through interviews and surveys, and compared it with social media data during our MVP phase. This allowed us to structure a user persona profile that served as the basis for defining two fundamental concepts for the system's planning.",
+            },
+            {
+              subtitle: "Value proposition and concept map",
+              content: "Once our user archetype was defined, we created a map that allowed us to visualize CD,M's value proposition. We structured the information collected during the first two phases of the project to identify innovation opportunities without altering the core product.",
+            },
+            {
+              subtitle: "Microservice prototype",
+              content: "We proposed a new microservice based on three pillars:\n\n01. Virtual meetings with expert guests on specific topics, collecting data from attendees.\n\n02. A structured database to organize information according to user affinities.\n\n03. Segmented advertising campaigns using social media tools to identify user groups with the highest response — optimizing advertising investment in later phases.",
             },
           ],
       };
@@ -352,6 +581,52 @@ const ProjectPage = () => {
           introLead: "The true success indicator:",
           introStrong: "months after leaving, the project kept running and the community kept using and caring for it.",
           introTail: "",
+          bullets: [],
+        };
+    } else if (project.slug === "construyendo-democracia") {
+      resultsData = locale === "es"
+        ? {
+          title: "Resultados",
+          headers: {
+            metric: "Entregable",
+            before: "",
+            after: "Resultado",
+            delta: "",
+          },
+          rows: [
+            { metric: "Evolución del medio", before: "", after: "De podcast a plataforma multimedia en 11 meses", delta: "" },
+            { metric: "Propuesta de valor", before: "", after: "Mapa de concepto de diseño estructurado", delta: "" },
+            { metric: "Prototipo de servicio", before: "", after: "Microservicio de recolección y segmentación de datos de audiencia", delta: "" },
+            { metric: "User Journey Map", before: "", after: "Identificación de touchpoints y momentos críticos del servicio", delta: "" },
+            { metric: "Service Blueprint", before: "", after: "Desglose de actividades del equipo para clientes internos y externos", delta: "" },
+            { metric: "Business Model Canvas", before: "", after: "Estructura de negocio para guiar futuros ciclos de iteración", delta: "" },
+          ],
+          evolutionTitle: "Visión a futuro",
+          introLead: "Con esta estructura,",
+          introStrong: "CD,M tiene una base sólida para iterar sobre sus productos existentes, crear nuevas categorías de contenido y optimizar recursos",
+          introTail: " — siempre alineado con su visión y generando valor adicional para los usuarios.",
+          bullets: [],
+        }
+        : {
+          title: "Results",
+          headers: {
+            metric: "Deliverable",
+            before: "",
+            after: "Result",
+            delta: "",
+          },
+          rows: [
+            { metric: "Media evolution", before: "", after: "From podcast to multimedia platform in 11 months", delta: "" },
+            { metric: "Value proposition", before: "", after: "Structured design concept map", delta: "" },
+            { metric: "Service prototype", before: "", after: "Microservice for audience data collection and segmentation", delta: "" },
+            { metric: "User Journey Map", before: "", after: "Identification of touchpoints and critical service moments", delta: "" },
+            { metric: "Service Blueprint", before: "", after: "Team activity breakdown for internal and external clients", delta: "" },
+            { metric: "Business Model Canvas", before: "", after: "Business structure to guide future iteration cycles", delta: "" },
+          ],
+          evolutionTitle: "Looking ahead",
+          introLead: "With this structure,",
+          introStrong: "CD,M has a solid foundation to iterate on existing products, create new content categories, and optimize resources",
+          introTail: " — always aligned with its vision and generating additional value for users.",
           bullets: [],
         };
     }
@@ -554,6 +829,28 @@ const ProjectPage = () => {
             { title: "Universidad Distrital", members: ["[Extension director]", "[Coordinator]"] },
           ],
         };
+    } else if (project.slug === "construyendo-democracia") {
+      creditsData = locale === "es"
+        ? {
+          title: "Créditos",
+          subtitle: "Equipo interdisciplinario detrás de Construyendo Democracia, Maestro.",
+          groups: [
+            { title: "Diseño de servicio e ilustración", members: ["[Nombre Service Designer]"] },
+            { title: "Dirección editorial", members: ["[Director editorial 1]", "[Director editorial 2]"] },
+            { title: "Investigación periodística", members: ["[Periodista 1]", "[Periodista 2]", "[Periodista 3]"] },
+            { title: "Producción multimedia", members: ["[Productor 1]", "[Productor 2]"] },
+          ],
+        }
+        : {
+          title: "Credits",
+          subtitle: "Cross-functional team behind Construyendo Democracia, Maestro.",
+          groups: [
+            { title: "Service Design & Illustration", members: ["[Service Designer]"] },
+            { title: "Editorial Direction", members: ["[Editor 1]", "[Editor 2]"] },
+            { title: "Investigative Journalism", members: ["[Journalist 1]", "[Journalist 2]", "[Journalist 3]"] },
+            { title: "Multimedia Production", members: ["[Producer 1]", "[Producer 2]"] },
+          ],
+        };
     }
 
     let takeawaysData = null;
@@ -599,6 +896,28 @@ const ProjectPage = () => {
             { label: "Multimodal product", content: "I connected physical intervention + IoT technology + social program into a coherent system. Each layer solved a different pain point, but all reinforced each other." },
             { label: "Design that sustains itself", content: "The true success KPI: months after I left, the project kept running and the community kept using and caring for it." },
             { label: "From Service Design to Product Thinking", content: "I tackled a community service challenge with a product mindset — journey maps, touchpoints, data-driven iterations, and a scalable solution architecture." },
+          ],
+        };
+    } else if (project.slug === "construyendo-democracia") {
+      takeawaysData = locale === "es"
+        ? {
+          title: "Lo que me llevé",
+          items: [
+            { label: "Service Design en medios independientes", content: "Aprendí que las herramientas de diseño de servicio son igual de potentes en un medio digital que en una empresa de tecnología — journey maps, blueprints y prototipos de servicio ayudaron a dar estructura a un proyecto con recursos limitados." },
+            { label: "Producto de nicho ≠ producto sin estrategia", content: "El hecho de que CD,M sea un producto de nicho no significa que no pueda crecer estratégicamente. La clave fue innovar en los canales de distribución sin alterar la esencia del producto principal." },
+            { label: "De datos cualitativos a segmentación real", content: "Conecté datos de entrevistas con métricas de redes sociales para construir un arquetipo de usuario accionable — no una persona genérica, sino una herramienta para tomar decisiones concretas." },
+            { label: "Diseño con impacto social", content: "Este proyecto me confirmó que el diseño puede ser una herramienta de transformación social cuando se aplica con rigor metodológico y respeto por el contexto." },
+            { label: "Pensamiento sistémico", content: "Estructuré el Business Model Canvas, el Service Blueprint y el Journey Map como un sistema interconectado — cada cambio en un componente impactaba los demás, y eso obligó a pensar en el diseño como arquitectura, no como decoración." },
+          ],
+        }
+        : {
+          title: "Key takeaways",
+          items: [
+            { label: "Service Design in independent media", content: "I learned that service design tools are equally powerful in a digital media outlet as in a tech company — journey maps, blueprints, and service prototypes helped structure a project with limited resources." },
+            { label: "Niche product ≠ product without strategy", content: "The fact that CD,M is a niche product doesn't mean it can't grow strategically. The key was innovating in distribution channels without altering the core product's essence." },
+            { label: "From qualitative data to real segmentation", content: "I connected interview data with social media metrics to build an actionable user archetype — not a generic persona, but a tool for making concrete decisions." },
+            { label: "Design with social impact", content: "This project confirmed that design can be a tool for social transformation when applied with methodological rigor and respect for context." },
+            { label: "Systems thinking", content: "I structured the Business Model Canvas, Service Blueprint, and Journey Map as an interconnected system — every change in one component impacted the others, forcing me to think of design as architecture, not decoration." },
           ],
         };
     }
@@ -674,7 +993,51 @@ const ProjectPage = () => {
                   accentColor={project.caseStudy?.accentColor}
                 />
               )}
+              {project.slug === "construyendo-democracia" && (
+                <>
+                  <EcosystemExplorer
+                    accentColor={project.caseStudy?.accentColor}
+                  />
+                </>
+              )}
             </SolutionDetail>
+          )}
+
+          {project.slug === "construyendo-democracia" && journeyBlueprintData && (
+            <div className="w-full pb-20 md:pb-24">
+              <div className="mx-auto max-w-6xl px-6">
+                <div className="w-full max-w-none text-left">
+                  <h3 className="text-lg md:text-xl font-semibold text-primary tracking-tight">
+                    {journeyBlueprintData.subtitle}
+                  </h3>
+                  <div className="space-y-4 mt-4">
+                    {journeyBlueprintData.content
+                      .split("\n\n")
+                      .map((p) => p.trim())
+                      .filter(Boolean)
+                      .map((paragraph, i) => (
+                        <p
+                          key={i}
+                          className="text-base md:text-lg text-secondary leading-relaxed font-light"
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
+                  </div>
+
+                  {serviceBlueprintData && (
+                    <ServiceBlueprintBoard
+                      title={serviceBlueprintData.title}
+                      subtitle={serviceBlueprintData.subtitle}
+                      labels={serviceBlueprintData.labels}
+                      phases={serviceBlueprintData.phases}
+                      moments={serviceBlueprintData.moments}
+                      accentColor={project.caseStudy?.accentColor}
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
           )}
 
           {/* Results */}

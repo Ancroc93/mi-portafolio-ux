@@ -12,14 +12,14 @@ type ProjectListProps = {
 
 const ProjectList = ({ projects, className }: ProjectListProps) => {
     const [hoveredId, setHoveredId] = useState<string | null>(null);
-    const plampVideoRef = useRef<HTMLVideoElement | null>(null);
+    const featuredVideoRef = useRef<HTMLVideoElement | null>(null);
     const { t } = useI18n();
 
     return (
         <div className={cn("flex flex-col w-full py-16 gap-[1px]", className)}>
             {projects.map((project) => {
                 const previewVideo =
-                    project.slug === "plamp"
+                    project.slug === "construyendo-democracia"
                         ? project.caseStudy?.heroVideo
                         : project.video && project.enableVideoPreview
                             ? project.video
@@ -32,23 +32,23 @@ const ProjectList = ({ projects, className }: ProjectListProps) => {
                     className="group relative flex w-full flex-col md:flex-row md:items-center justify-between py-16 px-8 overflow-hidden transition-all"
                     onMouseEnter={() => {
                         setHoveredId(project.slug);
-                        if (project.slug === "plamp" && plampVideoRef.current) {
-                            void plampVideoRef.current.play().catch(() => undefined);
+                        if (project.slug === "construyendo-democracia" && featuredVideoRef.current) {
+                            void featuredVideoRef.current.play().catch(() => undefined);
                         }
                     }}
                     onMouseLeave={() => {
                         setHoveredId(null);
-                        if (project.slug === "plamp" && plampVideoRef.current) {
-                            plampVideoRef.current.pause();
-                            plampVideoRef.current.currentTime = 0;
+                        if (project.slug === "construyendo-democracia" && featuredVideoRef.current) {
+                            featuredVideoRef.current.pause();
+                            featuredVideoRef.current.currentTime = 0;
                         }
                     }}
                 >
                     {/* Background Image/Video (Full Width) */}
                     <div className="absolute inset-0 z-0">
-                        {project.slug === "plamp" && previewVideo ? (
+                        {project.slug === "construyendo-democracia" && previewVideo ? (
                             <video
-                                ref={plampVideoRef}
+                                ref={featuredVideoRef}
                                 src={previewVideo}
                                 muted
                                 loop

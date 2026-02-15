@@ -86,3 +86,17 @@ body {
   0%   { clip-path: inset(100% 0 0 0); opacity: 0; }
   100% { clip-path: inset(0 0 0 0); opacity: 1; }
 }
+
+/* Organizations marquee */
+@keyframes organizations-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.organization-marquee-track {
+  animation: organizations-marquee 26s linear infinite;
+}

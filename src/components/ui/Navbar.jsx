@@ -1,4 +1,3 @@
-import { Sparkles } from "lucide-react";
 import { cn } from "./cn";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useI18n } from "../../i18n";
@@ -12,7 +11,6 @@ const Navbar = ({ className }) => {
   const navLinks = [
     { label: t("nav.work"), href: "#work" },
     { label: t("nav.about"), href: "#about" },
-    { label: t("nav.contact"), href: "#contact" },
   ];
 
   const handleScroll = (e, href) => {
@@ -72,18 +70,10 @@ const Navbar = ({ className }) => {
     >
       <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
         {/* Left: Logo */}
-        <a href="/" onClick={handleLogoClick} className="flex items-center gap-2 group">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-glass-border bg-surface group-hover:bg-surface/80 transition-colors">
-            <Sparkles className="h-5 w-5 text-primary" />
-          </div>
-          <div className="flex flex-col leading-tight">
-            <span className="text-xs font-mono uppercase tracking-widest text-secondary">
-              {t("nav.portfolio")}
-            </span>
-            <span className="text-sm font-bold text-primary tracking-tight">
-              Andrés Cruz
-            </span>
-          </div>
+        <a href="/" onClick={handleLogoClick} className="group">
+          <span className="text-lg md:text-xl font-bold text-primary tracking-tight group-hover:text-white/80 transition-colors">
+            Andrés Cruz
+          </span>
         </a>
 
         {/* Center: Navigation */}

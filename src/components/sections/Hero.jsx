@@ -219,19 +219,20 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* ── Scroll Indicator ── */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={1.2}
-          className="absolute bottom-10 left-6 md:left-auto md:right-6"
-        >
-          <div className="flex items-center gap-2 text-xs font-mono text-white/70 uppercase tracking-widest animate-bounce">
-            {t("hero.scroll")}
-            <ArrowDown className="h-3 w-3" />
-          </div>
-        </motion.div>
+      </motion.div>
+
+      {/* ── Scroll Indicator (outside parallax container) ── */}
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        animate="visible"
+        custom={1.2}
+        className="absolute bottom-8 right-6 z-20"
+      >
+        <div className="flex items-center gap-2 text-xs font-mono text-white/70 uppercase tracking-widest animate-bounce">
+          {t("hero.scroll")}
+          <ArrowDown className="h-3 w-3" />
+        </div>
       </motion.div>
     </section>
   );

@@ -5,6 +5,7 @@ import Navbar from "./components/ui/Navbar";
 import Section from "./components/ui/Section";
 import Footer from "./components/ui/Footer";
 import ProjectList from "./components/ui/ProjectList";
+import OrganizationsMarquee from "./components/ui/OrganizationsMarquee";
 import { getProjects } from "./data/projects";
 import Badge from "./components/ui/Badge";
 import ProjectPage from "./pages/ProjectPage";
@@ -70,12 +71,6 @@ const Home = () => {
                         {t("home.yearsLabel")}
                       </span>
                     </div>
-                    <div className="flex flex-col gap-1 border-l border-white/10 pl-4">
-                      <span className="text-3xl font-bold text-primary">20+</span>
-                      <span className="text-xs uppercase tracking-widest text-secondary/70 font-mono">
-                        {t("home.projectsLabel")}
-                      </span>
-                    </div>
                   </div>
                 </div>
                 <div className="relative h-full min-h-[400px] rounded-3xl overflow-hidden bg-surface/50 border border-white/5 group">
@@ -87,62 +82,11 @@ const Home = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
                 </div>
               </div>
+              <OrganizationsMarquee />
             </Section>
           </div>
         </section>
 
-        <section id="contact" className="py-20 border-t border-white/5">
-          <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6">
-            <Section title={t("home.contactTitle")} subtitle={t("home.contactSubtitle")}>
-              <div className="grid gap-16 md:grid-cols-2 mt-8">
-                <div className="flex flex-col gap-6">
-                  <h3 className="text-3xl font-bold text-primary tracking-tight">
-                    {t("home.contactHeading")}
-                  </h3>
-                  <p className="text-xl text-secondary/70 leading-relaxed font-light max-w-xl">
-                    {t("home.contactBody")}
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    {t("home.contactBadges").map((label) => (
-                      <Badge
-                        key={label}
-                        className="font-mono text-[10px] tracking-widest border-white/5 bg-white/5 uppercase"
-                      >
-                        {label}
-                      </Badge>
-                    ))}
-                  </div>
-                  <div className="flex flex-wrap gap-4 pt-6">
-                    <a
-                      className="inline-flex items-center justify-center rounded-full bg-white text-background px-8 py-4 text-sm font-mono uppercase tracking-widest transition-transform hover:-translate-y-1"
-                      href="mailto:ancruz93@gmail.com"
-                    >
-                      {t("home.contactCta")}
-                    </a>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-6 border-l border-white/5 pl-12">
-                  <h3 className="text-3xl font-bold text-primary tracking-tight">
-                    {t("home.statusHeading")}
-                  </h3>
-                  <p className="text-xl text-secondary/70 leading-relaxed font-light max-w-xl">
-                    {t("home.statusBody")}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {t("home.statusBadges").map((label) => (
-                      <Badge
-                        key={label}
-                        className="font-mono text-[10px] tracking-widest border-white/5 bg-white/5 uppercase"
-                      >
-                        {label}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </Section>
-          </div>
-        </section>
         </div>
       </main>
       <Footer />

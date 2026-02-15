@@ -32,6 +32,9 @@ export const translations = {
       aboutLeadEnd: "a través del diseño e ingeniería.",
       aboutBody:
         "Con formación como Diseñador Industrial y más de 8 años impulsando productos en sectores como FinTech, E-commerce y Educación. Mi metodología combina investigación profunda (User Research), procesos de KYC con IA y un sólido puente con ingeniería para crear soluciones de alto impacto.",
+      organizationsTitle: "Organizaciones con las que he trabajado",
+      organizationsSubtitle:
+        "Sección en actualización: pronto incluiremos los logos finales de cada organización.",
       yearsLabel: "Años Exp.",
       projectsLabel: "Proyectos",
       contactTitle: "¿Listo para elevar tu producto?",
@@ -112,6 +115,9 @@ export const translations = {
       aboutLeadEnd: "through design and engineering.",
       aboutBody:
         "With a background in Industrial Design and over 8 years driving products in FinTech, E-commerce, and EdTech. My methodology combines deep research, AI-powered KYC processes, and a strong bridge with engineering to create high-impact solutions.",
+      organizationsTitle: "Organizations I have worked with",
+      organizationsSubtitle:
+        "Section in progress: final organization logos will be added soon.",
       yearsLabel: "Years Exp.",
       projectsLabel: "Projects",
       contactTitle: "Ready to elevate your product?",
