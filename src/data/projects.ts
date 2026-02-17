@@ -166,10 +166,10 @@ const projectsData: LocalizedProject[] = [
     },
     featured: true,
     description: {
-      es: "Diseñé diferentes experiencias comunitarias para apoyar la reconstrucción del tejido social de la población de la Dorada, Putumayo.\n\n Por medio de un ecosistema de artefactos y herramientas de diseño comunitario se implementó un sistema de lavado que integra sensores de monitoreo de agua, un punto de información y un programa de apropiación social en un municipio con 10.350 víctimas del conflicto armado colombiano.",
+      es: "Diseñé diferentes experiencias comunitarias para apoyar la reconstrucción del tejido social de la población de la Dorada Putumayo.\n\nPor medio de un ecosistema de artefactos y herramientas de diseño comunitario se implementó un sistema de lavado que integra sensores de monitoreo de agua, un punto de información y un programa de apropiación social en un municipio con 10.350 víctimas del conflicto armado colombiano.",
       en: "I designed different community experiences to support the reconstruction of the social fabric in La Dorada, Putumayo.\n\nThrough an ecosystem of artifacts and community design tools, a washing system was implemented integrating water monitoring sensors, an information hub, and a social appropriation program in a municipality with 10,350 victims of the Colombian armed conflict.",
     },
-    image: `${import.meta.env.BASE_URL}projects/plamp-hero.png`,
+    image: `${import.meta.env.BASE_URL}projects/plamp-next-preview.jpg`,
     tags: {
       es: ["Diseño Social", "Co-creación", "IoT", "Intervención Comunitaria"],
       en: ["Social Design", "Co-creation", "IoT", "Community Intervention"],
@@ -221,7 +221,7 @@ const projectsData: LocalizedProject[] = [
       es: "Diseñé la estrategia de servicio y el modelo de crecimiento de Construyendo Democracia, Maestro, un medio de comunicación digital independiente sobre el conflicto armado colombiano.\n\nA través del periodismo multimedia, este medio de comunicación busca contribuir a la reconstrucción del tejido social colombiano visibilizando las historias de las víctimas a través de reportajes estructurados narrados desde los protagonistas, sus territorios y sus procesos de resistencia.",
       en: "I designed the service strategy and growth model for Construyendo Democracia, Maestro — an independent digital media that contributes to rebuilding Colombia's social fabric through multimedia investigative journalism about the armed conflict. In 11 months, the project evolved from a podcast into a multimedia platform with structured investigations from three perspectives: space, protagonists, and resistance processes.",
     },
-    image: `${import.meta.env.BASE_URL}logos/construyendo-democracia.png`,
+    image: `${import.meta.env.BASE_URL}projects/construyendo-democracia-next-preview.jpg`,
     tags: {
       es: ["Service Design", "Estrategia Digital", "Periodismo Multimedia", "Diseño Social"],
       en: ["Service Design", "Digital Strategy", "Multimedia Journalism", "Social Design"],
@@ -231,7 +231,7 @@ const projectsData: LocalizedProject[] = [
       { label: { es: "Planificación", en: "Planning" }, value: "11 meses" },
     ],
     caseStudy: {
-      heroImage: `${import.meta.env.BASE_URL}logos/construyendo-democracia.png`,
+      heroImage: `${import.meta.env.BASE_URL}projects/construyendo-democracia-next-preview.jpg`,
       heroVideo: `${import.meta.env.BASE_URL}projects/construyendo-democracia-hero.mp4`,
       challenge: {
         es: "El conflicto armado colombiano ha roto el tejido social de las comunidades por más de 60 años. Muchos sobrevivientes han liderado y transitado procesos para la reconstrucción de memoria, paz y reconciliación que necesitan ser visibilizados, sin revictimizar ni afectar la integridad de las víctimas.\n\nSin embargo, los espacios tradicionales existentes para aportar a la visibilización de las luchas y procesos de las víctimas en Colombia para exigir derechos, verdad, justicia y no repetición no son suficientes.\n\nEn este contexto, dos tendencias abren una ventana de oportunidad:\n\n1. El auge del contenido digital \n2. La transformación en la forma en que el periodismo tradicional habla del conflicto armado colombiano\n\nAsí nace Construyendo Democracia, Maestro: una iniciativa que inició como un podcast y creció hasta convertirse en un medio digital independiente que contribuye a la reconstrucción del tejido social a través de investigaciones periodísticas estructuradas desde tres perspectivas: los protagonistas, sus territorios y sus procesos de resistencia. Todo a través de una narrativa multimedia.",

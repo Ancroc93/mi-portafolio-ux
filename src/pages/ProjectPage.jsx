@@ -161,16 +161,22 @@ const ProjectPage = () => {
           </>);
     } else if (project.slug === "plamp") {
       heroSubtitle = locale === "es"
-        ? emphasizeSubstring(
-            project.description,
-            "un sistema de lavado que integra sensores de monitoreo de agua, un punto de información y un programa de apropiación social en un municipio con 10.350 víctimas del conflicto armado colombiano.",
-            "font-semibold"
-          )
-        : emphasizeSubstring(
-            project.description,
-            "a washing system was implemented integrating water monitoring sensors, an information hub, and a social appropriation program in a municipality with 10,350 victims of the Colombian armed conflict.",
-            "font-semibold"
-          );
+        ? (<>
+            <p>Diseñé diferentes experiencias comunitarias para apoyar la reconstrucción del tejido social de la población de la Dorada Putumayo.</p>
+            <p>
+              <strong className="font-semibold">
+                Por medio de un ecosistema de artefactos y herramientas de diseño comunitario se implementó un sistema de lavado que integra sensores de monitoreo de agua, un punto de información y un programa de apropiación social en un municipio con 10.350 víctimas del conflicto armado colombiano.
+              </strong>
+            </p>
+          </>)
+        : (<>
+            <p>I designed different community experiences to support the reconstruction of the social fabric in La Dorada, Putumayo.</p>
+            <p>
+              <strong className="font-semibold">
+                Through an ecosystem of artifacts and community design tools, a washing system was implemented integrating water monitoring sensors, an information hub, and a social appropriation program in a municipality with 10,350 victims of the Colombian armed conflict.
+              </strong>
+            </p>
+          </>);
     } else if (project.slug === "construyendo-democracia") {
       heroSubtitle = locale === "es"
         ? emphasizeSubstring(
@@ -1071,14 +1077,7 @@ const ProjectPage = () => {
             />
           )}
 
-          {/* Credits */}
-          {creditsData && (
-            <ProjectCredits
-              title={creditsData.title}
-              subtitle={creditsData.subtitle}
-              groups={creditsData.groups}
-            />
-          )}
+          {/* Credits — hidden for now */}
 
           {/* Next Project Footer */}
           {nextProject && (

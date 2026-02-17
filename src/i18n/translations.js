@@ -27,11 +27,11 @@ export const translations = {
         "Una colección de productos digitales, casos de estudio y experimentos enfocados en experiencia de usuario e interacción.",
       aboutTitle: "Detrás de los pixeles",
       aboutSubtitle: "Sobre mí",
-      aboutLeadStart: "Soy Sr. Product Designer en Mercado Libre, enfocado en",
+      aboutLeadStart: "Soy Sr. Product Designer, enfocado en",
       aboutLeadHighlight: "resolver la complejidad",
-      aboutLeadEnd: "a través del diseño e ingeniería.",
+      aboutLeadEnd: "a través del diseño.",
       aboutBody:
-        "Con formación como Diseñador Industrial y más de 8 años impulsando productos en sectores como FinTech, E-commerce y Educación. Mi metodología combina investigación profunda (User Research), procesos de KYC con IA y un sólido puente con ingeniería para crear soluciones de alto impacto.",
+        "Con formación como Diseñador Industrial y más de 8 años impulsando productos en sectores como FinTech, E-commerce y Educación. Mi metodología combina un entendimiento profundo de las necesidades de los usuarios y el negocio, procesos de co creación y un sólido puente con stakeholders para crear soluciones de alto impacto.",
       organizationsTitle: "Organizaciones con las que he trabajado",
       organizationsSubtitle:
         "Sección en actualización: pronto incluiremos los logos finales de cada organización.",
@@ -110,11 +110,11 @@ export const translations = {
         "A collection of digital products, case studies, and experiments focused on user experience and interaction design.",
       aboutTitle: "Beyond the pixels",
       aboutSubtitle: "About Me",
-      aboutLeadStart: "I'm a Sr. Product Designer at Mercado Libre, focused on",
+      aboutLeadStart: "I'm a Sr. Product Designer, focused on",
       aboutLeadHighlight: "solving complexity",
-      aboutLeadEnd: "through design and engineering.",
+      aboutLeadEnd: "through design.",
       aboutBody:
-        "With a background in Industrial Design and over 8 years driving products in FinTech, E-commerce, and EdTech. My methodology combines deep research, AI-powered KYC processes, and a strong bridge with engineering to create high-impact solutions.",
+        "With a background in Industrial Design and over 8 years driving products in FinTech, E-commerce, and EdTech. My methodology combines a deep understanding of user and business needs, co-creation processes, and a strong bridge with stakeholders to create high-impact solutions.",
       organizationsTitle: "Organizations I have worked with",
       organizationsSubtitle:
         "Section in progress: final organization logos will be added soon.",

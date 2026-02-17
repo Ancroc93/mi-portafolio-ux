@@ -73,11 +73,11 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="relative h-full min-h-[400px] rounded-3xl overflow-hidden bg-surface/50 border border-white/5 group">
+                  <div className="about-profile-card relative h-full min-h-[400px] rounded-3xl overflow-hidden bg-surface/50 border border-white/5 group">
                     <img
                       src={`${import.meta.env.BASE_URL}profile.jpg`}
                       alt="Andrés Cruz"
-                      className="absolute inset-0 w-full h-full object-cover object-center grayscale contrast-125 brightness-110 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                      className="about-profile-image absolute inset-0 w-full h-full object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
                   </div>

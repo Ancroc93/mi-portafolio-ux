@@ -100,3 +100,14 @@ body {
 .organization-marquee-track {
   animation: organizations-marquee 26s linear infinite;
 }
+
+/* About profile image: deterministic filter behavior on hover */
+.about-profile-image {
+  filter: grayscale(1) saturate(1);
+  transition: filter 700ms ease, transform 700ms ease;
+}
+
+.about-profile-card:hover .about-profile-image {
+  filter: grayscale(0) saturate(0.5);
+  transform: scale(1.05);
+}

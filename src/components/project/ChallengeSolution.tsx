@@ -104,9 +104,9 @@ const ChallengeSolution = ({
     return (
         <div className={`w-full py-20 md:py-24 ${className}`}>
             <div className="mx-auto max-w-6xl px-6">
-                <div className="grid md:grid-cols-2 gap-12 md:gap-20">
+                <div className={`grid gap-12 md:gap-20 ${images.length > 0 ? "md:grid-cols-2" : ""}`}>
                     {/* Left Column - Sticky Text */}
-                    <div className="md:sticky md:top-32 h-fit space-y-16">
+                    <div className={`h-fit space-y-16 ${images.length > 0 ? "md:sticky md:top-32" : ""}`}>
                         {challenge && (
                             <motion.div
                                 initial={{ opacity: 0, y: 30 }}
@@ -118,7 +118,7 @@ const ChallengeSolution = ({
                                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary leading-tight">
                                     {t("project.challenge")}
                                 </h2>
-                                <div className="max-w-xl space-y-5">
+                                <div className="space-y-5">
                                     {renderParagraphs(challenge)}
                                 </div>
                             </motion.div>
@@ -136,13 +136,13 @@ const ChallengeSolution = ({
                                     {t("project.solution")}
                                 </h2>
                                 {solutionComment ? (
-                                    <p className="text-sm md:text-base text-secondary/70 font-light italic max-w-xl">
+                                    <p className="text-sm md:text-base text-secondary/70 font-light italic">
                                         {solutionComment}
                                     </p>
                                 ) : (
                                     <div className="h-6" aria-hidden />
                                 )}
-                                <div className="max-w-xl space-y-5">
+                                <div className="space-y-5">
                                     {renderParagraphs(solution)}
                                 </div>
                             </motion.div>

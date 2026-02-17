@@ -7,7 +7,8 @@ const OrganizationsMarquee = ({ organizations = [] }) => {
     : [
         {
           name: "Construyendo Democracia",
-          logo: `${import.meta.env.BASE_URL}logos/construyendo-democracia.png`,
+          logo: "https://construyendodemocracia.com/wp-content/uploads/2020/09/cropped-logo.png",
+          invert: true,
         },
         {
           name: "Ideas para el cambio",
@@ -21,10 +22,12 @@ const OrganizationsMarquee = ({ organizations = [] }) => {
         {
           name: "Pragma",
           logo: "https://www.pragma.co/hs-fs/hubfs/logo-pragma_blanco%201.png?width=153&height=46&name=logo-pragma_blanco%201.png",
+          invert: true,
         },
         {
           name: "RITA",
           logo: "https://rita.udistrital.edu.co/iptv2/assets/images/logo_rita.png",
+          invert: true,
         },
         {
           name: "Universidad de los Llanos",
@@ -50,23 +53,28 @@ const OrganizationsMarquee = ({ organizations = [] }) => {
         </h3>
       </div>
 
-      <div className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent z-10" />
+      <div className="relative overflow-hidden rounded-2xl bg-white">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
 
-        <div className="organization-marquee-track flex w-max items-center gap-10 py-5 px-8">
-          {loopItems.map((org, index) => (
-            <img
-              key={`${org.name}-${index < items.length ? "a" : "b"}-${index % items.length}`}
-              src={org.logo}
-              alt={org.name || "Organization logo"}
-              className={`h-7 md:h-8 w-auto shrink-0 object-contain opacity-80 grayscale contrast-125 transition-all duration-300 hover:opacity-100 hover:grayscale-0 ${
-                org.name === "Universidad Distrital" ? "invert" : ""
-              }`}
-              loading="lazy"
-              onError={(e) => { e.currentTarget.style.display = "none"; }}
-            />
-          ))}
+        <div className="organization-marquee-track flex w-max items-center gap-10 py-5 px-8 my-5">
+          {loopItems.map((org, index) => {
+            const invertFilter = org.invert ? " invert(1)" : "";
+            const blendMode = org.invert ? "multiply" : "normal";
+            return (
+              <img
+                key={`${org.name}-${index < items.length ? "a" : "b"}-${index % items.length}`}
+                src={org.logo}
+                alt={org.name || "Organization logo"}
+                className="h-7 md:h-8 w-auto shrink-0 object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                style={{ filter: `grayscale(1) brightness(0.2)${invertFilter}`, mixBlendMode: blendMode }}
+                loading="lazy"
+                onError={(e) => { e.currentTarget.style.display = "none"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.filter = "grayscale(0) brightness(1)"; e.currentTarget.style.mixBlendMode = "normal"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.filter = `grayscale(1) brightness(0.2)${invertFilter}`; e.currentTarget.style.mixBlendMode = blendMode; }}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

@@ -15,6 +15,10 @@ const NextProjectFooter = ({
     nextProjectImage,
     className = "",
 }: NextProjectFooterProps) => {
+    const isConstruyendoPreview = nextProjectSlug === "construyendo-democracia";
+    const baseScale = isConstruyendoPreview ? 1.22 : 1;
+    const hoverScale = isConstruyendoPreview ? 1.27 : 1.05;
+
     return (
         <Link to={`/projects/${nextProjectSlug}`} className="block">
             <motion.div
@@ -26,15 +30,17 @@ const NextProjectFooter = ({
             >
                 {/* Background Image */}
                 <div className="absolute inset-0">
-                    {nextProjectImage && (
+                    {nextProjectImage ? (
                         <motion.img
                             src={nextProjectImage}
                             alt={nextProjectTitle}
-                            className="h-full w-full object-cover"
-                            whileHover={{ scale: 1.05 }}
+                            className="absolute inset-0 h-full w-full object-cover"
+                            initial={{ scale: baseScale }}
+                            animate={{ scale: baseScale }}
+                            whileHover={{ scale: hoverScale }}
                             transition={{ duration: 0.7, ease: "easeOut" }}
                         />
-                    )}
+                    ) : null}
                     {/* Dark overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
                 </div>
